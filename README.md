@@ -30,8 +30,6 @@
 >
 > 本课程是为了从很广的角度了解这项技术而设计的。
 
-
-
 ## 课程学习目标
 
 * 能够描述出商业区块链和分布式账本技术
@@ -41,37 +39,35 @@
 * 基于Sawtooth和Fabric构建简单的应用
 * 参与并为开源超级账本项目做贡献
 
-
-
 ## 关于edX课程的使用方法
 
 这里略过，请参考edX课程中的说明，与本课程内容无关。
-
-
 
 ## 人物访谈
 
 **Brian Behlendorf - 超级账本执行董事**
 
-主持人：这个课程背后的目的是什么呢？你希望学员从中学到什么？
-
-This course is really designed for technologists who want to better understand how the different projects at Hyperledger work, right, at a kind of an overview level, right,
-
-understand the differences between them, start to understand what they can do with them,
-
-but it's also designed for those who might have been a technologist in the past, and now think a little bit...
-
-spend a little more time focusing on the business applications of blockchain technology,
-
-to help understand what are the kinds of use cases that would be appropriate to apply these technologies to.
-
-So, it's really intended to give that kind of overview, as well as to talk a little bit about what is it, what do we mean when we say blockchains for business, right,
-
-how is that different from the cryptocurrency landscape, right, what are the mechanics of these,
-
-what are consensus mechanisms, what is a smart contract, right...
-
-So, our goal is to talk to a pretty broad audience, and hope to bring down the path especially those developers, those technologists who then want to learn more about the different technologies, and become full developers in them.
+> 主持人：这个课程背后的预期是什么呢？你希望学员从中学到什么？
+>
+> Behlendorf：这个课程是为了技术人员能从整体上更好的理解超级账本项目中不同项目是如何工作的，理解它们的差异，开始了解怎么使用它们。同时这个课程也是为了那些曾经是技术人员，现在有更多想法的人，想要花点时间思考下区块链技术的商业应用问题的人。这个课程会帮助他们理解这项技术适合于什么样的用例。
+>
+> 所以这个课程确实想要提供一个整体视角，介绍区块链是什么，当我们提到商业区块链的时候，我们说的是什么，它跟密码学货币的区别是什么，它们的机制是什么，共识机制是什么，智能合约是什么，诸如此类。
+>
+> 我们的目标是给更广泛的学员提供课程，希望能够将那些技术人员和开发者领进门，了解不同项目的更多信息，成为这个技术的开发者。
 
 
+
+## 超级账本
+
+![](/assets/Hyperledger_logo.png)
+
+超级账本是Linux基金会从2015年创建和管理的一揽子的开源项目。它的目标是推动和促进跨行业的区块链技术，保证商业伙伴间的可问责、透明和信任。以此，超级账本可以让商业网络和交易更有效率。
+
+这些优点在很多行业都颇具价值，比如技术行业、金融、医疗、供应链和汽车行业等。
+
+
+
+Hyperledger offers different blockchain platforms. This course will present three of them: Iroha, Sawtooth, and Fabric.
+
+To learn more about the Hyperledger, [click here](https://www.hyperledger.org/).
 
