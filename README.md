@@ -71,5 +71,20 @@
 
 Linux基金会与世界顶级开发者和公司合作，以解决最困难的技术难题，加速开源技术的开发和商业适配。Linux基金会设定其使命为：通过开源协作，提供专业的复杂问题的最开始的解决方案，为控制开源项目提供工具，包括安全性最佳实践、管理、运营和生态系统开发，培训和认证等。
 
+Linux是史上最大的，最广泛的开源软件项目。Linux基金会是Linux创立者Linus Torvalds和维护领导者Greg Kroah-Hartman的大本营，为Linux内核开发提供保护和促进。Linux的成功促进了开源社区的成长，展示了开源商业效能，激发了各行各业各种技术之上数不尽的新项目。
+
+今天Linux基金会的工作已经远远的扩展到了Linux之外，促进了软件技术各个层面的创新。Linux基金会是许多关键开源项目的一揽子组织，这些项目无处不在：
+
+* 大数据和分析：[ODPi](https://www.odpi.org/)， [R Consortium](https://www.r-consortium.org/)
+* 网络：[OpenDaylight](https://www.opendaylight.org/)，[OpenFV](https://www.opnfv.org/)
+* 嵌入式：[Dronecode](https://www.dronecode.org/)，[Zephyr](https://www.zephyrproject.org/)
+* Web工具：[Js基金会](https://js.foundation/)，[Node.js](https://nodejs.org/en/)
+* 云计算：[Cloud基金会](https://www.cloudfoundry.org/)，[Cloud Native Computing基金会](https://www.cncf.io/)，[Open Container Initiative](https://www.opencontainers.org/)
+* 汽车：[Automotive Grade Linux](https://www.automotivelinux.org/)
+* 安全：[The Core Infrastructure Initiative](https://www.coreinfrastructure.org/)
+* 区块链：[Hyperledger](https://www.hyperledger.org/)
+
+
+
 
 
