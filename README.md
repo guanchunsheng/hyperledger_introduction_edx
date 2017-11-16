@@ -84,7 +84,20 @@ Linux是史上最大的，最广泛的开源软件项目。Linux基金会是Linu
 * 安全：[The Core Infrastructure Initiative](https://www.coreinfrastructure.org/)
 * 区块链：[Hyperledger](https://www.hyperledger.org/)
 
+### Linux基金会活动
 
+每年Linux基金会都会组织更多的活动，包括：
+
+* Open Source Summit North America, Europe, Japan, and China
+* MesosCon North America, Europe, China
+* Embedded Linux Conference/ OpenIoT Summit North America, Europe
+* Open Source Leadership Summit
+* Automotive Linux Summit
+* Apache: Big Data North America & ApacheCon
+* KVM Forum
+* Linux Storage Filesystem & Memory Management Summit
+* Vault
+* Open Networking Summit
 
 
 
