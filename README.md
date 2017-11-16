@@ -10,27 +10,68 @@
 
 业务人员可以通过本课程的学习，掌握区块链的工作方式，以及区块链是怎么通过降低成本、提升效率（节省时间和简化过程）来为具体业务做出贡献的。可以了解到信息是如何在不同的区块链上产生、保存和共享的。可以掌握评价方法，评估具体业务需要是否适合用区块链方案来解决。
 
+## 人物访谈
+
+**Brian Behlendorf - 超级账本执行董事**
+
+> 大家好！我是超级账本项目的执行董事Brian Behlendorf，这个项目是Linux基金会管理下的一些相关项目一起组成的。
+>
+> 欢迎来到超级账本的第一个培训课程。
+>
+> 超级账本是第一个关注企业级区块链应用的系列项目。
+>
+> 也就是说超级账本是需要准入（permission）的区块链技术。
+>
+> 超级账本在各种商业流程中自动的执行智能合约，构建了一个安全的，可信任的信息系统，一个能够自动执行商业流程的系统，一个让人激动的新世界。
+>
+> 本课程，你将学习3个不同的项目，你将开始直接跟这项技术亲密接触，而且可以看到通过这些主要的项目，一个简单的应用是如何构建的。
+>
+> 本课程适合所有人，从纯码农到想要了解这项技术的人，了解这项技术能够做什么，如何应用到什么样的业务上。
+>
+> 本课程是为了从很广的角度了解这项技术而设计的。
+
+
+
+## 课程学习目标
+
+* 能够描述出商业区块链和分布式账本技术
+* 熟悉当前的超级账本项目及其跨行业的使用场景
+* 掌握超级账本Sawtooth和Fabric框架的安装步骤
+* 探索Sawtooth和Fabric框架中的一个简单的用例/应用
+* 基于Sawtooth和Fabric构建简单的应用
+* 参与并为开源超级账本项目做贡献
+
+
+
+## 关于edX课程的使用方法
+
+这里略过，请参考edX课程中的说明，与本课程内容无关。
+
 
 
 ## 人物访谈
 
 **Brian Behlendorf - 超级账本执行董事**
 
-大家好！我是超级账本项目的执行董事Brian Behlendorf，这个项目是Linux基金会管理下的一些相关项目一起组成的。
+主持人：这个课程背后的目的是什么呢？你希望学员从中学到什么？
 
-欢迎来到超级账本的第一个培训课程。
+This course is really designed for technologists who want to better understand how the different projects at Hyperledger work, right, at a kind of an overview level, right,
 
-超级账本是第一个关注企业级区块链应用的系列项目。
+understand the differences between them, start to understand what they can do with them,
 
-也就是说超级账本是需要准入（permission）的区块链技术。
+but it's also designed for those who might have been a technologist in the past, and now think a little bit...
 
-超级账本在各种商业流程中自动的执行智能合约，构建了一个安全的，可信任的信息系统，一个能够自动执行商业流程的系统，一个让人激动的新世界。
+spend a little more time focusing on the business applications of blockchain technology,
 
-本课程，你将学习3个不同的项目，你将开始直接跟这项技术亲密接触，而且可以看到通过这些主要的项目，一个简单的应用是如何构建的。
+to help understand what are the kinds of use cases that would be appropriate to apply these technologies to.
 
-本课程适合所有人，从纯码农到想要了解这项技术的人，了解这项技术能够做什么，如何应用到什么样的业务上。
+So, it's really intended to give that kind of overview, as well as to talk a little bit about what is it, what do we mean when we say blockchains for business, right,
 
-本课程是为了从很广的角度了解这项技术而设计的。
+how is that different from the cryptocurrency landscape, right, what are the mechanics of these,
+
+what are consensus mechanisms, what is a smart contract, right...
+
+So, our goal is to talk to a pretty broad audience, and hope to bring down the path especially those developers, those technologists who then want to learn more about the different technologies, and become full developers in them.
 
 
 
