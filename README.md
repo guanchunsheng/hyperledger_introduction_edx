@@ -88,16 +88,29 @@ Linux是史上最大的，最广泛的开源软件项目。Linux基金会是Linu
 
 每年Linux基金会都会组织更多的活动，包括：
 
-* Open Source Summit North America, Europe, Japan, and China
+* Open Source Summit North America, Europe, Japan, and China
 * MesosCon North America, Europe, China
 * Embedded Linux Conference/ OpenIoT Summit North America, Europe
-* Open Source Leadership Summit
+* Open Source Leadership Summit
 * Automotive Linux Summit
 * Apache: Big Data North America & ApacheCon
 * KVM Forum
 * Linux Storage Filesystem & Memory Management Summit
 * Vault
 * Open Networking Summit
+
+### Linux基金会提供的培训
+
+* 集中培训
+* 在线
+* 上门培训
+* 活动培训
+
+更多关于具体课程的培训信息：
+
+* [Linux编程和开发培训](https://training.linuxfoundation.org/linux-courses/development-training)
+* [企业IT和Linux系统管理课程](https://training.linuxfoundation.org/linux-courses/system-administration-training)
+* [开源适配性培训](https://training.linuxfoundation.org/linux-courses/open-source-compliance-courses)
 
 
 
