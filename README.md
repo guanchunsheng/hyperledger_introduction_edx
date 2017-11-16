@@ -55,8 +55,6 @@
 >
 > 我们的目标是给更广泛的学员提供课程，希望能够将那些技术人员和开发者领进门，了解不同项目的更多信息，成为这个技术的开发者。
 
-
-
 ## 超级账本
 
 ![](/assets/Hyperledger_logo.png)
@@ -65,9 +63,9 @@
 
 这些优点在很多行业都颇具价值，比如技术行业、金融、医疗、供应链和汽车行业等。
 
+超级账本提供了不同的区块链平台，本课程会介绍其中的3个：Iroha，Sawtooth和Fabric。
+
+想要了解更多关于超级账本的信息，请点击[这里](https://www.hyperledger.org/)。
 
 
-Hyperledger offers different blockchain platforms. This course will present three of them: Iroha, Sawtooth, and Fabric.
-
-To learn more about the Hyperledger, [click here](https://www.hyperledger.org/).
 
