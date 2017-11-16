@@ -130,123 +130,57 @@ Huseby：作为超级账本的安全专家，关于区块链我有一些不同�
 
 过去，我们总是被“一天的时间中到底发生了什么”这样的问题困扰.
 
-In the past, we've always had problems with trying to figure out what really happened over the course of a day.
+银行核对账簿，库存系统清理销售和交货记录…
 
-Banks reconcile their books, inventory systems clear sales and deliveries...
+通过区块链，我们实时的记录事物，这为我们提供了一种即时记录世界的状态的方法。
 
-With blockchains, we're recording things in real time, and it provides us with sort of an up-to-date accounting of the state of the world.
+所以，很多上面的旧系统都可以滚蛋了，不再需要这么多的系统管理的工作量了。我们再也不用在夜里批处理任务了。
 
-So, a lot of these old systems are going away, a lot of the work load management systems are going away. We're not doing batch processing at night anymore.
+取而代之的是，我们可以实时做验证，我们总是可以知道世界状态。
 
-Instead, we're doing validation in real time, and we always know the state of the world.
+这为应用的部署提供了一个新的方式，比如如果我们明确的知道螺栓在哪里，那么是不是可以说需要他们的时候提前2分钟确定他们还在那里就行了，就像精益制造一样。
 
-This opens up a whole new host of applications that can be based around...
+但是它也可以应用到所有我们需要追踪物料和人工，资金等等领域。
 
-If we knew exactly where every bolt was, could we make sure that there are always bolts at the place where they're going to be installed two minutes before they are needed... things like that...
+所以对我来说，区块链就是重新审视现有业务流程的东西，如果我们能够即时了解世界状态，那么我们用区块链是不是可以提升效率，不用等2分钟，2个小时甚至必须等到一天结束。
 
-So, like lean manufacturing is one case...
+这其实是一种从人的尺度到计算机尺度的转换，通过区块链，我们现在可以即时的处理这些流程，因为机器就是这么工作的。
 
-But, it also applies to every other process in the world where we have to track materials and effort, and money, things like that.
+从安全的角度看，区块链不是银弹。它们不会替代现有的业务逻辑。更准确的说他们是日志系统，记录发生了什么，就在发生的时候，而不是从顾客口袋里掏钱的工具。
 
-Let me think...
+它不是软件类型的业务流程，因为它是日志，也以内它是真实，因为很多其他业务逻辑将会建立在它之上，所以跟它相关的安全性跟现有业务逻辑是一样的。
 
-So, the blockchain, for me, actually is just sort of rethinking of our existing business processes around how we can be more effective when we know the state of the world as it is right now,
+必须认为分布式账本的参与者都在一个封闭的网络中，因为事实如此，至少是permissioned网络。
 
-and we know it in two minutes, and we know it in two hours, rather than having to wait until the end of the day for everything to be reconciled.
+我们不会在开放的网络中运行，不会在trustless环境中运行，而是在permissioned网络中，就好象是在一个私有网络中一样。
 
-This is actually a transition from human scale to computer scale.
+所以当部署区块链软件的时候，通常是在防火墙后面，如果多个组织参与到分布式账本中，我们会使用隧道技术和其他VPN防火墙，通过虚拟VPN为其他组织链接。
 
-This was... all of these processes were done on a daily basis, and things like that,
+不同的超级账本项目有不同的权衡。比如Fabric具有更中心化的排序服务，需要按照hub-and-spoke模型组网，也就是说每个peer节点连接到排序服务，运行在其中一个节点上，或者一个中立的第三方。
 
-and with blockchain, we're now... we're doing it instantaneous, because computers have made it that way.
+所有的gossip消息通过中央的hub来做共识机制。这样看起来也不是分布式的呀，其实是的，因为区块链本身是在所有的节点上复制的，所以你的数据是容灾的。协作是可以在一个相对中心化的方式来做的。
 
-From a security perspective, blockchains are not a silver bullet.
+主持人：那么Sawtooth呢，不是这样的吧？
 
-They're not going to replace the existing business logic.
+Huseby：Sawtooth的网络更像是一个星形模型。可以选择一部分节点，将你的节点连接进去，然后只要节点连接没问题，那么你可以最终和每个节点沟通，通过1跳，2跳或者3跳等等，根据你的网络的规模。
 
-They're more of a log-based system, so recording what has happened, as it is happening,
+至于Iroha，它们的拓扑跟其他的很不一样，因为他们是根据移动环境特别设计的分布式账本，很多客户端间歇式的连接在一起。
 
-rather than being the source of what to do with money from a customer, and things like that.
+所以他们的手机可以随时连上或断开。
 
-It's not business process type of software.
+所以他们的结构更像是一个分层网络，终端用户的客户端手机向服务器提交交易，然后在服务器之间做分布式的账本。
 
-Because it is a log, and because it is the source of truth, and because a lot of other business logic will be based upon it,
+所以没有定论是吧，没有完全伟光正的方案。
 
-the security concerns on it, related to blockchain, are roughly the same as existing business practices, or business logic.
+业务流程决定了你怎么选，但是安全性都是同样重要的。
 
-You have to think of all the members of a distributed ledger as participating in a closed network,
+我们用加密和数字签名来验证消息，所以篡改消息是不可能的。
 
-because that's what they are, at least in permissioned networks,
+分布式账本的不可修改性是通过密码学来保证的，但是这也依赖于网络的可信性，跟我们处理其他后台服务一样。
 
-we're not operating on the public Internet, we're not operating in a trustless environment.
+需要像其他网络服务一样，需要将它部署在防火墙之后，使用隧道技术连接节点，处理网络拥堵，负载均衡等等。
 
-It's the exact opposite. We... all the participants in the distributed ledger are known, they're permissioned,
+关于安全性，我想说的就是这些，然后谢谢参与本课程。
 
-that's where that term comes from, and they all participate as if they are in a private network.
 
-So, when deploying blockchain software, it's typically done behind a firewall,
-
-and, anytime you have multiple organizations participating in the distributed ledger,
-
-we will use tunneling technology and other VPN firewall tricks to make a virtual LAN exist,
-
-so that all of their organizations can talk over it.
-
-Different Hyperledger projects have different trade-offs.
-
-Fabric, for instance, has a more centralized ordering service,
-
-and so, it makes more sense to organize one of those networks into a hub-and-spoke model,
-
-where each peer connects to the ordering service, which is run either on one of the nodes, or on a neutral third party,
-
-and all of the gossip messages that do the consensus mechanism go through a central hub.
-
-Now, that sounds counterintuitive because just distributed ledgers are supposed to be distributed...
-
-they still are, they're distributed in the sense that the blockchain itself is replicated amongst all of the nodes,
-
-and so, your data is much more resilient to disruption... resilient against disruption.
-
-But, the coordination can still be done in a fairly centralized manner.
-
-With Sawtooth, it is not so much the case, right?
-
-The organization of the network for Sawtooth is probably more of like a star model,
-
-where you pick some subset of nodes, and your node connects to those and, as long as all nodes are fairly well connected,
-
-they can all eventually talk to each other, either one hop, or two hops, or three hops away, depending on the size of your network.
-
-With Iroha, they... their topology is a lot different than the others,
-
-because they designed their distributed ledger to function well in a mobile environment,
-
-where a lot of the clients are intermittently connected.
-
-So, they're mobile phones that can be connected and disconnected at random.
-
-So, their structure is more of a layered network, where the end clients' mobile phones submit transactions to servers,
-
-which then, amongst the servers, do the distributed ledger.
-
-And there's no right answer, right?
-
-The business process dictates which one you choose, but the security is pretty much the same in all of these.
-
-We use cryptography and digital signatures to validate all the messages.
-
-So, tampering with messages is essentially impossible.
-
-The immutability of the distributed ledger is guaranteed by the cryptography,
-
-but the nature of the trusted network, of the permissioned network, means that we have to treat it like any other back-office service.
-
-You want to deploy it behind a firewall, you want to use tunneling to connect between nodes across the Internet,
-
-and you want to maintain it, just like any other service that deals with Internet traffic...
-
-you have firewalls, and load balancers, and things like that.
-
-That's all I've got to say about security. And thanks for taking our course.
 
