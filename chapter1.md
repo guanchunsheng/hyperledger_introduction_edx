@@ -81,8 +81,6 @@ Robert Schwentker
 
 **共识 **- 指的是确保参与方都同意系统的某个状态是真实有效的状态
 
-
-
 **区块链**是分布式账本技术的一个特别的术语或子集，由有序的区块链接而成，所以叫“区块链”。
 
 **区块**表示绑定在一起的一组交易，在同一时间加入到链中。在比特币区块链中，矿工节点打包未确认但是有效的交易到一个块中。每个块包含一定数量的交易。在比特币网络中，矿工必须解出一个密码学的难题来获得下一个块的记录权。这个过程称为“工作量证明”，需要很大的计算能力。我们将在共识算法章节讨论工作量证明的问题。区块链技术的简明历史，请参考[这里](https://hbr.org/2017/02/a-brief-history-of-blockchain)。
@@ -96,11 +94,9 @@ Robert Schwentker
 * 时间戳
 * 这个区块内含的交易的Merkle树
 
-
-
 ### Merkle树
 
- The word 'tree' is used to refer to a branching data structure in computer science, as seen in the image below. According to Andreas M. Antonopoulos, in the Bitcoin protocol,
+The word 'tree' is used to refer to a branching data structure in computer science, as seen in the image below. According to Andreas M. Antonopoulos, in the Bitcoin protocol,
 
 Merkle树也叫二进制哈希树，是一种数据结构，按照特别的方式记录一个大型数据集中单个数据的哈希，用于高效验证这个数据集。它是一种防篡改机制，以确保大数据集没有被更改。“树”一词指的是计算机科学中的分支数据结构，如下图所示。Andreas M. Antonopoulos认为，在比特币协议中：
 
@@ -109,8 +105,6 @@ Merkle树也叫二进制哈希树，是一种数据结构，按照特别的方�
 ![](/assets/Bitcoin_Block_Data.png)上图为比特币区块数据。
 
 对Merkel树的更深入讨论，请见[http://chimera.labs.oreilly.com/books/1234000001802/ch07.html\#\_structure\_of\_a\_block\)](http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#_structure_of_a_block%29)
-
-
 
 ## 访谈
 
@@ -125,6 +119,138 @@ DLT和区块链的区别 - Brian Behlendorf
 > 所以我认为区块链就像是Internet一样，含义太宽泛了。但是能够在这里介绍DLT甚至智能合约功能这样的新技术，也是极好的。
 
 
+
+什么是区块链 - Dave Huseby
+
+主持人：那么，什么是区块链呢？
+
+Huseby：作为超级账本的安全专家，关于区块链我有一些不同角度的看法。
+
+我最初是一个开发者，并且我会用一种对抗的方式去看世界。通常是我的软件和真实世界的对立。
+
+对我来说，区块链无疑为解决困扰我们许多年的问题打开了另一个解决的可能性。可以通过很多方式在分开的各部分之间建立分布式的共识，也允许我们建立一个即时的唯一真实。
+
+过去，我们总是被一天的时间中到底发生了什么这样的问题困扰.
+
+In the past, we've always had problems with trying to figure out what really happened over the course of a day.
+
+Banks reconcile their books, inventory systems clear sales and deliveries...
+
+With blockchains, we're recording things in real time, and it provides us with sort of an up-to-date accounting of the state of the world.
+
+So, a lot of these old systems are going away, a lot of the work load management systems are going away. We're not doing batch processing at night anymore.
+
+Instead, we're doing validation in real time, and we always know the state of the world.
+
+This opens up a whole new host of applications that can be based around...
+
+If we knew exactly where every bolt was, could we make sure that there are always bolts at the place where they're going to be installed two minutes before they are needed... things like that...
+
+So, like lean manufacturing is one case...
+
+But, it also applies to every other process in the world where we have to track materials and effort, and money, things like that.
+
+Let me think...
+
+So, the blockchain, for me, actually is just sort of rethinking of our existing business processes around how we can be more effective when we know the state of the world as it is right now,
+
+and we know it in two minutes, and we know it in two hours, rather than having to wait until the end of the day for everything to be reconciled.
+
+This is actually a transition from human scale to computer scale.
+
+This was... all of these processes were done on a daily basis, and things like that,
+
+and with blockchain, we're now... we're doing it instantaneous, because computers have made it that way.
+
+From a security perspective, blockchains are not a silver bullet.
+
+They're not going to replace the existing business logic.
+
+They're more of a log-based system, so recording what has happened, as it is happening,
+
+rather than being the source of what to do with money from a customer, and things like that.
+
+It's not business process type of software.
+
+Because it is a log, and because it is the source of truth, and because a lot of other business logic will be based upon it,
+
+the security concerns on it, related to blockchain, are roughly the same as existing business practices, or business logic.
+
+You have to think of all the members of a distributed ledger as participating in a closed network,
+
+because that's what they are, at least in permissioned networks,
+
+we're not operating on the public Internet, we're not operating in a trustless environment.
+
+It's the exact opposite. We... all the participants in the distributed ledger are known, they're permissioned,
+
+that's where that term comes from, and they all participate as if they are in a private network.
+
+So, when deploying blockchain software, it's typically done behind a firewall,
+
+and, anytime you have multiple organizations participating in the distributed ledger,
+
+we will use tunneling technology and other VPN firewall tricks to make a virtual LAN exist,
+
+so that all of their organizations can talk over it.
+
+Different Hyperledger projects have different trade-offs.
+
+Fabric, for instance, has a more centralized ordering service,
+
+and so, it makes more sense to organize one of those networks into a hub-and-spoke model,
+
+where each peer connects to the ordering service, which is run either on one of the nodes, or on a neutral third party,
+
+and all of the gossip messages that do the consensus mechanism go through a central hub.
+
+Now, that sounds counterintuitive because just distributed ledgers are supposed to be distributed...
+
+they still are, they're distributed in the sense that the blockchain itself is replicated amongst all of the nodes,
+
+and so, your data is much more resilient to disruption... resilient against disruption.
+
+But, the coordination can still be done in a fairly centralized manner.
+
+With Sawtooth, it is not so much the case, right?
+
+The organization of the network for Sawtooth is probably more of like a star model,
+
+where you pick some subset of nodes, and your node connects to those and, as long as all nodes are fairly well connected,
+
+they can all eventually talk to each other, either one hop, or two hops, or three hops away, depending on the size of your network.
+
+With Iroha, they... their topology is a lot different than the others,
+
+because they designed their distributed ledger to function well in a mobile environment,
+
+where a lot of the clients are intermittently connected.
+
+So, they're mobile phones that can be connected and disconnected at random.
+
+So, their structure is more of a layered network, where the end clients' mobile phones submit transactions to servers,
+
+which then, amongst the servers, do the distributed ledger.
+
+And there's no right answer, right?
+
+The business process dictates which one you choose, but the security is pretty much the same in all of these.
+
+We use cryptography and digital signatures to validate all the messages.
+
+So, tampering with messages is essentially impossible.
+
+The immutability of the distributed ledger is guaranteed by the cryptography,
+
+but the nature of the trusted network, of the permissioned network, means that we have to treat it like any other back-office service.
+
+You want to deploy it behind a firewall, you want to use tunneling to connect between nodes across the Internet,
+
+and you want to maintain it, just like any other service that deals with Internet traffic...
+
+you have firewalls, and load balancers, and things like that.
+
+That's all I've got to say about security. And thanks for taking our course.
 
 
 
