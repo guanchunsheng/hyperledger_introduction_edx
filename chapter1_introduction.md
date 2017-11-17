@@ -250,9 +250,12 @@ Robert Schwentker
 
 可以点击![这里](https://letstalkpayments.com/22-companies-leveraging-blockchain-for-identity-management-and-authentication/)了解使用区块链技术进行身份管理和认证的公司列表。
 
-For more details about blockchain applications, you can refer to Daniel Palmer's article at coindesk.com.
+For more details about blockchain applications, you can refer to Daniel Palmer's article at coindesk.com.  
 关于区块链应用的更多细节，可以参考Daniel Palmer的文章，在![coindexk.com](https://www.coindesk.com/7-cool-decentralized-apps-built-ethereum/)
 
 ## 智能合约
 
 ××智能合约×× 是简单的计算机程序，当系统中满足特定条件的时候，自动的执行预定义好的动作。智能合约提供了 ××交易语言×× 以修改账本状态。它们可以用来交换和转移任何有价值的东西（比如股票、资金、内容和财产等）。
+
+![](/assets/Blockchain_and_Smar_Contracts_-_Flow_Diagram.png)
+
