@@ -608,8 +608,7 @@ IOTA不只是一种密码学货币。基本上，这个平台延伸了区块链�
 类似的，对于智能合约没有监管指导准则，这对于各参与方比如律师、监管者、程序员和商业之中造成了很大的焦虑。缺少监管准则，缺少行业标准，阻碍了DLT的快速应用。
 
 #### 知识缺乏
-
-The lack of know-how \(and know-whom and know-where\) around distributed ledger technologies and the availability of experts in the area is a major challenge in the adoption of distributed ledger technologies. While there has been an exponential increase in the interest around 'blockchain', as indicated in the figure below, there is a huge lag of technical talent in the space. In fact, the origin of this course stems from the need to address this gap in know-how, both for the business and technical audiences.  
+ 
 应用适配DLT技术的主要的挑战是对分布式账本技术本身缺乏“know-how”，“know-whom”，“know-where”的知识，缺乏专家。
 
 对于“区块链”的兴趣增长如此迅猛，如下图所示，所以这个领域存在非常大的人才缺口。事实上，本课程的初衷即使填补“know-how”的部分，既是为了业务相关的学员，也是为了技术相关的学员。
