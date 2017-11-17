@@ -381,13 +381,13 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 >
 > ![](/assets/bitcoin_genesis.PNG)
 >
-> Notice that the timestamp is January 3rd 2009.  
-> So, that's the genesis block of the Bitcoin blockchain.  
-> Now, moving on to the Ethereum blockchain, we'll look at another blockchain explorer.  
-> And this one shows you that there's approximately 5 million blocks in the Ethereum blockchain.  
-> Notice that each block is created much more quickly than in the Bitcoin blockchain.  
-> From here, we'll examine the genesis block of the Ethereum blockchain,  
-> and notice that it was mined about two years ago,  
+> 注意看时间戳是2009年1月4日（这是北京时间，西方当地时间可能是1月3日）。这就是比特币的创世区块。  
+> 
+> 现在来看看以太坊区块链浏览器https://etherscan.io/
+>
+> 能看到以太坊已经有接近500万个区块，能看出来以太坊的区块创建间隔是比比特币小很多的。在这里我们看一下创世区块https://etherscan.io/block/0
+>
+>
 > and the mining reward for this was approximately five ether.  
 > So, from here, we'll take a look at the very interesting transaction: that of the pizza transaction.  
 > On Bitcoin Forum, there was somebody on May 18th of 2010 who was requesting that they would pay 10,000 bitcoins for a pizza.  
