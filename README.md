@@ -1,6 +1,6 @@
 # Summary
 
-* [欢迎入坑](README.md)
+* [欢迎入坑](Chapter0_overview.md)
 * [第一章 区块链技术初探](chapter1_introduction.md)
 * [第二章 超级账本入门](chapter2_hyperledger_introduction.md)
 * [第三章 区块链技术前景](chapter3_blockchain_rise.md)
