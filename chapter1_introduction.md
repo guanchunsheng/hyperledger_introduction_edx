@@ -368,16 +368,19 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 
 > 让我们看看2个公链，比特币和以太坊，他们的创世区块（也即是第一个区块）。然后看看几个大交易，包括密码学货币历史上最著名的交易：10000比特币的批萨……
 >
-> 那么，首先我们先去区块链浏览器，可以看到有一个高度列，表明这个区块链中已经有多少个区块，现在大概不到50万个。
+> 那么，首先我们先去区块链浏览器（https://blockchain.info/），可以看到有一个高度列，表明这个区块链中已经有多少个区块，现在大概不到50万个。
 >
 > ![](/assets/blockchain_explorer_height.PNG)
 >
-> 这些区块大约10分钟生成一次。然后是Transactions列，表示每个区块有多少个交易  
+> 这些区块大约10分钟生成一次。然后是Transactions列，表示每个区块有多少个交易。 
 > ![](/assets/blockchain_explorer_transactions.PNG)  
-> as well as the Total Sent, or the amount of Bitcoin that was transferred in each of those blocks.  
-> Finally, you can notice that there's... they relate by column, which is essentially the miner or mining pool that created that block.  
-> So, from here, let's take a look at another blockchain explorer, and you can see here the genesis block of the Bitcoin blockchain.  
-> Notice that the timestamp is January 3rd 2009.  
+> 
+> 后面还有一同发出多少比特币或者区块内转移了多少比特币。最后你可以看到记录这个区块的矿工或者矿池。现在打开另一个区块链浏览器(https://blockexplorer.com/)看看创世区块。
+>
+> 创世区块的地址是：https://blockexplorer.com/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+>
+>
+Notice that the timestamp is January 3rd 2009.  
 > So, that's the genesis block of the Bitcoin blockchain.  
 > Now, moving on to the Ethereum blockchain, we'll look at another blockchain explorer.  
 > And this one shows you that there's approximately 5 million blocks in the Ethereum blockchain.  
