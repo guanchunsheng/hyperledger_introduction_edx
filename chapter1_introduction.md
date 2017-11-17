@@ -280,7 +280,9 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 根据![AngelList](https://angel.co/blockchains)，自从比特币支付系统诞生以来，已经成立了1000家利用比特币和区块链相关技术的创业公司。数以百计的大公司，几十个政府和学术机构积极参与区块链协议、平台、应用的研究、测试和原型设计。特别是金融服务领域自从2015年下半年开始积极投身分布式账本（区块链是其中的一个子集）更广泛的应用探索。
 
 ## 访谈
+
 比特币和以太坊 - Robert Schwentker
+
 > 主持人：为什么比特币和以太坊会出现呢？他们要解决什么问题？
 >
 > Robert：比特币首先在2009年1月份出现，适逢当时的全球金融危机。这个系统的一个主要动因是可以通过互联网传递价值，而不需要中介。因此它的一个最大的创新和解决的问题就是“双重支付”问题。
@@ -296,24 +298,32 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 > 因为网络上的应用是分布式的，分布在很多很多的机器上，所以即使其中一些挂了，以太坊网络仍然可以维持在稳定的状态。
 
 ## 比特币和密码经济学
-比特币在密码经济学和密码经济安全性领域，引起了大量的学术和研究兴趣。
+
+比特币在密码经济学和密码经济安全性领域，引起了大量的学术和研究兴趣。  
 援引 ![Vitalik Buterin](https://www.youtube.com/watch?v=pKqdjaH1dRo):
+
 > “Cryptoeconomics is about building systems that have certain desired properties using cryptography to prove properties about 》messages that happened in the past while using economic incentives defined inside the system to encourage desired properties to hold into the future.”
 
 也就是说，密码经济学结合了密码学和经济激励两个部分。密码学用来保证网络安全性，内含的经济激励促进了网络中多数的参与者能够按照规矩玩。
 
 公链不设门槛，谁都可以参与进来。既然这样的网络可以接受任何种类的参与者，包括攻击者，那么关键问题就是怎么激励网络的多数参与者照规矩来，比如：
-- 攻击者不能通过大规模攻击接管网络
-- 攻击者不能通过与他人共谋形成网络的多数人进而攻击网络
-- 确保网络安全的回报总是高于攻击网络的成本
-- 攻击网络的成本高的令人发指
+
+* 攻击者不能通过大规模攻击接管网络
+* 攻击者不能通过与他人共谋形成网络的多数人进而攻击网络
+* 确保网络安全的回报总是高于攻击网络的成本
+* 攻击网络的成本高的令人发指
 
 更多关于密码经济学的信息请点击![这里](https://medium.com/@cryptoeconomics/the-blockchain-economy-a-beginners-guide-to-institutional-cryptoeconomics-64bf2f2beec4)
 
 ## 以太坊 - 比特币之外另一个选择
+
 援引![以太坊官方文档](http://ethdocs.org/en/latest/introduction/what-is-ethereum.html):
+
 > “以太坊是一个开放的区块链平台，以使任何人都可以在区块链技术之上构建和使用**分布式的应用**”
 
 以太坊区块链平台使脚本功能，或叫“智能合约”能够在网络节点上更方便的应用。所以不同于比特币，以太坊不仅仅追踪交易，也会对他们进行编程。从技术上说，以太坊是一个图灵完备的虚拟机，原生的密码学货币称为“以太”。以太坊平台于2013年由19岁的Vitalik Buterin在白皮书中提出。
 
 2017年10月，以太坊的市值是280亿美元，是继比特币后最有价值的密码学货币。
+
+![](/assets/Ether_Market_Cap.jpg)
+
