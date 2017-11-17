@@ -442,7 +442,7 @@ PoS算法是工作量证明算法的推广。在PoS中，节点也叫作“验�
 
 没有挖矿过程，因为一开始所有的货币就都已经存在了。简单的说，随机选择节点去演这个区块，这个随机选择的概率根据节点持有的股权来决定。如果节点X有2个币，节点Y有1个币，那么在验证交易的时候X被选中的概率是Y的2倍。
 
-PoS的具体实现可以根据情况进行调整，根据用例或者软件的设计。具体的实例有!\[Proof of Deposit\]（\[[https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和!\[Proof\]\(https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和!\[Proof](https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和![Proof]%28https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和![Proof)\) of Burn\]\([https://en.bitcoin.it/wiki/Proof\_of\_burn\)。](https://en.bitcoin.it/wiki/Proof_of_burn%29。)
+PoS的具体实现可以根据情况进行调整，根据用例或者软件的设计。具体的实例有!\[Proof of Deposit\]（\[\[[https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和!\[Proof\]\(https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和!\[Proof\]\(https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和!\[Proof\]\(https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和!\[Proof\)\](https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和![Proof]%28https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和![Proof]%28https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和![Proof]%28https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty/）和![Proof%29\)\) of Burn\]\([https://en.bitcoin.it/wiki/Proof\_of\_burn\)。](https://en.bitcoin.it/wiki/Proof_of_burn%29。)
 
 PoS算法与PoW相比可以节省大量的计算资源。
 
@@ -609,8 +609,10 @@ IOTA不只是一种密码学货币。基本上，这个平台延伸了区块链�
 
 #### 知识缺乏
 
-The lack of know-how (and know-whom and know-where) around distributed ledger technologies and the availability of experts in the area is a major challenge in the adoption of distributed ledger technologies. While there has been an exponential increase in the interest around 'blockchain', as indicated in the figure below, there is a huge lag of technical talent in the space. In fact, the origin of this course stems from the need to address this gap in know-how, both for the business and technical audiences.
+The lack of know-how \(and know-whom and know-where\) around distributed ledger technologies and the availability of experts in the area is a major challenge in the adoption of distributed ledger technologies. While there has been an exponential increase in the interest around 'blockchain', as indicated in the figure below, there is a huge lag of technical talent in the space. In fact, the origin of this course stems from the need to address this gap in know-how, both for the business and technical audiences.  
 应用适配DLT技术的主要的挑战是对分布式账本技术本身缺乏“know-how”，“know-whom”，“know-where”的知识，缺乏专家。
 
 对于“区块链”的兴趣增长如此迅猛，如下图所示，所以这个领域存在非常大的人才缺口。事实上，本课程的初衷即使填补“know-how”的部分，既是为了业务相关的学员，也是为了技术相关的学员。
+
+![](/assets/Blockchain_Search_Volume.jpg)
 
