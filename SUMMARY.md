@@ -2,7 +2,7 @@
 
 * [欢迎入坑](README.md)
 * [第一章 区块链技术初探](chapter1.md)
-* 第二章 超级账本入门
+* [第二章 超级账本入门](di-er-zhang-chao-ji-zhang-ben-ru-men.md)
 * [第三章 区块链技术前景](di-san-zhang-qu-kuai-lian-ji-zhu-zhi-guang.md)
 * [第四章 环境准备](di-si-zhang-huan-jing-zhun-bei.md)
 * [第五章 超级账本Iroha项目入门](di-wu-zhang-chao-ji-zhang-ben-iroha-xiang-mu-jie-shao.md)
