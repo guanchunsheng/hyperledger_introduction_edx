@@ -360,3 +360,36 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 
 ![](/assets/Ethereum_Smart_Contracts.png)
 
+**注意** 以太坊区块链平台在脚本功能和智能合约方面的优点，正在被比特币区块链所借鉴。之前比特币由于安全原因没有采用类似的方式。RSK就是这样一种智能合约平台，尝试通过“与比特币双向挂钩”的方式实现这样的智能合约。这使得比特币除了现金转移之外具备更多的功能。
+
+## 探索无权限区块链
+
+让我们开始检查一下比特币和以太坊区块链，这两个都是没有权限限制的公链。我们将会从几个大的交易和创世区块上进行检查。我们会看看区块高度，交易时间，矿池，时间戳和区块奖励。
+
+> 让我们看看2个公链，比特币和以太坊，他们的创世区块（也即是第一个区块）。然后看看几个大交易，包括密码学货币历史上最著名的交易：10000比特币的批萨……
+>
+> 那么，首先我们先去区块链浏览器，可以看到有一个高度列，表明这个区块链中已经有多少个区块，现在大概不到50万个。
+
+
+
+These blocks are created approximately every 10 minutes,
+and there's a Transactions column that shows how many transactions are included in each block,
+as well as the Total Sent, or the amount of Bitcoin that was transferred in each of those blocks.
+Finally, you can notice that there's... they relate by column, which is essentially the miner or mining pool that created that block.
+So, from here, let's take a look at another blockchain explorer, and you can see here the genesis block of the Bitcoin blockchain.
+Notice that the timestamp is January 3rd 2009.
+So, that's the genesis block of the Bitcoin blockchain.
+Now, moving on to the Ethereum blockchain, we'll look at another blockchain explorer.
+And this one shows you that there's approximately 5 million blocks in the Ethereum blockchain.
+Notice that each block is created much more quickly than in the Bitcoin blockchain.
+From here, we'll examine the genesis block of the Ethereum blockchain,
+and notice that it was mined about two years ago,
+and the mining reward for this was approximately five ether.
+So, from here, we'll take a look at the very interesting transaction: that of the pizza transaction.
+On Bitcoin Forum, there was somebody on May 18th of 2010 who was requesting that they would pay 10,000 bitcoins for a pizza.
+They provided their address and someone in fact sent them a pizza. In fact, it was from Europe.
+And you can see here that that was this transaction here: of 10,000 bitcoins.
+And lastly, a very large and interesting transaction of 658 bitcoins, done recently.
+Notice that the value of that is close to 3 million dollars.
+So, you can examine these transactions on both the Bitcoin and Ethereum blockchains, and many other blockchains.
+In Chapter 2 of this course, we'll touch upon the Hyperledger Explorer, which can be configured to examine blockchains you might develop with other of the Hyperledger frameworks.
