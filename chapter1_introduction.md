@@ -330,7 +330,9 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 作为继比特币之后最知名的公链，以太坊引领在区块链和分布式账本技术进入了空前活跃的时代。
 
 ## 访谈
+
 以太坊 - Robert Schwentker
+
 > 主持人：你能给出另一个产生区块链的系统的例子么？比如以太坊，它跟比特币有什么区别？
 >
 > Robert：可以。以太坊也是公链。它也是将交易排序和打包进区块中。但是，以太坊可以定义成一个开源平台，让开发者可以构建和部署智能合约和分布式应用，分布式应用也叫Dapp。
@@ -339,13 +341,14 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 
 ## Dapps
 
-如![Stephan Tual](https://www.youtube.com/watch?v=Clw-qf1sUZg)解释的，以太坊应用不需要中间人，取而代之的是用户通过P2P的方式进行交互，通过各种接口 - 社交的，金融的，游戏的等等。既然应用本身就是基于分布式共识网络开发的，那么第三方的审查在实际上就是不可能的。攻击者没有办法通过修改应用和代码
+如![Stephan Tual](https://www.youtube.com/watch?v=Clw-qf1sUZg)解释的，以太坊应用不需要中间人，取而代之的是用户通过P2P的方式进行交互，通过各种接口 - 社交的，金融的，游戏的等等。既然应用本身就是基于分布式共识网络开发的，那么第三方的审查在实际上就是不可能的。攻击者没有办法通过修改应用和代码  
 来危及用户（或者与之之交互的节点）。这些分布式应用就称为**Dapps**。
 
 既然它们是密码学安全的，那么Dapps可以称为“安全应用”。一些比较高调的Dapps包括：
-- **Augur** https://augur.net/.
-- **Digix** https://digix.global/
-- **Maker** https://makerdao.com/
+
+* **Augur** [https://augur.net/](https://augur.net/).
+* **Digix** [https://digix.global/](https://digix.global/)
+* **Maker** [https://makerdao.com/](https://makerdao.com/)
 
 以太坊网络是一个分布式的全球公网，不会在地理上某个中心服务器上运行。相反，维护网络的计算能力是通过分布在全球的计算机提供的。换句话说，Dapps是用不掉线的，因为基本上不可能全部宕机或者关闭。
 
@@ -354,3 +357,6 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 一个假想的以太坊智能合约可能包含以下交易：在股权募集中，从公司收到一定股份后，投资者向公司转移金额X。金额X，经过公司的预验证（就像从信用卡消费一样），托管在智能合约中，直到投资者收到股权为止。任何种类的复杂业务逻辑都可以提交到区块链中。以太坊区块链只是对这些“游戏规则”进行编码。实际的回报是通过与区块链的交互完成的。
 
 下面的演示描述了这个过程。智能合约对公司募集资金和投资者之间的合同进行编码（图1）。智能合约加入以太坊公链，运行于以太坊虚拟机EVM上。一旦达到一个触发事件，比如到了一个日期或者执行价格达到某个预定义的数值，那么智能合约开始自动执行（图2）.作为额外的权利，监管机构可以在不知道特定参与者身份的情况下对市场活动进行持续的审查（图3）。
+
+![](/assets/Ethereum_Smart_Contracts.png)
+
