@@ -372,7 +372,7 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 >
 > ![](/assets/blockchain_explorer_height.PNG)
 >
-> 这些区块大约10分钟生成一次。然后是Transactions列，表示每个区块有多少个交易。   
+> 这些区块大约10分钟生成一次。然后是Transactions列，表示每个区块有多少个交易。  
 > ![](/assets/blockchain_explorer_transactions.PNG)
 >
 > 后面还有一同发出多少比特币或者区块内转移了多少比特币。最后你可以看到记录这个区块的矿工或者矿池。现在打开另一个区块链浏览器\([https://blockexplorer.com/\)看看创世区块。](https://blockexplorer.com/%29看看创世区块。)
@@ -381,12 +381,13 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 >
 > ![](/assets/bitcoin_genesis.PNG)
 >
-> 注意看时间戳是2009年1月4日（这是北京时间，西方当地时间可能是1月3日）。这就是比特币的创世区块。  
-> 
-> 现在来看看以太坊区块链浏览器https://etherscan.io/
+> 注意看时间戳是2009年1月4日（这是北京时间，西方当地时间可能是1月3日）。这就是比特币的创世区块。
 >
-> 能看到以太坊已经有接近500万个区块，能看出来以太坊的区块创建间隔是比比特币小很多的。在这里我们看一下创世区块https://etherscan.io/block/0
+> 现在来看看以太坊区块链浏览器[https://etherscan.io/](https://etherscan.io/)
 >
+> 能看到以太坊已经有接近500万个区块，能看出来以太坊的区块创建间隔是比比特币小很多的。在这里我们看一下创世区块[https://etherscan.io/block/0](https://etherscan.io/block/0)
+>
+> ![](/assets/ether_genesis.PNG)
 >
 > and the mining reward for this was approximately five ether.  
 > So, from here, we'll take a look at the very interesting transaction: that of the pizza transaction.  
