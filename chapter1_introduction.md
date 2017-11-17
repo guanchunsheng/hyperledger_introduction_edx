@@ -526,3 +526,62 @@ PoA可以用于有权限限制的账本中。它使用了一组“权威”，�
 > 所以在超级账本，我们尽力使得这些项目全都符合软件开发各方的目标，尽可能快速的发布产品，是能够在生产环境使用的产品，而且能够有灵活性去探索新的概念，比如新的共识机制，新的智能合约之类的。
 >
 > 所以这正式我们力求在超级账本内部实现的平衡。
+
+其他的分布式账本技术（Robert Schwentker）
+> 主持人：能举几个其他的区块链和分布式账本技术系统的例子么？他们的优点是什么？
+>
+> Robert：chain.com的Chain Core，是为了金融业务设计的，以及安全性，债券和现金业务。他们的公司同Visa，Citigroup和纳斯达克的关系都很紧密。
+>
+> Corda分布式账本平台是为了记录、管理和自动履行商业合同设计的。是R3公司开发，在超过100个全球金融机构之间进行协调。
+>
+> Quorum是一个permissioned版本的以太网，支持数据隐私，通过基于投票的共识算法，基于need-to-know的数据可视性实现数据隐私。有趣的是，Quorum是JP摩根开发和开源的。
+
+#### Chain Core
+Chain Core是一个企业permissioned区块链系统，主要关注金融业务领域，比如现金、安全、衍生品、礼品卡和积分等。这家公司与客户合作发布和运营客户品牌下的网络。由于这个伙伴合作策略，像Captial One，Citigroup，Fiserv，纳斯达克，Orange，Visa等公司从2014年以来投入了4千万美元。
+
+在Chain Core网络中，资产的创建和转移是分布式的。援引![2016 Kudelski安全报告](https://www.kudelskisecurity.com/sites/default/files/files/kudelski_Security_blockchain_20161213.pdf):
+> “一组称为federtion的实体用来控制网络操作”
+
+Chain Testnet平台上可以进行基于Chain Core的分布式应用的开发，运营方是Chain，微软和IC3.更多细节参考： https://chain.com/technology/
+
+#### Corda
+截至2017年9月，R3协调着超过100家大型全球金融机构，力图使用分布式 账本技术来记录、管理和自动履行机构之间的法律合同，通过他们的称为Corda的方案。
+
+Corda is a distributed ledger platform, which features a blockchain-style P2P network; however, it is not a blockchain platform. Unlike blockchains, which involve global availability of data across the network and third party validators, Corda only allows information access and validation functions to parties actually involved in the transaction. Featuring a different software architecture, "Corda achieves consensus between firms at the level of individual deals, not the level of the system" (Richard Gendal Brown, 2016), while supporting a variety of consensus mechanisms
+Corda是一个分布式账本平台，基于区块链样式的P2P网络。然而，这不是一个区块链平台，跟区块链不同，Corda只允许交易相关方访问和验证信息。是另一种软件架构，“Corda在公司之间就具体交易层面达成共识，不是系统层面”-![Gendal Brown](http://www.r3cev.com/blog/2016/4/4/introducing-r3-corda-a-distributed-ledger-designed-for-financial-services)，支持多种共识机制。
+
+更多信息参考： https://www.corda.net
+
+#### Quorum
+JP摩根开发的Quorum实际上是以太坊公链的一个分叉，使用基于投票的工哦共识算法来搭建企业级的分布式账本和智能合约平台。在网络内部基于need-to-know方式实现数据隐私。
+
+这个平台设计用来支持“交易级的隐私和网络级的透明”（![jpmorgan.com](https://www.jpmorgan.com/country/US/EN/Quorum)）。
+
+网络验证所有的智能合约和整体的系统状态，通过所有的运行节点。跟其他permissioned账本相比，Quorum平台的合规性是最关键的。
+
+#### IOTA
+密码学货币IOTA出现于2015年前后。援引![Martin Rosulek](https://medium.com/@MartinRosulek/how-iota-makes-future-for-internet-of-things-af14fd77d2a3)：“这是第一个基于无区块的区块链的完整密码学货币生态系统”，针对的是M2M的交易。
+
+IOTA不只是一种密码学货币。基本上，这个平台延伸了区块链协议（这个技术称为Tangle）。
+
+这个网络结构包含基于peer的验证机制，而不是给矿工付费来完成交易验证。我们可以用一个简单的类比，就是老师给学生的作业打分：学生就是比特币协议中的客户端/用户，老师就是矿工/验证者。Tange技术要求学生（用户）给彼此的作业打分，老师（外部验证者）就是多余的了。这样省去了老师/验证者的工作，让平台完全是无成本的，不需要面对第一代区块链技术面临的扩展性问题。
+
+此外，平台使用了连接设备或者IoT：
+> “让公司能够免费，实时的在开放市场上探索B2B的商业模型” 
+> - Roger Aitken, 2017
+
+### 适配/不是分布式账本技术的挑战
+
+对于广泛使用permissioned分布式账本技术来说，是有一些挑战的。其中关键的是缺乏标准，监管问题和分布式账本技术知识的缺乏。这些挑战在技术新老交替的时候都有会有。
+
+我们希望你能够战胜这些挑战，并为构建一个安全的数字未来做出贡献。
+
+#### 标准
+因为我们仍处在区块链技术的早期阶段，所以现在在商业社区和开发中还没有就标准达成一致。标准是保证互操作性和防止系统碎片化的关键因素。
+
+标准不仅对于分布式账本技术本身是很重要的，而且对支持服务，比如身份、隐私和数据管理都是很重要的。而且，密钥的管理，以及对于密钥丢失和被盗的标准协议也将是很重要的。
+
+所以，ISO在2016年建立了区块链和分布式账本技术组，着手开始制定未来标准化工作的范围。关于ISO/TC 307 技术委员会的更多信息请参考：https://www.iso.org/committee/6266604.html
+
+#### 监管
+#### 知识缺乏
