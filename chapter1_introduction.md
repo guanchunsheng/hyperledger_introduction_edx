@@ -393,8 +393,9 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 >
 > 下面肉戏来了，我们看看那个最著名的交易：买批萨。在比特币论坛上，有人在2010年5月18日发帖说愿意花10000比特币买一个批萨。他贴出了地址，然后真的有人给他们快递来了批萨。而且，给他们快递批萨的人，来……自……欧……洲……
 >
-> 查看地址：https://blockexplorer.com/address/17SkEw2md5avVNyYgj6RiXuQKNwkXaxFyQ
+> 查看地址：[https://blockexplorer.com/address/17SkEw2md5avVNyYgj6RiXuQKNwkXaxFyQ](https://blockexplorer.com/address/17SkEw2md5avVNyYgj6RiXuQKNwkXaxFyQ)
 >
+> ![](/assets/bitcoin_pizza.PNG)
 >
 > And you can see here that that was this transaction here: of 10,000 bitcoins.  
 > And lastly, a very large and interesting transaction of 658 bitcoins, done recently.  
