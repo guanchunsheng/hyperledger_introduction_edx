@@ -397,11 +397,16 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 >
 > ![](/assets/bitcoin_pizza.PNG)
 >
-> And you can see here that that was this transaction here: of 10,000 bitcoins.  
-> And lastly, a very large and interesting transaction of 658 bitcoins, done recently.  
-> Notice that the value of that is close to 3 million dollars.  
-> So, you can examine these transactions on both the Bitcoin and Ethereum blockchains, and many other blockchains.  
-> In Chapter 2 of this course, we'll touch upon the Hyperledger Explorer, which can be configured to examine blockchains you might develop with other of the Hyperledger frameworks.
+> 看到了么？交易额是10000比特币。在区块链浏览器上，可以看看最近的大额交易，考虑到现在比特币的行情（我写到这里的时候，比特币行情是7700美元1BTC……），能计算出来这些交易的价值么？
+>
+> 后续章节我们会用超级账本的浏览器查看我们自己开发的区块。
 
+## “证明”文件
+我们已经检查过了比特币和以太坊的区块链，以及需要特别关注的区块变量。现在，让我们在比特币和以太坊上同时对文件进行“证明”吧，可以使用stamp.io，这是一个证明工具。
+我们会演示怎么使用stamp.io简单的证明文件，获取“Stampery 证书”。还会演示怎么交叉检查比特币和以太坊区块链的哈希。
 
-
+> 这里我们会演示怎么利用比特币和以太坊对文档进行证明。利用工具![Stamp.io](https://stamp.io/)，我会拿一个文件然后从区块链上对它进行证明。一旦完成了证明，在Stamp.io上就会有一个证书，叫做Stampery证书，表明了文件的名称以及它是什么时间加盖的Stampery，由谁来加盖的。
+>
+> 实际上，是这个文件的哈希保存在了交易中，插入到比特币和以太坊的区块链上。如果我们打开这个特殊的交易，我们能看到其中有文件的哈希，这是在多少天之前加入到这个区块中的。
+>
+> 所以，stamp.io是一个可以放入文件并同时将文件的哈希加入到比特币和以太坊区块链交易中的工具，同时可以验证文件哈希是否存在于这两个区块链中。
