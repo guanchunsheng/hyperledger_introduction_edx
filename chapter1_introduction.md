@@ -442,7 +442,7 @@ PoS算法是工作量证明算法的推广。在PoS中，节点也叫作“验�
 
 没有挖矿过程，因为一开始所有的货币就都已经存在了。简单的说，随机选择节点去演这个区块，这个随机选择的概率根据节点持有的股权来决定。如果节点X有2个币，节点Y有1个币，那么在验证交易的时候X被选中的概率是Y的2倍。
 
-PoS的具体实现可以根据情况进行调整，根据用例或者软件的设计。具体的实例有![Proof of Deposit]（https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty）和![Proof of Burn](https://en.bitcoin.it/wiki/Proof_of_burn%29。)
+PoS的具体实现可以根据情况进行调整，根据用例或者软件的设计。具体的实例有![Proof of Deposit](https://www.linkedin.com/pulse/blockchain-consensus-algorithm-proof-of-work-satyakam-chakravarty)和![Proof of Burn](https://en.bitcoin.it/wiki/Proof_of_burn%29)
 
 PoS算法与PoW相比可以节省大量的计算资源。
 
