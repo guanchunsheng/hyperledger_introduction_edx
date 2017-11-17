@@ -244,3 +244,15 @@ Robert Schwentker
 
 ![](/assets/BLOCKCHAIN_IMMUTABILITY.png)
 
+## 区块链应用
+
+既然区块链是一种新的数字基础设施，那么需要通过应用来访问区块链上的数据。也就是说客户端/用户需要通过应用来和区块链互动。从简单的保存比特币的钱包，到包含数字身份识别应用的复杂应用程序（比如 UPort, KYC-Chain, Netki等等），以及建立在区块链上的复杂金融交易。
+
+可以点击![这里](https://letstalkpayments.com/22-companies-leveraging-blockchain-for-identity-management-and-authentication/)了解使用区块链技术进行身份管理和认证的公司列表。
+
+For more details about blockchain applications, you can refer to Daniel Palmer's article at coindesk.com.
+关于区块链应用的更多细节，可以参考Daniel Palmer的文章，在![coindexk.com](https://www.coindesk.com/7-cool-decentralized-apps-built-ethereum/)
+
+## 智能合约
+
+××智能合约×× 是简单的计算机程序，当系统中满足特定条件的时候，自动的执行预定义好的动作。智能合约提供了 ××交易语言×× 以修改账本状态。它们可以用来交换和转移任何有价值的东西（比如股票、资金、内容和财产等）。
