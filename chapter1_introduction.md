@@ -260,7 +260,9 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 ![](/assets/Blockchain_and_Smar_Contracts_-_Flow_Diagram.png)
 
 ## 访谈
+
 智能合约 - Robert Schwentker
+
 > 主持人：什么是智能合约？
 >
 > Robert：早在1996年，一个叫Nick Szab的人就提出了这个词“智能合约”。你可以这么理解这个词，它是一种计算机协议，可以用来促进、验证和执行一个法律合同。智能合约是一个描述计算机代码的词。
@@ -268,6 +270,10 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 > 今天在以太坊网络，以太坊节点都可以运行以太坊智能合约。这些智能合约促进了价值交换，包括资金、内容、财产或者股份。
 
 ## 比特币 - 一个流行的区块链
+
 2008年P2P现金系统被发明出来，大家都叫他比特币。比特币是一个全球的分布式支付网络，使用分布式的开放公有的基础设置，也就是“无权限限制”的系统。这是一个分布式计算的非常有说服力的杀手级应用。大家可以在世界上任何地方发出和接收比特币，完全是P2P的方式，不需要经过一个受信任的第三方，比如银行。
 
 根据![Coin Market Capitalizations](https://coinmarketcap.com/currencies/bitcoin/) 网站，在2017年10月，比特币的市值接近1000亿美元。
+
+![](/assets/Market_Cap.png)
+
