@@ -369,9 +369,10 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 > 让我们看看2个公链，比特币和以太坊，他们的创世区块（也即是第一个区块）。然后看看几个大交易，包括密码学货币历史上最著名的交易：10000比特币的批萨……
 >
 > 那么，首先我们先去区块链浏览器，可以看到有一个高度列，表明这个区块链中已经有多少个区块，现在大概不到50万个。
-
-![](/assets/blockchain_explorer_height.PNG)
-
+>
+> ![](/assets/blockchain_explorer_height.PNG)
+>
+> 这些区块大约10分钟生成一次。然后是Transactions列，表示每个区块有多少个交易
 These blocks are created approximately every 10 minutes,  
 and there's a Transactions column that shows how many transactions are included in each block,  
 as well as the Total Sent, or the amount of Bitcoin that was transferred in each of those blocks.  
