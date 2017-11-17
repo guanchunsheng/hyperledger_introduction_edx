@@ -372,26 +372,27 @@ For more details about blockchain applications, you can refer to Daniel Palmer's
 >
 > ![](/assets/blockchain_explorer_height.PNG)
 >
-> 这些区块大约10分钟生成一次。然后是Transactions列，表示每个区块有多少个交易
-These blocks are created approximately every 10 minutes,  
-and there's a Transactions column that shows how many transactions are included in each block,  
-as well as the Total Sent, or the amount of Bitcoin that was transferred in each of those blocks.  
-Finally, you can notice that there's... they relate by column, which is essentially the miner or mining pool that created that block.  
-So, from here, let's take a look at another blockchain explorer, and you can see here the genesis block of the Bitcoin blockchain.  
-Notice that the timestamp is January 3rd 2009.  
-So, that's the genesis block of the Bitcoin blockchain.  
-Now, moving on to the Ethereum blockchain, we'll look at another blockchain explorer.  
-And this one shows you that there's approximately 5 million blocks in the Ethereum blockchain.  
-Notice that each block is created much more quickly than in the Bitcoin blockchain.  
-From here, we'll examine the genesis block of the Ethereum blockchain,  
-and notice that it was mined about two years ago,  
-and the mining reward for this was approximately five ether.  
-So, from here, we'll take a look at the very interesting transaction: that of the pizza transaction.  
-On Bitcoin Forum, there was somebody on May 18th of 2010 who was requesting that they would pay 10,000 bitcoins for a pizza.  
-They provided their address and someone in fact sent them a pizza. In fact, it was from Europe.  
-And you can see here that that was this transaction here: of 10,000 bitcoins.  
-And lastly, a very large and interesting transaction of 658 bitcoins, done recently.  
-Notice that the value of that is close to 3 million dollars.  
-So, you can examine these transactions on both the Bitcoin and Ethereum blockchains, and many other blockchains.  
-In Chapter 2 of this course, we'll touch upon the Hyperledger Explorer, which can be configured to examine blockchains you might develop with other of the Hyperledger frameworks.
+> 这些区块大约10分钟生成一次。然后是Transactions列，表示每个区块有多少个交易  
+> ![](/assets/blockchain_explorer_transactions.PNG)  
+> as well as the Total Sent, or the amount of Bitcoin that was transferred in each of those blocks.  
+> Finally, you can notice that there's... they relate by column, which is essentially the miner or mining pool that created that block.  
+> So, from here, let's take a look at another blockchain explorer, and you can see here the genesis block of the Bitcoin blockchain.  
+> Notice that the timestamp is January 3rd 2009.  
+> So, that's the genesis block of the Bitcoin blockchain.  
+> Now, moving on to the Ethereum blockchain, we'll look at another blockchain explorer.  
+> And this one shows you that there's approximately 5 million blocks in the Ethereum blockchain.  
+> Notice that each block is created much more quickly than in the Bitcoin blockchain.  
+> From here, we'll examine the genesis block of the Ethereum blockchain,  
+> and notice that it was mined about two years ago,  
+> and the mining reward for this was approximately five ether.  
+> So, from here, we'll take a look at the very interesting transaction: that of the pizza transaction.  
+> On Bitcoin Forum, there was somebody on May 18th of 2010 who was requesting that they would pay 10,000 bitcoins for a pizza.  
+> They provided their address and someone in fact sent them a pizza. In fact, it was from Europe.  
+> And you can see here that that was this transaction here: of 10,000 bitcoins.  
+> And lastly, a very large and interesting transaction of 658 bitcoins, done recently.  
+> Notice that the value of that is close to 3 million dollars.  
+> So, you can examine these transactions on both the Bitcoin and Ethereum blockchains, and many other blockchains.  
+> In Chapter 2 of this course, we'll touch upon the Hyperledger Explorer, which can be configured to examine blockchains you might develop with other of the Hyperledger frameworks.
+
+
 
