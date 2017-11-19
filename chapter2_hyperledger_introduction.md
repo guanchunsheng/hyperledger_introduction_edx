@@ -74,3 +74,17 @@
 
 
 
+* Sawtooth可以配置成permissionless的
+* 超级账本的共识算法
+  * Fabric的Apache Kafka
+  * Sawtooth的PoET
+  * Indy的RBFT
+  * Burrow的Tendermint
+  * Iroha的YAC
+
+更多细节请参考[Hyperledger Architecture, Volume 1](https://www.hyperledger.org/wp-content/uploads/2017/08/HyperLedger_Arch_WG_Paper_1_Consensus.pdf)
+
+
+
+
+
