@@ -506,6 +506,508 @@ func main() {
 ```
 
 ## Chaincode演练
+现在我们大概知道chaincode是怎么编码的了，我们将会实际演练一下，通过在账本中创建一个资产，基于金枪鱼渔业的例子。
+
+有时候代码片段在翻译的时候会丢失，特别是如果上下文没有多大意义的话。为了避免这样的情况，我们调整了用来演示场景的chaincode。本节会分析记录金枪鱼捕捞信息的chaincode，还有查询和更新记录的chaincode。
+
+### 定义资产属性
+这是我们将要记录在账本中的金枪鱼的属性：
+- 船只（string）
+- 位置（string）
+- 日期时间（datatime）
+- 持有者（string）
+
+我们创建一个Tuna结构，包含4个属性。结构标签用 **encoding/json** 库
+
+```
+type Tuna struct {
+  Vessel string ‘json:"vessel"’
+  Datetime string ‘json:"datetime"’
+  Location string ‘json:"location"’
+  Holder string ‘json:"holder"’
+}
+```
+
+### Invoke方法
+如前所述，Invoke 方法是客户端应用提交交易提案的时候调用的。在这个方法中，我们有不同类型的交易：
+- recordTuna
+- queryTuna
+- changeHolder
+
+回顾前文，Sarah是渔民，捕捞到金枪鱼时会调用 **recordTuna** 方法
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/fa83f00cd04e8ba4e25d6cfb6035233e/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Invoke_method_recordTuna.png)
+
+Miriam 收到鱼时会调用 **changeHolder** 方法。 Miriam想要查看某条金枪鱼的状体时会调用 **queryTuna** 方法。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/1e43b46e9a6be77ffbd921e182d03e9d/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Invoke_method_queryTuna_and_changeTuna.png)
+
+监管人员会根据需要调用 **queryTuna** 和 **queryAllTuna** 检查供应链的可持续性。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/47cd6304d0e5df20df297e5b322cdf73/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Invoke_method_queryTuna_and_queryAllTuna.png)
+
+下面我们会进入到不同的方法中进行探索。但是首先看一下Invoke方法，这个方法会查看第一个参数，这个参数决定调用哪个函数，然后调用适当的chaincode方法。
+
+```
+func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response {
+  // Retrieve the requested Smart Contract function and arguments
+  function, args := APIstub.GetFunctionAndParameters()
+  
+  // Route to the appropriate handler function to interact with the ledger appropriately
+  if function == "queryTuna" {
+    return s.queryTuna(APIstub, args)
+  } else if function == "initLedger" {
+    return s.initLedger(APIstub)
+  } else if function == "recordTuna" {
+    return s.recordTuna(APIstub, args)
+  } else if function == "queryAllTuna" {
+    return s.queryAllTuna(APIstub)
+  } else if function == "changeTunaHolder" {
+    return s.changeTunaHolder(APIstub, args)
+  }
+    return shim.Error("Invalid Smart Contract function name.")
+  }
+```
+
+### queryTuna方法
+渔民，监管人员或者饭店老板会调用这个方法查看某个金枪鱼的记录。带有1个参数，目标金枪鱼的键。
+
+```
+func (s *SmartContract) queryTuna(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+  if len(args) != 1 {
+    return shim.Error("Incorrect number of arguments. Expecting 1")
+  }
+
+  tunaAsBytes, _ := APIstub.GetState(args[0])
+  if tunaAsBytes == nil {
+    return shim.Error(“Could not locate tuna”)
+  }
+  return shim.Success(tunaAsBytes)
+}
+```
+
+### initLedger
+向我们的网络加入测试数据：
+
+```
+func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Response {
+  tuna := []Tuna{
+    Tuna{Vessel: "923F", Location: "67.0006, -70.5476", Timestamp: "1504054225", Holder: "Miriam"},
+    Tuna{Vessel: "M83T", Location: "91.2395, -49.4594", Timestamp: "1504057825", Holder: "Dave"},
+    Tuna{Vessel: "T012", Location: "58.0148, 59.01391", Timestamp: "1493517025", Holder: "Igor"},
+    Tuna{Vessel: "P490", Location: "-45.0945, 0.7949", Timestamp: "1496105425", Holder: "Amalea"},
+    Tuna{Vessel: "S439", Location: "-107.6043, 19.5003", Timestamp: "1493512301", Holder: "Rafa"},
+    Tuna{Vessel: "J205", Location: "-155.2304, -15.8723", Timestamp: "1494117101", Holder: "Shen"},
+    Tuna{Vessel: "S22L", Location: "103.8842, 22.1277", Timestamp: "1496104301", Holder: "Leila"},
+    Tuna{Vessel: "EI89", Location: "-132.3207, -34.0983", Timestamp: "1485066691", Holder: "Yuan"},
+    Tuna{Vessel: "129R", Location: "153.0054, 12.6429", Timestamp: "1485153091", Holder: "Carlo"},
+    Tuna{Vessel: "49W4", Location: "51.9435, 8.2735", Timestamp: "1487745091", Holder: "Fatima"}, 
+  }
+
+  i := 0
+  for i < len(tuna) {
+    fmt.Println("i is ", i)
+    tunaAsBytes, _ := json.Marshal(tuna[i])
+    APIstub.PutState(strconv.Itoa(i+1), tunaAsBytes)
+    fmt.Println("Added", tuna[i])
+    i = i + 1
+  }
+  return shim.Success(nil)
+}
+```
+
+### recordTuna
+Sarah会调用这个方法记录金枪鱼的捕捞信息。需要5个参数（保存进账本的属性）：
+
+```
+func (s *SmartContract) recordTuna(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+  if len(args) != 5 {
+    return shim.Error("Incorrect number of arguments. Expecting 5")
+  }
+
+  var tuna = Tuna{ Vessel: args[1], Location: args[2], Timestamp: args[3], Holder: args[4]}
+  tunaAsBytes, _ := json.Marshal(tuna)
+  err := APIstub.PutState(args[0], tunaAsBytes)
+  if err != nil {
+    return shim.Error(fmt.Sprintf("Failed to record tuna catch: %s", args[0]))
+  }
+  return shim.Success(nil)
+}
+```
+
+### queryAllTuna
+用来获取所有的记录，这里就是加入到账本中的所有的金枪鱼记录。不需要参数，会返回JSON字符串，包含查询结果。
+
+```
+func (s *SmartContract) queryAllTuna(APIstub shim.ChaincodeStubInterface) sc.Response {
+  startKey := "0"
+  endKey := "999"
+  resultsIterator, err := APIstub.GetStateByRange(startKey, endKey)
+
+  if err != nil {
+    return shim.Error(err.Error())
+  }
+
+  defer resultsIterator.Close()
+  // buffer is a JSON array containing QueryResults
+  var buffer bytes.Buffer
+  buffer.WriteString("[")
+  bArrayMemberAlreadyWritten := false
+  for resultsIterator.HasNext() {
+    queryResponse, err := resultsIterator.Next()
+    if err != nil {
+      return shim.Error(err.Error())
+    }
+    // Add a comma before array members, suppress it for the first array member
+    if bArrayMemberAlreadyWritten == true {
+      buffer.WriteString(",")
+    }
+
+    buffer.WriteString("{\"Key\":")
+    buffer.WriteString("\"")
+    buffer.WriteString(queryResponse.Key)
+    buffer.WriteString("\"")
+    buffer.WriteString(", \"Record\":")
+    // Record is a JSON object, so we write as-is
+    buffer.WriteString(string(queryResponse.Value))
+    buffer.WriteString("}")
+    bArrayMemberAlreadyWritten = true
+  }
+
+  buffer.WriteString("]")
+  fmt.Printf("- queryAllTuna:\n%s\n", buffer.String())
+  return shim.Success(buffer.Bytes())
+}
+```
+
+### changeTunaHolder
+金枪鱼在供应链中可能会频繁转手，世界状态中可以按照所有权进行更新。这个方法需要2个入参，tuna id和 new holder name。
+
+```
+func (s *SmartContract) changeTunaHolder(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+  if len(args) != 2 {
+    return shim.Error("Incorrect number of arguments. Expecting 2")
+  }
+
+  tunaAsBytes, _ := APIstub.GetState(args[0])
+  if tunaAsBytes != nil {
+    return shim.Error("Could not locate tuna")
+  }
+
+  tuna := Tuna{}
+  json.Unmarshal(tunaAsBytes, &tuna)
+  // Normally check that the specified argument is a valid holder of tuna but here we are skipping this check for this example. 
+  tuna.Holder = args[1]
+  tunaAsBytes, _ = json.Marshal(tuna)
+  err := APIstub.PutState(args[0], tunaAsBytes)
+  if err 
+    return shim.Error(fmt.Sprintf("Failed to change tuna holder: %s", args[0]))
+  }
+  return shim.Success(nil)
+}
+```
+
+### 结论
+我们希望现在你已经对怎么组织和编写chaincode有了更好的理解，特别是能够应用在简单例子上了。要看所有的代码片段，请访问Github上的项目： https://github.com/hyperledger/education/blob/master/LFS171x/fabric-material/chaincode/tuna-app/tuna-chaincode.go
+
 ## 编写应用
+**什么是区块链应用？**
+在区块链应用中，区块链会保存系统的状态，以及促成这个状态的所有交易的记录，都永久性的保存在区块链中。向区块链发送交易，是客户端应用的任务。需要用智能合约为业务逻辑（全部或者部分）编码。
+
+**应用和网络如何互动**
+应用使用API来运行智能合约。在Fabric中，智能合约称为chaincode。这些合约托管在网络中，通过名字和版本标识。API可以通过软件开发套件，或叫SDK获得。现在，Fabric为开发者提供了3个选项：
+- Node.js SDK
+- Java SDK
+- CLI
+
+**Node.js SDK** ：在这个练习里，我们会使用Node.js SDK https://fabric-sdk-node.github.io/ 与网络和账本互动。Fabric客户端 SDK 为通过API与Fabric区块链进行交互提供了方便。本节会帮助你编写你的第一个应用，从测试Fabric网络开始，然后学习示例智能合约的参数，最后开发查询和更新账本的应用。
+
+更多信息，请访问Fabric Node.js SDK 文档：https://fabric-sdk-node.github.io/tutorial-app-dev-env-setup.html
+
+### 金枪鱼渔业应用
+金枪鱼渔业应用将会演示在金枪鱼供应链中，怎么使用Fabric创建记录和在不同角色间转移金枪鱼所有权。
+
+这个应用会使用Node.js编写。智能合约chaincode会使用我们在上一节所用的代码。与chaincode的交互通过使用gRPC协议与网络上的peer进行通信来实现。gRPC协议的细节由Fabric客户端Node.js SDK负责。
+
+---
+#### 访谈
+Fabric 金枪鱼渔业应用 Alexandra Groetsema
+So far, in this chapter, we've covered the components of Hyperledger Fabric's framework,
+including the different types of nodes in the network, private channels, and database features.
+We've also installed and spun up our very own test network, deep dived into chaincodes smart contact programming, and gone through a demonstrated example, detailing how Fabric is so unique.
+So, now, we've gotten to the really exciting part, where we combine all of these concepts into a working sample application.
+In this exercise, we'll see how a user can interact with a network through an application that enables users to query and update a ledger.
+Our application handles user interface and submits transactions to the network, which then call chaincodes.
+Fabric currently has three options for developers: a Node SDK, Java SDK and a command line interface or CLI.
+Today, we'll be using Fabric's Node SDK, which makes it easy to use APIs to interact with the Hyperledger Fabric blockchain.
+In a nutshell, reading or writing the ledger is known as a proposal.
+This proposal is built by our application via the SDK, and then sent to a blockchain peer.
+The peer will communicate to its application-specific chaincode container.
+The chaincode will run the transaction.
+If there are no issues, it will endorse the transaction and send it back to our application.
+Our application, via the SDK, will then send the endorsed proposal to the ordering service.
+The order will package many proposals from the whole network into a block, which is then broadcast to the peers in the network.
+Finally, the peer will validate the block and write it to its ledger.
+The transaction is now live.
+By the end of this exercise, we'll be familiar with how to use the Node.js SDK to interact with the network, and, therefore, a ledger,
+and understand how an application chaincode network and ledger all interact with one another.
+Let's get to work!
+---
+
+#### 开始 - 启动Fabric网络
+下载education工程：
+
+```
+$ git clone https://github.com/hyperledger/education.git
+$ cd education/LFS171x/fabric-material/tuna-app
+```
+
+确保Docker就绪。如果没有安装好环境，请参考第4章，环境准备。
+
+然后，确保已经完成了 *安装Fabric* 小节的内容，然后再开始下面的部分，否则可能会遇到奇怪的错误。
+
+正式开始。首先，清理之前存在的容器，因为它们可能会与本节的容器相冲突：
+
+```
+$ docker rm -f $(docker ps -aq)
+```
+
+然后通过以下命令启动Fabric网络：
+
+```
+$ ./startFabric.sh
+```
+
+**故障排除**
+如果上面的命令执行后遇到类似这样的报错：
+
+```
+ERROR: failed to register layer: rename
+/var/lib/docker/image/overlay2/layerdb/tmp/write-set-091347846 /var/lib/docker/image/overlay2/layerdb/sha256/9d3227c1793b7494e598caafd0a5013900e17dcdf1d7bdd31d39c82be04fcf28: file exists
+```
+
+那么运行下面这个命令：
+
+```
+$ rm -rf ~/Library/Containers/com.docker.docker/Data/*
+```
+
+#### 开始 - 启动Web服务
+需要安装所需的库，从package.json文件，然后网络上的注册 **Admin** 和 **User** 组件。通过以下命令启动客户端应用：
+
+```
+$ npm install
+$ node registerAdmin.js
+$ node registerUser.js
+$ node server.js
+```
+
+可以简单的通过浏览器访问 **localhost:8000** 启动客户端。可以看到下面的用户接口：
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/50068889079cd063e30d8bbd6d5fe554/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-application1.png)
+
+**故障排除**
+
+如果遇到类似的错误：
+
+```
+Error: [client-utils.js]: sendPeersProposal - Promise is rejected: Error: Connect Failed
+error from query =  { Error: Connect Failed
+   at /Desktop/prj/education/LFS171x/fabric-material/tuna-app/node_modules/grpc/src/node/src/client.js:554:15 code: 14, metadata: Metadata { _internal_repr: {} } }
+```
+
+那么可以尝试运行以下命令：
+
+```
+$ cd ~
+$ rm -rf .hfc-key-store/
+```
+
+然后从注册Admin开始继续：
+
+```
+$ node registerAdmin.js
+```
+
+#### 应用程序结构
+可以从下图查看Fabric应用的结构：
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a4867e651f3bb639e579fb3424bd9a62/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-filestructure.png)
+
+#### 查询所有金枪鱼记录
+查询的代码是：
+
+```
+// queryAllTuna - requires no arguments
+const request = {
+    chaincodeId:’tuna-app’,
+    txId: tx_id,
+    fcn: 'queryAllTuna',
+    args: ['']
+    };
+return channel.queryByChaincode(request);
+
+..src/queryAllTuna.js
+```
+
+现在让我们查询一下我们的数据库，我们已经预置了一些数据，因为我们在initLedger方法中hardcode进去了10条记录。在JS中，这个函数不需要入参（args: ['']）。
+
+查询的响应，在网页接口上可以看到这10条预置记录：
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ae31eb58789457980ae55a97aaee0aa8/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-queryAll.png)
+
+#### 查询特定记录
+JS代码：
+
+```
+// queryTuna - requires 1 argument
+const request = {
+   chaincodeId:’tuna-app’,
+   txId: tx_id,
+   fcn: 'queryTuna',
+   args: ['1']
+   };
+return channel.queryByChaincode(request);
+ 
+..src/queryTuna.js
+```
+
+这个函数有1个入参，这里的例子是 args: ['1']，本例中我们和私用这个key来查询捕捞信息。
+
+你因该可以看到如下图这样的查询结果，给出捕捞的具体信息：
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/4dbe39c61232ff1bfa939703cf396503/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-query.png)
+
+#### 改变所有者
+JS代码：
+
+```
+// changeTunaHolder - requires 2 argument
+var request = {
+  chaincodeId:’tuna-app’,
+  fcn: 'changeTunaHolder', 
+  args: ['1', 'Alex'],
+  chainId: 'mychannel',
+  txId: tx_id
+  };
+return channel.sendTransactionProposal(request);
+
+..src/changeHolder.js
+```
+
+现在让我们为一条给定的金枪鱼指定一个新的所有者。需要2个参数，指定捕捞的key和新的所有者，从代码中可以看到是 ['1', 'Alex']。
+
+你可以在终端中看到类似的信息：
+
+```
+The transaction has been committed on peer localhost:7053
+ event promise all complete and testing complete
+
+Successfully sent transaction to the orderer.
+Successfully sent Proposal and received ProposalResponse: Status - 200, message - "OK", metadata - "", endorsement signature: 0D 9
+```
+
+这表明我们从我们的应用通过SDK发出了一个提案，然后peer对它进行了背书和提交，最后账本进行了相应的更新。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/e36aee4cc0c801b18e855eb1fc234c4b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-changeTunaHolder.png)
+
+能够看到所有者确实已经改变了，可以去查看['1']，现在 holder 变成了Alex：
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/c43d7a8103c74fc3c8a0e123889d02ab/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-changedRecord.png)
+
+#### 增加记录
+JS代码：
+
+```
+// recordTuna - requires 5 argument
+for request = {
+  chaincodeId:’tuna-app’,
+  fcn: 'recordTuna',   
+  args: ['11', '239482392', '28.012, 150.225', '0923T', "Hansel"],
+  chainId: 'mychannel',
+  txId: tx_id
+};
+return channel.sendTransactionProposal(request);
+
+..src/recordTuna.js
+```
+
+最后我们看下怎么增加一条记录，通过调用 **recordTuna** 函数向账本增加记录。这个函数需要5个参数，为每个新的捕捞信息提供属性。这里的例子是： ['11', '239482392', '28.012, 150.225', '0923T', "Hansel"].
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/5d667e799ccd9caf881bae2b5019883f/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-createTunaRecord.png)
+
+通过查询所有记录，应该可以看到，新的记录已经成功添加。可以在最下面一行看到刚刚添加的记录：
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/91f75c705cacc4940b721a47d0eb3710/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-queryAfterCreate.png)
+
+#### 完成
+清理我们在这个例子中使用的所有的Docker容器和镜像：
+
+```
+$ docker rm -f $(docker ps -aq)
+$ docker rmi -f $(docker images -a -q)
+```
+
+### 应用流程基础
+#### 流程 
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a63eaf4dd007c3e65ee63955eccaf5b6/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-application-flowbasics.png)
+
+1. 开发者创建应用和智能合约
+2. 应用通过Fabric 客户端SDK调用智能合约
+3. chaincode合约处理以上调用
+4. put 或者 delete 命令会完成共识过程，加入到账本的区块链中。
+5. get 命令只能从世界状态读取数据，而不能记录到区块链中
+6. 应用可以通过API访问区块链信息
+
+#### 举例
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f01702e7429e967987a62daf274a164b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-application-flow.png)
+
+1. 不同的用户（渔民，监管人员，饭店老板）都会通过Node.js应用互动
+2. 用户与应用交互的时候，客户端JS向后端发消息
+3. 对账本的读写都作为提案（比如查询某次金枪鱼捕捞 *queryTuna* 或者记录金枪鱼捕捞 *recordTuna*）。这样的提案通过我们的应用，经由SDK构建，然后发送给背书peer
+4. 背书peer使用应用关联的chaincode智能合约来模拟交易的执行。如果没有问题，那么交易就算背书完成，然后发回给应用
+5. 应用将经过背书的提案通过SDK发给排序服务。排序者把来自全网的很多提案打包到区块中，然后把它广播给网络中的提交peer
+6. 最后，每个提交peer都会验证区块，然后写到账本里。现在这个交易就算是已经提交了，其后的读操作会看到这个交易的结果
+
 ## 参与Fabric社区
+Fabric是一个开源项目，其中的想法和代码都是公开讨论、创建和评审的。有很多方法加入到Fabric社区中。下面我们会高亮一些参与的方式，从技术角度或者从创意角度。
+
+---
+### 访谈
+Fabric的未来 Chris Ferris
+So, the Hyperledger [Fabric] development, obviously, has been ongoing now for about a year and a half.
+We've grown from an initial start of almost exclusively IBM developers, probably about 20 or so initially,
+to the point where we're now over 150 developers collaborating on Hyperledger Fabric, from many companies, and a lot of individuals, and, in fact, a lot of students, as well,
+and so, I think, the future is really to have a much more diverse community of ideas coming into play,
+and helping us plan out what's going on in the next release, helping us fixing bugs, helping us with improving documentation, and so forth.
+And so, I'm really excited about the prospects of having new members come and join us in this journey, in developing permissioned blockchains for the enterprise.
+And so, again, I think, it's really an important opportunity for a lot of people,
+especially as they are beginning their careers, to get involved in an open source project,
+because it can be a real launching pad to a successful career.
+---
+
+### 社区会议和邮件列
+可以在Fabric 文档中参加周例会，或Fabric其他会议，参考 [Hyperledger Community Meetings Calendar](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_nf9u64g9k9rvd9f8vp4vur23b0%40group.calendar.google.com&ctz=America/SanFrancisco)
+
+可以参与邮件列表进行技术讨论和查看公告：https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric
+
+### JIRA和Gerrit
+如果有bug需要报告，可以通过JIRA提交issue（需要Linux基金会账号访问JIRA）：https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104
+
+你也可以查找和审查现有的问题，选择一个感兴趣的开始在上面工作： https://jira.hyperledger.org/browse/FAB-5491?filter=10580
+
+可以通过这个链接查看怎么使用JIRA文档：https://wiki.hyperledger.org/community/jira-navigation
+
+Gerrit用来提交PR，管理代码评审和检入代码。所有的代码都可以fork和查看： https://gerrit.hyperledger.org/r/#/admin/projects/
+
+使用Gerrit的指导：https://hyperledger-fabric.readthedocs.io/en/latest/Gerrit/gerrit.html
+
+### Rochet.Chat
+可以参加实时聊天 Rocket.Chat（类似Slack），用Linux基金会ID：https://chat.hyperledger.org/home
+
+关于Fabric项目有超过24个频道。 #Fabric 频道用来讨论Fabric项目。可以从这个链接查到这些频道的指南： https://wiki.hyperledger.org/community/chat_channels
+
+
 ## 结论
