@@ -172,7 +172,30 @@ Endorsing peers verify the client signature, and execute a chaincode function to
 ### 状态数据库
 当前状态数据代表了账本中各个资产的最新的值。既然当前状态代表了通道上所有已提交的交易，那么有时候当前状态也称为世界状态。
 
-Chaincode调用就是针对当前状态数据进行交易执行的。为了使这些chaincode交互更有效率，每个资产的最新的键值对都保存在数据库中。这个状态数据库只是链上已经提交的交易的数据索引视图。可以根据这个链在任何时候重建。状态数据库在peer启动的时候，在新的交易接受之前，会自动的恢复（后者根据需要重新生成）。默认状态数据库是LevelDB，可以替换成CouchDB。
+Chaincode调用就是针对当前状态数据进行交易执行的。为了使这些chaincode交互更有效率，每个资产的最新的键值对都保存在数据库中。这个状态数据库只是链上已经提交的交易的数据索引视图。可以根据这个链在任何时候重建。状态数据库在peer启动的时候，在新的交易接受之前，会自动的恢复（后者根据需要重新生成）。默认状态数据库是**LevelDB**，可以替换成**CouchDB**。
+- LevelDB是Fabric默认的数据库，简单的保存键值对
+- CouchDB可以替代LevelDB。CouchDB按照Json对象保存数据，可以支持keyed，composite，key range和完整的data-rich查询。
+
+Fabric的LevelDB和CouchDB在结构和功能上是很相似的。两者都支持chaincode操作，比如获取和设置键，基于这些键进行查询。两者都可以通过键的范围进行查询，多个参数可以通过复合键进行查询。但是，CouchDB因为是按照Json对象保存数据的，所以支持对chaincode数据的rich查询，如果chaincode的数据（例如资产）是按照Json保存的。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9fa87a2726077cff05169f85584224ac/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/State_Database.png)
+
+### 智能合约
+回顾一下，智能合约是计算程序，是用于执行交易、修改账本上存储的数据的逻辑。Fabric的智能合约称为**Chaincode**，使用Go语言写的。
+
+Chaincode是Fabric网络的业务逻辑，在chaincode中指引你如何操作网络中的资产。我们会在后续的 *理解Chaincode* 章节讨论更多细节。
+
+### 成员服务管理（MSP）
+MSP是一个组件，其中电议了身份验证、鉴权和网络准入的规则。MSP管理用户ID，对意图加入网络的客户端进行鉴权。这包括了为提出交易的客户端分配密钥的工作。MSP会使用 *认证中心* ，认证中心验证和销毁用户的证书。MSP默认使用的接口是Fabric-CA API，具体组织机构可以实现外部认证中心，如果他们想要这么搞的话。这就是Fabric所谓的模块化。
+
+Fabric支持多种安全架构，可以只用多种外部认证中心接口。所以，单独的一个Fabric网络可以控制在多个MSP之下，每个组织可以各得其所。
+
+**MSP做什么？**
+开始的时候，用户使用认证中心进行鉴权。认证中心为应用、peer、背书者、排序者标记身份，验证他们的密钥。通过 *签名算法* 和 *签名验证算法* 生成签名。
+
+签名的生成始于 *签名算法*，各实体使用跟各自身份相关的密钥生成背书信息。生成的签名是一串字节，绑定到具体的身份。然后 *签名认证算法* 根据身份，背书信息和签名，进行验证。如果签名字节串包含输入背书信息的有效签名，验证通过；无效就拒绝。如果输出是通过，那么用户可以看到网络中的交易，与网路中的其他角色进行交易。如果输出是拒绝，那么用户鉴权失败，不能向网络提交交易，也不能看到之前的交易。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2fe3f7dc2fa52699a96ef7948432113b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/The_role_of_membership_service_provider.jpg)
 
 ### Fabric-认证中心（CA）
 通常，认证中心管理permissioned区块链的证书登记。Fabric-CA是超级账本Fabric的默认认证中心，处理用户身份的注册。Fabric-CA负责发布和废除登记证书（E-Certs）。当前Fabric-CA只是发布E-Certs，提供长期的身份证书。登记认证中心（E-CA）发布的E-Certs，给Peer节点赋予身份，赋予他们加入网络并提交交易的权限。
