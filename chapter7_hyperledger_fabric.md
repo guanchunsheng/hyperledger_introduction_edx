@@ -201,7 +201,310 @@ Fabric支持多种安全架构，可以只用多种外部认证中心接口。�
 通常，认证中心管理permissioned区块链的证书登记。Fabric-CA是超级账本Fabric的默认认证中心，处理用户身份的注册。Fabric-CA负责发布和废除登记证书（E-Certs）。当前Fabric-CA只是发布E-Certs，提供长期的身份证书。登记认证中心（E-CA）发布的E-Certs，给Peer节点赋予身份，赋予他们加入网络并提交交易的权限。
 
 ## 安装Fabric
+### 环境准备
+要成功安装超级账本Fabric，你需要熟悉Go语言和Node.js，在电脑上安装以下软件：
+- CURL
+- Node.js, npm包管理器
+- Go语言
+- Docker和Docker compose
+更多信息请参考第4章 环境准备
+
+### 安装Fabric Docker和工具
+下面我们会下载最新发布的Fabric Docker镜像，将它们重新加标签到 **latest**。在想要存放工具的目录，运行以下命令：
+  $ curl -sSL https://goo.gl/Q3YRTi | bash
+**注意** ：检查 https://hyperledger-fabric.readthedocs.io/en/latest/samples.html#binaries ，这里有最新的URL地址。
+
+这个命令会下载工具的可执行文件：
+- cryptogen
+- configtxgen
+- confitxlator
+- peer
+
+还会拉取Fabric的Docker镜像。以上工具会存放在当前目录的 **bin** 文件夹内。运行成功后检查Docker镜像是否拉取成功：
+  $ docker images
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ca726400444f52edbc3e54278077f8dd/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Fabric_installation_1.jpg)
+
+**注意** ： 拉取下来的镜像是带有版本信息的，运行的时候工具会从 latest 的镜像生成容器，所以需要我们手动的为镜像修改标签：
+  $ docker tag hyperledger/fabric-tools:x86_64-1.0.2 hyperledger/fabric-tools:latest
+注意替换镜像名称和版本号。
+
+上面图片显示已经修改标签完成，就不需要再修改了。
+
+### 安装Fabric
+记得将下载的bin文件路径加入PATH环境变量。就不需要每次都给出全路径了，通过以下命令修改环境变量：
+  $ export PATH=$PWD/bin:$PATH
+
+为了安装本教程使用的工程，需要运行：
+  $ git clone https://github.com/hyperledger/fabric-samples.git
+  $ cd fabric-samples/first-network
+
+### 开始测试Fabric网络
+成功安装Fabric之后，我们可以开始运行一个含有2个成员的简单网络来看看怎么设置Fabric。参考之前给出的金枪鱼渔业的例子，网络包含每条金枪鱼的验证、运输和消费，在渔民Sarah，饭店业主Miriam之间进行的上述资产管理。我们会建立一个简单的只有2个成员的网络，包含2个组织（就是Sarah和Miriam），每个组织都包含2peer和一个排序者。
+
+我们将用Docker镜像启动我们的第一个Fabric网络。还会启动一个容器来运行一个脚本，其中会将peer加入通道，部署和实例化chaincode，然后在chaincode上进行交易。
+
+在 first-network 文件夹下，运行：
+  $ ./byfn.sh -m generate
+
+屏幕会显示简短的信息，还有一个 **Y/N** 的提示信息，输入 **Y <回车>** 来继续。
+
+这个步骤会生成各个网路实体的密钥等信息，还有创世区块，用于排序服务；创建通道所需的配置交易。
+
+然后，可以通过以下命令启动网络：
+  $ ./byfn.sh -m up
+
+又会有提示信息，还是输入 **Y <回车>** 继续。会打印很多命令行日志，表明容器已经启动，通道建立，peer加入通道成功， chaincode安装完成，实例化完成，在所有peer上调用chaincode，以及其他各种交易日志。
+
+**故障排除说明**
+如果签名两个命令运行出现问题，那么可能是Docker镜像出了问题，可以从0开始再做一遍，删除镜像：
+  $ docker rmi -f $(docker images -q)
+
+删除后重新准备镜像，参考 *安装Fabric Docker和工具*。
+
+最后，让我们关闭网络。在终端内推出当前执行环境 **Control + c**，然后运行脚本：
+  $ ./byfn.sh -m down
+
+会有提示信息，还是输入 **Y <回车>** 继续。这个脚本会删除你的容器，删除密钥信息和通道信息，从Docker注册服务器中删除chaincode 镜像。
+
+这就是这个简单的演示。下一节会更深入的学习chaincode。
+---
+### 访谈
+安装超级账本 Fabric
+    Hi everyone! In this video, we will be covering how to install Fabric and build a test network.
+    Before you start, make sure that you have Go, Node.js, cURL, npm package manager, Docker, and Docker Compose downloaded on your machine.
+    Make sure to open a terminal window, because this is where we will be working in this video,
+    and also, have Docker running on your machine.
+    We are going to start with downloading the Hyperledger Fabric platform-specific binaries,
+    and to do that, I'm going to move into my desktop directory [cd directory], which I am already in.
+    But you can chose any directory that you would like to download the binaries and Docker images in.
+    I'm just choosing the desktop.
+    And you are going to run the following command: 'curl -sSL https://goo.gl/Q3YRTi | bash'.
+    Now, depending on when you are taking this course, I'd recommend checking the Hyperledger Fabric readthedocs page,
+    and make sure under the "Download Platform-specific Binaries"
+    that you use the most updated URL in that command.
+    Great! So, I am going to press 'Enter', and this command might take a couple of minutes to execute,
+    but be patient.
+    This command downloads binaries for cryptogen, config transaction generator, and the Hyperledger Fabric Docker images that I mentioned before.
+    These assets are placed in a 'bin' subdirectory of the current directory that you are in.
+    Great. So, this has finished executing, and we can see the list of Hyperledger Docker images here,
+    and, if we scroll up, you can see all of then being downloaded.
+    You can go through that on your own time.
+    But I want to just point in the direction of the tags here.
+    Now, mine shows 'latest' for each of the ones, so, for 'fabric-ca', there's a 'latest' tag, the tag is 'latest'.
+    So, this is what we want to see.
+    But, if yours doesn't have this, there are some directions in the documentation that show you how to tag each of these with 'latest',
+    because you will need that for some of the following steps.
+    But, I won't need to, because it's already done for me.
+    Ok.
+    Next, we want to install Hyperledger Fabric, and as an additional measure,
+    you may want to add the 'bin' subdirectory to your PATH environment variable.
+    So, these can be picked up without needing to qualify the PATH to each binary.
+    And you can do that by running the following command in the same directory you just downloaded everything: 'export PATH=$PWD/bin:$PATH'.
+    Great.
+    So, now we are going to install the Hyperledger Fabric sample code, which will be used in this tutorial, and that is going to be on GitHub.
+    So, you'll run the following command: 'git clone'... and I am just doing that in my desktop, as well,
+    'https://github.com/hyperledger/fabric-samples.git'.
+    And that will download the repository to my desktop.
+    So, we have that code now.
+    And I am going to cd into 'fabric-samples/first-network'.
+    Great. Let's just 'ls' to see what's in here.
+    Great.
+    We see a lot of yaml files and a 'byfn.sh', which is good.
+    And now, we're ready to start a test Hyperledger Fabric network with this code that we downloaded.
+    So, in the first... make sure you're in the 'first-network' directory, or folder, and run the following command './byfn.sh -m generate'.
+    A brief description will pop up, and you can just type 'y' and 'Enter' to continue,
+    and you'll see the generation of certificates, and other good stuff you can go through and read this on your own if you'd like.
+    But this means that this executed well.
+    Next, you can start the network with the following command... in the same folder, 'first-network' again, './byfn.sh -m up'.
+    Another command will come up, or another question... you can type 'y' and 'Enter' to continue.
+    Now, this command might also take a little bit of time.
+    But logs will appear in the command line, showing containers being launched, and other things.
+    But we'll talk about that when it finishes running.
+    So, this command has finished executing, with this 'END' message here.
+    And we can see, as I mentioned before, there's a lot of logs that appear in the terminal,
+    or in the command line, showing containers being launched, channels being created and joined,
+    chaincode being installed, instantiated, and invoked on all the peers that were created,
+    as well as other various transaction logs, that you can go through and read on your own.
+    Now, if you had trouble with the commands, or you're not seeing something similar to what I am seeing,
+    in the documentation, there is a troubleshooting note I recommend going and looking at that and trying to see if that helps you.
+    So, just to finish up and shut down this network that we've tested out, 'CTRL + C', if you're on a Mac, or exit that execution and run './byfn.sh -m down'.
+    Another message will pop up, press 'y' and 'Enter' to continue.
+    So, this command will kill your containers, remove the crypto material that we downloaded before,
+    and four artifacts, and delete the chaincode images from your Docker Registry.
+    So, it won't delete the 'bin' subdirectory that you downloaded before, but it will just shut everything down and bring it down.
+    And that's it for a simple demonstration.
+    These steps, these simple steps show how we can easily spin up and bring down a Hyperledger Fabric network given the code we have.
+---
+
 ## 理解chaincode
+### Chaincode
+在Fabric中，Chaincode就是在peer上运行的智能合约，回去创建交易。更广泛的说，chaincode 让用户能够在Fabric网络中创建交易，更新资产的世界状态。
+
+chaincode是可以编程的代码，用Go语言编写，在通道中实例化。开发者使用chaincode开发商业合同，定义资产，集中管理分布式应用。chaincode通过应用所调用的交易来管理账本状态。资产通过特定chaincode创建和更新，且不能够被别的chaincode访问。
+
+应用通过chaincode与区块链账本交互。因此，chaincode需要在通道中每个会去背书交易的peer上安装。
+
+有2个方法在Fabric中开发智能合约：
+- 为单独chaincode实例编写个别的合约
+- （更有效的方式），使用chaincode创建分布式应用，管理一个或者多个类型的业务合约的生命周期，让终端用用户在这些应用中对合约进行实例化
+
+#### Chaincode 关键API
+编写chaincode的时候，很重要的接口是Fabric的 [ChaincodeStub](https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim#Chaincode)和 [ChaincodeStubInterface](https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim#ChaincodeStub)。*ChaincodeStub* 提供了与底层账本交互的接口，比如查询、更新和删除资产。关键的API包括：
+- func (stub *ChaincodeStub) GetState(key string) ([]byte, error)
+- func (stub *ChaincodeStub) PutState(key string, value []byte) error
+- func (stub *ChaincodeStub) DelState(key string) error
+
+**GetState** ：从账本中返回指定key的值。注意不能从Write集获取数据，因为W集上的数据还没有写入账本呢。换句话说，GetState不能从还没有提交的PutState中获取数据。如果状态数据库中找不到指定key，那么返回（nil, nil）。
+**PutState** ：把指定的key和其值放入交易W集，作为写数据的提案。直到交易被验证和成功提交之后，PutState才真正修改了账本。
+**DelState** ：把指定要删除的key放入交易W集，作为写数据的提案。直到交易被验证和成功提交之后，DelState才真正修改了账本。
+
+### Chaincode 程序实例
+创建chaincode的时候，需要实现2个方法：
+- Init
+- Invoke
+
+**Init** ：chaincode收到 *instantiae* 或者 *upgrade* 交易的时候，会调用这个方法。在这里初始化应用状态。
+**Invoke** ：chaincode接收到 *invoke* 交易的时候，调用此方法。
+
+作为开发者，必须在chaincode里边实现这两个方法。chaincode必须通过命令 **peer chaincode install** 安装，通过 **peer chaincode instantiate** 命令实例化，然后才能被调用。
+
+交易可以通过 **peer chiancode invoke** 或者 **peer chaincode query** 命令创建。
+
+#### 依赖
+让我们逐个语句分析一个Go语言chaincode的例子：
+
+```
+package main
+import (
+  "fmt"
+  "github.com/hyperledger/fabric/core/chaincode/shim"
+  "github.com/hyperledger/fabric/protos/peer"
+)
+```
+
+import语句列出了所有构建chaincode所需的依赖。
+- fmt 打log用到的Println
+- github.com/hyperledger/fabric/core/chaincode/shim 包含了chaincode接口的定义，与账本交互的chaincode的stub，我们在Chaincode关键API 这一节有提到
+- github.com/hyperledger/fabric/protos/peer 包含peer protobuf包
+
+#### 结构
+
+```
+type SampleChaincode struct {
+}
+```
+
+没内容，但是这是在Go语言中定义对象/类的起始部分。 *SampleChaincode* 实现了一个管理资产的简单chaincode。
+
+#### Init方法
+下面我们会实现Init方法。
+
+Init是chaincode在实例化的时候调用的方法。在我们的例子里，我么你会创建初始的资产键值对，如下：
+
+```
+func (t *SampleChaincode) Init(stub shim.ChainCodeStubInterface) peer.Response {
+  // Get the args from the transaction proposal
+  args := stub.GetStringArgs()
+  if len(args) != 2 {
+    return shim.Error("Incorrect arguments. Expecting a key and a value")
+  }
+
+  // We store the key and the value on the ledger
+  err := stub.PutState(args[0], []byte(args[1]))
+  if err != nil {
+    return shim.Error(fmt.Sprintf("Failed to create asset: %s", args[0]))
+  }
+
+  return shim.Success(nil)
+}
+```
+
+这个Init的实现，接收2个入参，使用 **stub.PutState** 函数向账本写入键值对。**GetStringArgs** 取得并检查参数的有效性，需要参数是一对键值。因此，我们需要检查参数的个数是2.如果不是，那么返回错误。一旦我们接收到正确数量的参数，那么我们开始保存账本的初始状态。为了实现这一点，我们会调用 **stub.PutState** 函数，指定第一个参数是键，第二个参数是这个键的值。如果没有返回错误，我们就从Init方法返回成功。
+
+#### Invoke方法
+现在我们探索一下Invoke方法，是在客户端应用提出交易的时候调用的。在我们的例子里，我们会获取给定资产的键值或者更新给定资产的键值。
+
+```
+func (t *SampleChaincode) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
+  // Extract the function and args from the transaction proposal
+  fn, args := stub.GetFunctionAndParameters()
+  var result string
+  var err error
+
+  if fn == "set" {
+    result, err = set(stub, args)
+  } else { // assume 'get' even if fn is nil
+    result, err = get(stub, args)
+  }
+
+  if err != nil { //Failed to get function and/or arguments from transaction proposal
+    return shim.Error(err.Error())
+  }
+
+  // Return the result as success payload
+  return shim.Success([]byte(result))
+}
+```
+
+客户端可以调用2个基本动作：*get* 和 *set*
+- get 方法用来查询和返回现存的某个资产
+- set 方法用来创建一个新资产或者更新一个现存资产
+
+开始，我们调用 **stub.GetFunctionAndParameters** 把函数名和参数变量分开。每个交易要么是 set 要么是 get。让我们看下set 方法是怎么实现的：
+
+```
+func set(stub shim.ChaincodeStubInterface, args []string) (string, error) {
+  if len(args) != 2 {
+    return "", fmt.Errorf("Incorrect arguments. Expecting a key and a value")
+  }
+
+  err := stub.PutState(args[0], []byte(args[1]))
+  if err != nil {
+    return "", fmt.Errorf("Failed to set asset: %s", args[0])
+  }
+  return args[1], nil
+}
+```
+
+**set** 方法会用给定的值，指定的key，去创建或者修改资产。set 方法会用指定的键值对修改世界状态。如果key是存在的，那么用新的值覆盖以前的值，通过 **stub.PutState** 方法，如果key不存在，那么会创建一个新的键值对。
+
+下面我们看下 get 方法的实现：
+
+```
+func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
+  if len(args) != 1 {
+    return "", fmt.Errorf("Incorrect arguments. Expecting a key")
+  }
+
+  value, err := stub.GetState(args[0])
+  if err != nil {
+    return "", fmt.Errorf("Failed to get asset: %s with error: %s", args[0], err)
+  }
+
+  if value == nil {
+    return "", fmt.Errorf("Asset not found: %s", args[0])
+  }
+  return string(value), nil
+}
+
+```
+
+**get** 方法会尝试获取给定key的值。如果一个用传入的不是单个的key，那么返回错误；如果还是单个的key，那么用 **stub.GetState** 方法查询指定key的世界状态。如果这个key还没有加入到账本中（以及世界状态），那么返回错误；如果已经在账本中了，那么从方法中返回这个key的值。
+
+#### main函数
+main函数会调用 **start** 函数。**main** 函数在容器中启动chaincode，在实例化的过程中：
+
+```
+func main() {
+  err := shim.Start(new(SampleChaincode))
+  if err != nil {
+    fmt.Println("Could not start SampleChaincode")
+  } else {
+    fmt.Println("SampleChaincode successfully started")
+  }
+}
+```
+
 ## Chaincode演练
 ## 编写应用
 ## 参与Fabric社区
