@@ -1,10 +1,10 @@
 # 超级账本Fabric入门
 ## 1. 学习目标
-- 理解超级账本Fabric v1.0的基础知识
-- 对Fabric上的例子进行演练和分析
+- 了解超级账本Fabric v1.0的基础知识
+- 对Fabric上的实例进行演练和分析
 - 探讨Fabric结构中的关键组件，包括客户端，peer，排序服务和成员服务管理（MSP）
 - 通过javascript SDK构建一个演示网络和简单应用
-- 探讨chaincode（Fabric的智能合约）并演练一个例子
+- 探讨chaincode（Fabric的智能合约）并演练一个实例
 - 参与到框架的讨论和开发中
 
 ## 2. 应用案例 - 海洋渔业
@@ -60,11 +60,11 @@
 
 **客户端**：在网络中代表人来发起交易的应用程序
 
-**Peer**：Peer维护着网络的运转，并保存着账本的一份拷贝。有2种类型的peer，**背书peer**和**提交peer**。但其实两者并不是泾渭分明的，背书peer同时也是一种特殊的提交peer。所有的peer都向分布式账本提交区块。
-- *背书peer* 对交易进行模拟并为它背书
+**Peer**：Peer维护着网络的运转，并保存着账本的一份拷贝。有2种类型的peer，**背书者**和**提交者**。但其实两者并不是泾渭分明的，背书者同时也是一种特殊的提交者。所有的peer都向分布式账本提交区块。
+- *背书者* 对交易进行模拟并为它背书
 - *提交者* 首先检查背书和交易结果，然后将交易提交到区块链
 
-**排序服务**：排序服务接受背过书的交易，将它们排好顺序加入区块，之后发送给提交peer
+**排序服务**：排序服务接收背过书的交易，将它们排好顺序加入区块，之后发送给提交者
 
 ### 3.2 如何达成共识
 在分布式账本系统中，**共识** 的意思是就下一次加入账本中的这组交易达成一致的过程。在Fabric中，共识分别通过3个步骤来实现：
@@ -72,24 +72,24 @@
 - 排序
 - 验证和提交
 
-这3个步骤维持着网络策略得到贯彻。通过分析交易流程我们会看到这些步骤是怎么实现的。
+这3个步骤使得网络策略可以得到贯彻。通过分析交易流程我们会看到这些步骤是怎么实现的。
 
 ### 3.3 交易流
 
 #### 步骤1
-在Fabric网络中，交易始于客户端应用提出交易提案，也就是向背书peer提出一个交易。
+在Fabric网络中，交易始于客户端应用提出交易提案，也就是向背书者提出一个交易。
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/21431955acd5b7888ca8d393c94deaf8/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Key_Components_-_Transaction_Proposal.png)
 
 **客户端应用** 通常称为 **applications** 或者 **clients**，人们需要通过它们来与区块链网络沟通。应用开发者可以通过应用SDK来使用超级账本Fabric网络。
 
 #### 步骤2
-每个背书peer对提案交易进行模拟执行，而不会真的更新账本。背书peer会捕获读（R）和写（W）数据的集合，称为**RW集**。RW集会捕获交易模拟执行过程中对当前世界状态的读取和写入信息。然后背书peer对RW集进行签名，返回给客户端应用，用于后续的交易流程。
+每个背书者对提案交易进行模拟执行，但不会真的更新账本。背书者会取得 **读（R）** 和 **写（W）** 数据的集合，称为**RW集**。RW集会包含交易模拟执行过程中对当前世界状态的读取和写入的信息。然后背书者对RW集进行签名，返回给客户端应用，用于后续的交易流程。
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/13e5a6a80c0e150f46d45ec0634b86b8/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Transaction_flow_step_2.png)
 
-背书peer必须保存智能合约，这样才能模拟交易提案的执行。
+背书者必须保存智能合约，这样才能模拟交易提案的执行。
 
 **交易背书**
-所谓的交易背书就是对一个经过模拟的交易进行签名并返回的过程。交易背书的方法取决于部署chaincode的时候指定的背书策略。比如说“必须有多数背书peer对本交易完成背书”。因为背书策略是针对具体chaincode的，所以不同的通道可以有不同的背书策略。
+所谓的交易背书就是对一个经过模拟的交易进行签名并返回结果的过程。交易背书的方法取决于部署chaincode的时候指定的背书策略。比如说“必须有多数背书者对本交易完成背书”。因为背书策略是针对具体chaincode的，所以不同的通道可以有不同的背书策略。
 
 #### 步骤3
 客户端应用把经过背书的交易，连同RW集，提交到排序服务。排序在整个网络开展，各个客户端应用的不同交易和RW集一起进行排序。
@@ -122,27 +122,27 @@
 
 *同一个时间表内的交易按照串行顺序保存在同一个区块中*
 
-在区块链网络中，写入共享账本的交易，必须保持一致的顺序。交易的顺序必须保证在提交到网络中时，对世界状态的修改是有效的。不同于比特币区块链，比特币区块链的排序是由PoW时通过解决密码学难题来实现的，也就是挖矿，而Fabric允许机构组织自行运行网络，可以选择最适合网络的排序机制。Fabric的模块性和灵活性使得它很适合于企业应用场景。
+在区块链网络中，写入共享账本的交易，必须保持一致的顺序。交易的顺序必须保证在提交到网络中时，对世界状态的修改是有效的。比特币区块链的排序是由PoW时通过解决密码学难题来实现的，也就是挖矿，而Fabric不同于比特币，允许机构组织自行运行网络，可以选择最适合网络的排序机制。Fabric的模块性和灵活性使得它很适合于企业应用场景。
 
 对交易顺序达成一致，Fabric提供了3种可选的排序机制：
 - SOLO
 - Kafka
-- 简化拜占庭容错（SBFT），Fabric v1.0还未包含
+- 简化拜占庭容错（SBFT，Fabric v1.0还未包含）
 
 **SOLO** ：这只是开发人员用来测试Fabric网络用的，只包含单一排序节点。
 
-**Kafka** ：生产环境建议使用Kafka排序。使用了Apache Kafka这个开源的流处理平台，提供统一化的，高吞吐低延迟实时数据处理能力。使用Kafka的时候，处理的数据也就是经过背书的交易和RW集。Kafka机制提供了对排序的崩溃容错解决方案。
+**Kafka** ：生产环境建议使用Kafka排序。使用了Apache Kafka这个开源的流处理平台，提供统一化的，高吞吐低延迟实时数据处理能力。使用Kafka的时候，处理的数据即经过背书的交易和RW集。Kafka机制提供了对排序是崩溃容错的。
 
 **SBFT** ：表示简化拜占庭容错。这个机制既是崩溃容错的，也是拜占庭容错的，也就是说这个机制在有恶意或者功能失效的节点存在时，也能够达成一致。目前还没有实现这个机制，不过已经在计划中了。
 
 #### 步骤5
-提交peer验证交易，检查RW集仍然是符合当前世界状态的。特别是，背书peer模拟执行交易时读取的R数据，和现在的世界状态是否还是一致的。提交peer验证过交易之后，交易即被写入账本，世界状态根据RW集中的W来更新。
+提交者验证交易，检查RW集仍然是符合当前世界状态的。特别是，背书者模拟执行交易时读取的R数据，和现在的世界状态是否还是一致的。提交者验证过交易之后，交易即被写入账本，世界状态根据RW集中的W来更新。
 
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b05e5430900cf5e414e307d2f99de088/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Transaction_Flow_Step_5.png)
 
-如果交易失败，也就是说提交peer发现RW集和当前世界状态不符，那么交易还是会写入区块，但是会被标记成无效，世界状态也不会按照无效的交易进行更新。
+如果交易失败，也就是说提交者发现RW集和当前世界状态不符，那么交易还是会写入区块，但是会被标记成无效，世界状态也不会按照无效的交易进行更新。
 
-提交peer负责把区块加入的共享账本中，并且更新世界状态。他们可以保存智能合约，没有保存也没关系。
+提交者负责把区块加入的共享账本中，并且更新世界状态。他们可以保存智能合约，也可以不保存。
 
 #### 步骤6
 最后，提交peer异步的通知客户端应用，交易是成功了还是失败了。每个提交peer都会通知应用的。
@@ -151,16 +151,16 @@
 **身份验证**
 除了大量的背书、有效性验证和版本检查，在交易流程的每个步骤还会进行身份验证。
 
-在网络各层次结构中都会实现接入控制列表（从排序服务到通道），交易提案在不同组件之间传递的时候，负载的数据被反复签名、验证和鉴权。
+在网络结构中各层次都有接入控制列表（从排序服务到通道），交易提案在不同组件之间传递的时候，负载的数据被反复签名、验证和鉴权。
 
 #### 交易流程总结
-需要特别注意，网络状态的维护是通过peer实现的，并不是通过排序服务或者客户端应用维持的。正常来说，你需要设计你自己的网络，不同的机器在网络中起到不同的作用。用于排序的机器就不应该同时还承担背书或者提交交易的任务，反之亦然。
+需要特别注意，网络状态的维护是通过peer实现的，并不是通过排序服务或者客户端应用维持的。一般来说，你需要设计你自己的网络，不同的机器在网络中起到不同的作用。用于排序的机器就不应该同时还承担背书或者提交交易的任务，反之亦然。
 
-但是背书和提交peer是可以重叠的。背书peer必须保存智能合约，并且承担提交peer的任务。背书peer需要提交区块，但是提交peer并不需要背书交易。
+但是背书和提交是可以重叠的。背书者必须保存智能合约，并且承担提交者的任务。背书者需要提交区块，但是提交者并不需要背书交易。
 
-背书peer验证客户端应用签名，执行chaincode函数来模拟交易流程。产生的输出是chaincode结果，chaincode需要读出的变量键值对（Read集），chaincode需要写入的变量键值对（Write集）。提案反馈需要发回给客户端应用，附带背书签名。
+背书者验证客户端应用签名，执行chaincode函数来模拟交易流程。产生的输出是chaincode结果，chaincode需要读出的变量键值对（Read集），chaincode需要写入的变量键值对（Write集）。提案反馈需要发回给客户端应用，附带背书签名。
 
-然后这些提案反馈会发给排序者进行排序。排序者把交易按照顺序排入区块，然后转发给背书和提交peer。RW集用于验证交易是不是仍然有效，验证通过后才能写入账本，更新世界状态。最终，peer异步通知客户端应用，交易成功与否。
+然后这些提案反馈会发给排序者进行排序。排序者把交易按照顺序排入区块，然后转发给背书和提交者。RW集用于验证交易是不是仍然有效，验证通过后才能写入账本，更新世界状态。最终，peer异步通知客户端应用，交易成功与否。
 
 ### 3.4 通道channel
 通道允许不同组织使用同一个网络，在同一个网络中管理不同的区块链。只有同一个通道的成员，才能够参与这个通道上进行的交易。换句话说，通道把网络按照不同的利益相关方进行了分区，只有相关利益的人在同一个分区。这个机制通过把交易委托给不同的账本来实现。只有同一个通道上的成员，才能够参与共识过程，网路中的其他成员是看不到这个通道上的交易的。
@@ -239,8 +239,9 @@ $ curl -sSL https://goo.gl/Q3YRTi | bash
 
 ```
 $ docker images
-![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ca726400444f52edbc3e54278077f8dd/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Fabric_installation_1.jpg)
 ```
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/ca726400444f52edbc3e54278077f8dd/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Fabric_installation_1.jpg)
 
 **注意** ： 拉取下来的镜像是带有版本信息的，运行的时候工具会从 latest 的镜像生成容器，所以需要我们手动的为镜像修改标签：
 
@@ -388,7 +389,7 @@ chaincode是可以编程的代码，用Go语言编写，在通道中实例化。
 
 有2个方法在Fabric中开发智能合约：
 - 为单独chaincode实例编写单独的合约
-- （更有效的方式），使用chaincode创建分布式应用，管理一个或者多个类型的业务合约的生命周期，让终端用用户在这些应用中对合约进行实例化
+- （更有效的方式），使用chaincode创建分布式应用，管理一个或者多个类型的业务合约的生命周期，让终端用户在这些应用中对合约进行实例化
 
 #### Chaincode 关键API
 编写chaincode的时候，很重要的接口是Fabric的 [ChaincodeStub](https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim#Chaincode)和 [ChaincodeStubInterface](https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim#ChaincodeStub)。*ChaincodeStub* 提供了与底层账本交互的接口，比如查询、更新和删除资产。关键的API包括：
@@ -396,12 +397,92 @@ chaincode是可以编程的代码，用Go语言编写，在通道中实例化。
 - func (stub *ChaincodeStub) PutState(key string, value []byte) error
 - func (stub *ChaincodeStub) DelState(key string) error
 
-**GetState** ：从账本中返回指定key的值。注意不能从Write集获取数据，因为W集上的数据还没有写入账本呢。换句话说，GetState不能从还没有提交的PutState中获取数据。如果状态数据库中找不到指定key，那么返回（nil, nil）。
+**GetState** ：从账本中返回指定key的值。注意不能从Write集获取数据，因为W集上的数据还没有写入账本。换句话说，GetState不能从还没有提交的PutState中获取数据。如果状态数据库中找不到指定key，那么返回（nil, nil）。
 
 **PutState** ：把指定的key和其值放入交易W集，作为写数据的提案。直到交易被验证和成功提交之后，PutState才真正修改了账本。
 
 **DelState** ：把指定要删除的key放入交易W集，作为写数据的提案。直到交易被验证和成功提交之后，DelState才真正修改了账本。
 
+---
+#### 扩展资料
+##### Chaincode接口
+https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim#Chaincode
+
+定义在shim包。
+
+所有的chaincode都必须实现的方法，2个：
+```
+type Chaincode interface {
+    // Init is called during Instantiate transaction after the chaincode container
+    // has been established for the first time, allowing the chaincode to
+    // initialize its internal data
+    Init(stub ChaincodeStubInterface) pb.Response
+
+    // Invoke is called to update or query the ledger in a proposal transaction.
+    // Updated state variables are not committed to the ledger until the
+    // transaction is committed.
+    Invoke(stub ChaincodeStubInterface) pb.Response
+}
+```
+
+
+##### ChaincodeStub
+
+定义在shim包。
+
+```
+type ChaincodeStub struct {
+    TxID string
+    // contains filtered or unexported fields
+}
+
+func (stub *ChaincodeStub) CreateCompositeKey(objectType string, attributes []string) (string, error)
+func (stub *ChaincodeStub) DelState(key string) error
+func (stub *ChaincodeStub) GetArgs() [][]byte
+func (stub *ChaincodeStub) GetArgsSlice() ([]byte, error)
+func (stub *ChaincodeStub) GetBinding() ([]byte, error)
+func (stub *ChaincodeStub) GetCreator() ([]byte, error)
+func (stub *ChaincodeStub) GetFunctionAndParameters() (function string, params []string)
+func (stub *ChaincodeStub) GetHistoryForKey(key string) (HistoryQueryIteratorInterface, error)
+func (stub *ChaincodeStub) GetQueryResult(query string) (StateQueryIteratorInterface, error)
+func (stub *ChaincodeStub) GetSignedProposal() (*pb.SignedProposal, error)
+func (stub *ChaincodeStub) GetState(key string) ([]byte, error)
+func (stub *ChaincodeStub) GetStateByPartialCompositeKey(objectType string, attributes []string) (StateQueryIteratorInterface, error)
+func (stub *ChaincodeStub) GetStateByRange(startKey, endKey string) (StateQueryIteratorInterface, error)
+func (stub *ChaincodeStub) GetStringArgs() []string
+func (stub *ChaincodeStub) GetTransient() (map[string][]byte, error)
+func (stub *ChaincodeStub) GetTxID() string
+func (stub *ChaincodeStub) GetTxTimestamp() (*timestamp.Timestamp, error)
+func (stub *ChaincodeStub) InvokeChaincode(chaincodeName string, args [][]byte, channel string) pb.Response
+func (stub *ChaincodeStub) PutState(key string, value []byte) error
+func (stub *ChaincodeStub) SetEvent(name string, payload []byte) error
+func (stub *ChaincodeStub) SplitCompositeKey(compositeKey string) (string, []string, error)
+```
+- GetArgs() [][]byte  
+  以2维byte数组的格式，返回用于chaincode Init和Invoke的参数
+  
+- GetStringArgs() []string  
+  按照字符串数组的方式返回chaincode Init和Invoke的参数。如果参数是字符串，那么就用这个方法，而不是上面的GetArgs()
+  
+- GetFunctionAndParameters() (string, []string)  
+  第一个参数作为函数名返回，剩下的参数作为函数参数返回
+
+- GetArgsSlice() ([]byte, error)  
+  以byte数组的格式返回Init和Invoke的参数
+
+- GetTxID() string  
+  返回交易提案的tx_id
+
+- InvokeChaincode(chaincodeName string, args [][]byte, channel string) pb.Response  
+  chaincode再去调用另一个chaincode。交易上下文是是相同的，不会创建一个新的交易消息。  
+  * 如果被调用chaincode通道相同，只是把RW集返回给主调chaincode  
+  * 如果被调用chaincode通道不同，只把response返回给主调chaincode，被调chaincode中的putState不起作用，因为大家通道不同，RW集不能用于主调通道，只有主调chaincode的RW集会作用在交易中。比较有效率的被调chaincode是去做query，这样在随后的提交阶段是不需要做检查验证的。
+  
+- GetState(key string) ([]byte, error)
+- PutState(key string, value []byte) error
+- DelState(key string) error
+
+---
 ### 5.2 Chaincode 程序实例
 创建chaincode的时候，需要实现2个方法：
 - Init
@@ -425,6 +506,8 @@ import (
   "github.com/hyperledger/fabric/core/chaincode/shim"
   "github.com/hyperledger/fabric/protos/peer"
 )
+
+LFS171x/fabric-material/chaincode/sample-chaincode.go
 ```
 
 import语句列出了所有构建chaincode所需的依赖。
@@ -464,7 +547,7 @@ func (t *SampleChaincode) Init(stub shim.ChainCodeStubInterface) peer.Response {
 }
 ```
 
-这个Init的实现，接收2个入参，使用 **stub.PutState** 函数向账本写入键值对。**GetStringArgs** 取得并检查参数的有效性，需要参数是一对键值。因此，我们需要检查参数的个数是2.如果不是，那么返回错误。一旦我们接收到正确数量的参数，那么我们开始保存账本的初始状态。为了实现这一点，我们会调用 **stub.PutState** 函数，指定第一个参数是键，第二个参数是这个键的值。如果没有返回错误，我们就从Init方法返回成功。
+这个Init的实现，接收2个入参，使用 **PutState** 函数向账本写入键值对。**GetStringArgs** 取得并检查参数的有效性，需要参数是一对键值。因此，我们需要检查参数的个数是2。如果不是，那么返回错误。一旦我们接收到正确数量的参数，那么我们开始保存账本的初始状态。为了实现这一点，我们会调用 **PutState** 函数，指定第一个参数是键，第二个参数是这个键的值。如果没有返回错误，我们就从Init方法返回成功。
 
 #### Invoke方法
 现在我们探索一下Invoke方法，是在客户端应用提出交易的时候调用的。在我们的例子里，我们会获取给定资产的键值或者更新给定资产的键值。
@@ -495,7 +578,7 @@ func (t *SampleChaincode) Invoke(stub shim.ChaincodeStubInterface) peer.Response
 - get 方法用来查询和返回现存的某个资产
 - set 方法用来创建一个新资产或者更新一个现存资产
 
-开始，我们调用 **stub.GetFunctionAndParameters** 把函数名和参数变量分开。每个交易要么是 set 要么是 get。让我们看下set 方法是怎么实现的：
+开始，我们调用 **GetFunctionAndParameters** 把函数名和参数变量分开。每个交易要么是 set 要么是 get。让我们看下set 方法是怎么实现的：
 
 ```
 func set(stub shim.ChaincodeStubInterface, args []string) (string, error) {
@@ -511,7 +594,7 @@ func set(stub shim.ChaincodeStubInterface, args []string) (string, error) {
 }
 ```
 
-**set** 方法会用给定的值，指定的key，去创建或者修改资产。set 方法会用指定的键值对修改世界状态。如果key是存在的，那么用新的值覆盖以前的值，通过 **stub.PutState** 方法，如果key不存在，那么会创建一个新的键值对。
+**set** 方法会用给定的值，指定的key，去创建或者修改资产。set 方法会用指定的键值对修改世界状态。如果key是存在的，那么用新的值覆盖以前的值，通过 **PutState** 方法，如果key不存在，那么会创建一个新的键值对。
 
 下面我们看下 get 方法的实现：
 
@@ -534,7 +617,7 @@ func get(stub shim.ChaincodeStubInterface, args []string) (string, error) {
 
 ```
 
-**get** 方法会尝试获取给定key的值。如果一个用传入的不是单个的key，那么返回错误；如果还是单个的key，那么用 **stub.GetState** 方法查询指定key的世界状态。如果这个key还没有加入到账本中（以及世界状态），那么返回错误；如果已经在账本中了，那么从方法中返回这个key的值。
+**get** 方法会尝试获取给定key的值。如果一个用传入的不是单个的key，那么返回错误；如果还是单个的key，那么用 **GetState** 方法查询指定key的世界状态。如果这个key还没有加入到账本中（以及世界状态），那么返回错误；如果已经在账本中了，那么从方法中返回这个key的值。
 
 #### main函数
 main函数会调用 **start** 函数。**main** 函数在容器中启动chaincode，在实例化的过程中：
