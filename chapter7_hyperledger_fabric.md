@@ -1,6 +1,5 @@
 # 超级账本Fabric入门
-## 介绍和学习目标
-### 学习目标
+## 1. 学习目标
 - 理解超级账本Fabric v1.0的基础知识
 - 对Fabric上的例子进行演练和分析
 - 探讨Fabric结构中的关键组件，包括客户端，peer，排序服务和成员服务管理（MSP）
@@ -8,12 +7,12 @@
 - 探讨chaincode（Fabric的智能合约）并演练一个例子
 - 参与到框架的讨论和开发中
 
-## 金枪鱼产业链实例
+## 2. 应用案例 - 海洋渔业
 援引[世界经济论坛](https://www.weforum.org/agenda/2017/05/can-technology-help-tackle-illegal-fishing/):
 > “非法、隐瞒、逃脱监管（IUU）的渔业每年捕捞大约2600万吨，合240亿美元的海产品”
 
 ---
-### 访谈 **待完成**
+### 访谈
 > Hey, everyone! I hope things are going swimmingly!
 > Yeah, let's just keep swimming right through this chapter.
 > Globally, three trillion dollars are spent every year on marine coastal resources and industries.
@@ -36,7 +35,7 @@
 > Good luck and let's dive right on into it!
 ---
 
-## 关键组件和交易流程
+## 3. 关键组件和交易流程
 ---
 ### 访谈
 介绍超级账本Fabric的架构 - Arianna Groetsema
@@ -53,7 +52,7 @@
 > Good luck, and I'll see you in the next section!
 ---
 
-### Fabric网络中的角色
+### 3.1 Fabric网络中的角色
 3种角色：
 - 客户端
 - Peer
@@ -67,7 +66,7 @@
 
 **排序服务**：排序服务接受背过书的交易，将它们排好顺序加入区块，之后发送给提交peer
 
-### 如何达成共识
+### 3.2 如何达成共识
 在分布式账本系统中，**共识** 的意思是就下一次加入账本中的这组交易达成一致的过程。在Fabric中，共识分别通过3个步骤来实现：
 - 交易背书
 - 排序
@@ -75,7 +74,7 @@
 
 这3个步骤维持着网络策略得到贯彻。通过分析交易流程我们会看到这些步骤是怎么实现的。
 
-### 交易流
+### 3.3 交易流
 
 #### 步骤1
 在Fabric网络中，交易始于客户端应用提出交易提案，也就是向背书peer提出一个交易。
@@ -163,7 +162,7 @@
 
 然后这些提案反馈会发给排序者进行排序。排序者把交易按照顺序排入区块，然后转发给背书和提交peer。RW集用于验证交易是不是仍然有效，验证通过后才能写入账本，更新世界状态。最终，peer异步通知客户端应用，交易成功与否。
 
-### 通道channel
+### 3.4 通道channel
 通道允许不同组织使用同一个网络，在同一个网络中管理不同的区块链。只有同一个通道的成员，才能够参与这个通道上进行的交易。换句话说，通道把网络按照不同的利益相关方进行了分区，只有相关利益的人在同一个分区。这个机制通过把交易委托给不同的账本来实现。只有同一个通道上的成员，才能够参与共识过程，网路中的其他成员是看不到这个通道上的交易的。
 
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b23a6aaaa627620a0ab161c556ff87b3/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Key_Components_Channels.png)
@@ -177,7 +176,7 @@
 - 同一个chaincode逻辑可以应用在多个通道上
 - 一个指定用户可以参与多个通道
 
-### 状态数据库
+### 3.5 状态数据库
 当前状态数据代表了账本中各个资产的最新的值。既然当前状态代表了通道上所有已提交的交易，那么有时候当前状态也称为世界状态。
 
 Chaincode调用就是针对当前状态数据进行交易执行的。为了使这些chaincode交互更有效率，每个资产的最新的键值对都保存在数据库中。这个状态数据库只是链上已经提交的交易的数据索引视图。可以根据这个链在任何时候重建。状态数据库在peer启动的时候，在新的交易接受之前，会自动的恢复（后者根据需要重新生成）。默认状态数据库是**LevelDB**，可以替换成**CouchDB**。
@@ -188,12 +187,12 @@ Fabric的LevelDB和CouchDB在结构和功能上是很相似的。两者都支持
 
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9fa87a2726077cff05169f85584224ac/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/State_Database.png)
 
-### 智能合约
+### 3.6 智能合约
 回顾一下，智能合约是计算机程序，是用于执行交易、修改账本上存储的数据的逻辑。Fabric的智能合约称为**Chaincode**，使用Go语言写的。
 
 Chaincode是Fabric网络的业务逻辑，在chaincode中指引你如何操作网络中的资产。我们会在后续的 *理解Chaincode* 章节讨论更多细节。
 
-### 成员服务管理（MSP）
+### 3.7 成员服务管理（MSP）
 MSP是一个组件，其中定义了身份验证、鉴权和网络准入的规则。MSP管理用户ID，对意图加入网络的客户端进行鉴权。这包括了为提出交易的客户端分配密钥的工作。MSP会使用 *认证中心* ，认证中心验证和销毁用户的证书。MSP默认使用的接口是Fabric-CA API，如果愿意，那么组织机构也可以自己实现外部认证中心。这就是Fabric所谓的模块化。
 
 Fabric支持多种安全架构，可以使用多种外部认证中心接口。所以，单独的一个Fabric网络可以控制在多个MSP之下，每个组织可以各得其所。
@@ -206,11 +205,11 @@ Fabric支持多种安全架构，可以使用多种外部认证中心接口。�
 
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/2fe3f7dc2fa52699a96ef7948432113b/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/The_role_of_membership_service_provider.jpg)
 
-### Fabric-认证中心（CA）
+### 3.8 Fabric-认证中心（CA）
 通常，认证中心管理permissioned区块链的证书登记。Fabric-CA是超级账本Fabric的默认认证中心，处理用户身份的注册。Fabric-CA负责发布和废除登记证书（E-Certs）。当前Fabric-CA只是发布E-Certs，提供长期的身份证书。登记认证中心（E-CA）发布的E-Certs，给Peer节点赋予身份，赋予他们加入网络并提交交易的权限。
 
-## 安装Fabric
-### 环境准备
+## 4. 安装Fabric
+### 4.1 环境准备
 要成功安装超级账本Fabric，你需要熟悉Go语言和Node.js，在电脑上安装以下软件：
 - CURL
 - Node.js, npm包管理器
@@ -219,7 +218,7 @@ Fabric支持多种安全架构，可以使用多种外部认证中心接口。�
 
 更多信息请参考第4章 环境准备
 
-### 安装Fabric Docker和工具
+### 4.2 安装Fabric Docker和工具
 下面我们会下载最新发布的Fabric Docker镜像，将它们重新加标签到 **latest**。
 
 在想要存放工具的目录，运行以下命令：
@@ -253,7 +252,7 @@ $ docker tag hyperledger/fabric-tools:x86_64-1.0.2 hyperledger/fabric-tools:late
 
 上面图片显示已经修改标签完成，就不需要再修改了。
 
-### 安装Fabric
+### 4.3 安装Fabric
 记得将下载的bin文件路径加入PATH环境变量。就不需要每次都给出全路径了，通过以下命令修改环境变量：
 
 ```
@@ -267,7 +266,7 @@ $ git clone https://github.com/hyperledger/fabric-samples.git
 $ cd fabric-samples/first-network
 ```
 
-### 开始测试Fabric网络
+### 4.4 开始测试Fabric网络
 成功安装Fabric之后，我们可以开始运行一个含有2个成员的简单网络来看看怎么设置Fabric。参考之前给出的金枪鱼渔业的例子，网络包含每条金枪鱼的验证、运输和消费，在渔民Sarah，饭店业主Miriam之间进行的上述资产管理。我们会建立一个简单的只有2个成员的网络，包含2个组织（就是Sarah和Miriam），每个组织都包含2peer和一个排序者。
 
 我们将用Docker镜像启动我们的第一个Fabric网络。还会启动一个容器来运行一个脚本，其中会将peer加入通道，部署和实例化chaincode，然后在chaincode上进行交易。
@@ -379,8 +378,8 @@ $ ./byfn.sh -m down
 >   These steps, these simple steps show how we can easily spin up and bring down a Hyperledger Fabric network given the code we have.
 ---
 
-## 理解chaincode
-### Chaincode
+## 5. 理解chaincode
+### 5.1 Chaincode
 在Fabric中，Chaincode就是在peer上运行的智能合约。广义上，chaincode 让用户能够在Fabric网络中创建交易，更新资产的世界状态。
 
 chaincode是可以编程的代码，用Go语言编写，在通道中实例化。开发者使用chaincode开发商业合同、定义资产、集中管理分布式应用。chaincode通过应用所调用的交易来管理账本状态。资产通过特定chaincode创建和更新，且不能够被别的chaincode访问。
@@ -403,7 +402,7 @@ chaincode是可以编程的代码，用Go语言编写，在通道中实例化。
 
 **DelState** ：把指定要删除的key放入交易W集，作为写数据的提案。直到交易被验证和成功提交之后，DelState才真正修改了账本。
 
-### Chaincode 程序实例
+### 5.2 Chaincode 程序实例
 创建chaincode的时候，需要实现2个方法：
 - Init
 - Invoke
@@ -551,12 +550,12 @@ func main() {
 }
 ```
 
-## Chaincode演练
+## 6. Chaincode演练
 现在我们大概知道chaincode是怎么编码的了，我们将会实际演练一下，通过在账本中创建一个资产，基于金枪鱼渔业的例子。
 
 有时候代码片段在翻译的时候会丢失，特别是如果上下文没有多大意义的话。为了避免这样的情况，我们调整了用来演示场景的chaincode。本节会分析记录金枪鱼捕捞信息的chaincode，还有查询和更新记录的chaincode。
 
-### 定义资产属性
+### 6.1 定义资产属性
 这是我们将要记录在账本中的金枪鱼的属性：
 - 船只（string）
 - 位置（string）
@@ -574,7 +573,7 @@ type Tuna struct {
 }
 ```
 
-### Invoke方法
+### 6.2 Invoke方法
 如前所述，Invoke 方法是客户端应用提交交易提案的时候调用的。在这个方法中，我们有不同类型的交易：
 - recordTuna
 - queryTuna
@@ -615,7 +614,7 @@ func (s *SmartContract) Invoke(APIstub shim.ChaincodeStubInterface) sc.Response 
   }
 ```
 
-### queryTuna方法
+### 6.3 queryTuna方法
 渔民，监管人员或者饭店老板会调用这个方法查看某个金枪鱼的记录。带有1个参数，目标金枪鱼的键。
 
 ```
@@ -632,7 +631,7 @@ func (s *SmartContract) queryTuna(APIstub shim.ChaincodeStubInterface, args []st
 }
 ```
 
-### initLedger
+### 6.4 initLedger
 向我们的网络加入测试数据：
 
 ```
@@ -662,7 +661,7 @@ func (s *SmartContract) initLedger(APIstub shim.ChaincodeStubInterface) sc.Respo
 }
 ```
 
-### recordTuna
+### 6.5 recordTuna
 Sarah会调用这个方法记录金枪鱼的捕捞信息。需要5个参数（保存进账本的属性）：
 
 ```
@@ -681,7 +680,7 @@ func (s *SmartContract) recordTuna(APIstub shim.ChaincodeStubInterface, args []s
 }
 ```
 
-### queryAllTuna
+### 6.6 queryAllTuna
 用来获取所有的记录，这里就是加入到账本中的所有的金枪鱼记录。不需要参数，会返回JSON字符串，包含查询结果。
 
 ```
@@ -726,7 +725,7 @@ func (s *SmartContract) queryAllTuna(APIstub shim.ChaincodeStubInterface) sc.Res
 }
 ```
 
-### changeTunaHolder
+### 6.7 changeTunaHolder
 金枪鱼在供应链中可能会频繁转手，世界状态中可以按照所有权进行更新。这个方法需要2个入参，tuna id和 new holder name。
 
 ```
@@ -753,10 +752,10 @@ func (s *SmartContract) changeTunaHolder(APIstub shim.ChaincodeStubInterface, ar
 }
 ```
 
-### 结论
+### 6.8 结论
 我们希望现在你已经对怎么组织和编写chaincode有了更好的理解，特别是能够应用在简单例子上了。要看所有的代码片段，请访问Github上的项目： https://github.com/hyperledger/education/blob/master/LFS171x/fabric-material/chaincode/tuna-app/tuna-chaincode.go
 
-## 编写应用
+## 7. 编写应用
 **什么是区块链应用？**
 
 在区块链应用中，区块链会保存系统的状态，以及促成这个状态的所有交易的记录，都永久性的保存在区块链中。向区块链发送交易，是客户端应用的任务。需要用智能合约为业务逻辑（全部或者部分）编码。
@@ -772,7 +771,7 @@ func (s *SmartContract) changeTunaHolder(APIstub shim.ChaincodeStubInterface, ar
 
 更多信息，请访问Fabric Node.js SDK 文档：https://fabric-sdk-node.github.io/tutorial-app-dev-env-setup.html
 
-### 金枪鱼渔业应用
+### 7.1 海洋渔业应用
 金枪鱼渔业应用将会演示在金枪鱼供应链中，怎么使用Fabric创建记录和在不同角色间转移金枪鱼所有权。
 
 这个应用会使用Node.js编写。智能合约chaincode会使用我们在上一节所用的代码。与chaincode的交互通过使用gRPC协议与网络上的peer进行通信来实现。gRPC协议的细节由Fabric客户端Node.js SDK负责。
@@ -996,7 +995,7 @@ $ docker rm -f $(docker ps -aq)
 $ docker rmi -f $(docker images -a -q)
 ```
 
-### 应用流程基础
+### 7.2 应用流程基础
 #### 流程 
 
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a63eaf4dd007c3e65ee63955eccaf5b6/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/fabric-application-flowbasics.png)
@@ -1019,7 +1018,7 @@ $ docker rmi -f $(docker images -a -q)
 5. 应用将经过背书的提案通过SDK发给排序服务。排序者把来自全网的很多提案打包到区块中，然后把它广播给网络中的提交peer
 6. 最后，每个提交peer都会验证区块，然后写到账本里。现在这个交易就算是已经提交了，其后的读操作会看到这个交易的结果
 
-## 参与Fabric社区
+## 8. 参与Fabric社区
 Fabric是一个开源项目，其中的想法和代码都是公开讨论、创建和评审的。有很多方法加入到Fabric社区中。下面我们会高亮一些参与的方式，从技术角度或者从创意角度。
 
 ---
@@ -1036,12 +1035,12 @@ Fabric的未来 Chris Ferris
 > because it can be a real launching pad to a successful career.
 ---
 
-### 社区会议和邮件列
+### 8.1 社区会议和邮件列
 可以在Fabric 文档中参加周例会，或Fabric其他会议，参考 [Hyperledger Community Meetings Calendar](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_nf9u64g9k9rvd9f8vp4vur23b0%40group.calendar.google.com&ctz=America/SanFrancisco)
 
 可以参与邮件列表进行技术讨论和查看公告：https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric
 
-### JIRA和Gerrit
+### 8.2 JIRA和Gerrit
 如果有bug需要报告，可以通过JIRA提交issue（需要Linux基金会账号访问JIRA）：https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104
 
 你也可以查找和审查现有的问题，选择一个感兴趣的问题开始在上面工作： https://jira.hyperledger.org/browse/FAB-5491?filter=10580
@@ -1058,14 +1057,17 @@ Gerrit用来提交PR，管理代码评审和检入代码。所有的代码都可
 关于Fabric项目有超过24个频道。 #Fabric 频道用来讨论Fabric项目。可以从这个链接查到这些频道的指南： https://wiki.hyperledger.org/community/chat_channels
 
 
-## 结论
+## 9. 结论
 ---
 ### 访谈
 结论 - Alexandra Groetsema
-> Congratulations! You've reached the end of the Hyperledger Fabric chapter.
-> We hope you feel more comfortable with Hyperledger Fabric and are interested in implementing this in your very own distributed ledger solution.
-> If you would like to get more involved with this open source project, feel free to join the discussions on Rocket.Chat,
-> contribute to code, and interact with the community at meetups.
-> Stay tuned for another course that will give a more in-depth look at Hyperledger Fabric in the near future.
-> This is Alexandra signing out! See you later!
+> 恭喜，你已经完成了超级账本Fabric课程的学习.
+>
+> 希望你已经对超级账本Fabric有了更好的感受，并且有兴趣在你自己的分布式账本方案中使用Fabric。
+> 
+> 如果你想要更深入的参与开源项目，欢迎才与Rocket.Chat的讨论，贡献代码以及参加社区的聚会。
+>
+> 敬请期待不久之后的另一个课程，将会更深入的介绍超级账本Fabric。
+>
+> 我是Alexandra，后会有期！
 ---
