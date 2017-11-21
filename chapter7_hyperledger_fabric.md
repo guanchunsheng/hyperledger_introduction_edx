@@ -458,31 +458,55 @@ func (stub *ChaincodeStub) PutState(key string, value []byte) error
 func (stub *ChaincodeStub) SetEvent(name string, payload []byte) error
 func (stub *ChaincodeStub) SplitCompositeKey(compositeKey string) (string, []string, error)
 ```
-- GetArgs() [][]byte  
+- **GetArgs() [][]byte**
   以2维byte数组的格式，返回用于chaincode Init和Invoke的参数
   
-- GetStringArgs() []string  
+- **GetStringArgs() []string**  
   按照字符串数组的方式返回chaincode Init和Invoke的参数。如果参数是字符串，那么就用这个方法，而不是上面的GetArgs()
   
-- GetFunctionAndParameters() (string, []string)  
+- **GetFunctionAndParameters() (string, []string)**  
   第一个参数作为函数名返回，剩下的参数作为函数参数返回
 
-- GetArgsSlice() ([]byte, error)  
+- **GetArgsSlice() ([]byte, error)**  
   以byte数组的格式返回Init和Invoke的参数
 
-- GetTxID() string  
+- **GetTxID() string**  
   返回交易提案的tx_id
 
-- InvokeChaincode(chaincodeName string, args [][]byte, channel string) pb.Response  
+- **InvokeChaincode(chaincodeName string, args [][]byte, channel string) pb.Response**  
   chaincode再去调用另一个chaincode。交易上下文是是相同的，不会创建一个新的交易消息。  
   * 如果被调用chaincode通道相同，只是把RW集返回给主调chaincode  
   * 如果被调用chaincode通道不同，只把response返回给主调chaincode，被调chaincode中的putState不起作用，因为大家通道不同，RW集不能用于主调通道，只有主调chaincode的RW集会作用在交易中。比较有效率的被调chaincode是去做query，这样在随后的提交阶段是不需要做检查验证的。
   
-- GetState(key string) ([]byte, error)
-- PutState(key string, value []byte) error
-- DelState(key string) error
-
+- **GetState(key string) ([]byte, error)**
+- **PutState(key string, value []byte) error**
+- **DelState(key string) error**
+- **GetStateByRange(startKey, endKey string) (StateQueryIteratorInterface, error)**  
+  返回账本中一组key组成的迭代器。迭代器可以是startKey和endKey之间（包含这两个key）的所有key。迭代器中的key是按文字顺序排列的。startKey和endKey都可以是空的，如果是空的就表示起始或者终止没有限制。
+- **GetStateByPartialCompositeKey(objectType string, keys []string) (StateQueryIteratorInterface, error)**  
+  按照给定的部分复合键查询状态。返回迭代器，其中的kay的前缀匹配给定的部分复合键。
+- **CreateCompositeKey(objectType string, attributes []string) (string, error)**  
+  把给定的属性组合起来组成复合键。产生的复合键可以用于putState()
+- **SplitCompositeKey(compositeKey string) (string, []string, error)**  
+  把给定复合键拆分成属性。
+- **GetQueryResult(query string) (StateQueryIteratorInterface, error)**  
+  进行“rich”查询。只有在支持rich查询的数据库比如CouchDB上才能执行。
+- **GetHistoryForKey(key string) (HistoryQueryIteratorInterface, error)**  
+  返回key的历史值。返回每次key更新的值、相关交易ID、时间戳。
+- **GetCreator() ([]byte, error)**  
+  返回“SignedProposal”的“SignatureHeader.Creator”，比如一个ID。这是提交交易的用户或者代理人的身份。
+- **GetTransient() (map[string][]byte, error)**  
+  返回“ChaincodeProposalPayload.Transient”域，是包含实现应用层机密性有关的一些数据，比如密码等。
+- **GetBinding() ([]byte, error)**  
+  返回交易binding
+- **GetSignedProposal() (\*pb.SignedProposal, error)**  
+  返回SignedProposal对象，包含交易提案的全部数据元素
+- **GetTxTimestamp() (\*timestamp.Timestamp, error)**  
+  返回交易创建的时间戳。是从交易的ChannelHeader拿到的，反应的是客户端的时间戳，在所有的背书者上都是一致的。
+- **SetEvent(name string, payload []byte) error**  
+  允许chaincode在交易提案上提交一个事件。如果交易验证通过提交成功，那么事件会递交给当前的事件监听者。
 ---
+
 ### 5.2 Chaincode 程序实例
 创建chaincode的时候，需要实现2个方法：
 - Init
@@ -1107,37 +1131,43 @@ Fabric是一个开源项目，其中的想法和代码都是公开讨论、创�
 ---
 ### 访谈
 Fabric的未来 Chris Ferris
-> So, the Hyperledger [Fabric] development, obviously, has been ongoing now for about a year and a half.
-> We've grown from an initial start of almost exclusively IBM developers, probably about 20 or so initially,
-> to the point where we're now over 150 developers collaborating on Hyperledger Fabric, from many companies, and a lot of individuals, and, in fact, a lot of students, as well,
-> and so, I think, the future is really to have a much more diverse community of ideas coming into play,
-> and helping us plan out what's going on in the next release, helping us fixing bugs, helping us with improving documentation, and so forth.
-> And so, I'm really excited about the prospects of having new members come and join us in this journey, in developing permissioned blockchains for the enterprise.
-> And so, again, I think, it's really an important opportunity for a lot of people,
-> especially as they are beginning their careers, to get involved in an open source project,
-> because it can be a real launching pad to a successful career.
+> 超级账本Fabric的开发已经进行了一年半的时间。我们从开始的20名左右的IBM开发人员，发展到许多公司和个人，甚至很多是学生的150人左右的开发者队伍。
+>
+> 我相信这个社区将来会碰撞出更多的想法帮助我们计划今后的版本发布，帮助我们修正bug，改善文档，等等。
+>
+> 所有我对于新成员加入进来开发permissioned企业区块链的活动，是非常高兴的。
+> 
+> 再次重申，我认为现在对于很多人来说是个重要的机会，特别是那些即将进入职场的人，想要加入开源项目的人，因为这真是一个很好的跳板。
 ---
 
 ### 8.1 社区会议和邮件列
 可以在Fabric 文档中参加周例会，或Fabric其他会议，参考 [Hyperledger Community Meetings Calendar](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_nf9u64g9k9rvd9f8vp4vur23b0%40group.calendar.google.com&ctz=America/SanFrancisco)
 
-可以参与邮件列表进行技术讨论和查看公告：https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric
+可以参与邮件列表进行技术讨论和查看公告：  
+https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric
 
 ### 8.2 JIRA和Gerrit
-如果有bug需要报告，可以通过JIRA提交issue（需要Linux基金会账号访问JIRA）：https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104
+如果有bug需要报告，可以通过JIRA提交issue（需要Linux基金会账号访问JIRA）：  
+https://jira.hyperledger.org/secure/Dashboard.jspa?selectPageId=10104
 
-你也可以查找和审查现有的问题，选择一个感兴趣的问题开始在上面工作： https://jira.hyperledger.org/browse/FAB-5491?filter=10580
+你也可以查找和审查现有的问题，选择一个感兴趣的问题开始在上面工作：  
+https://jira.hyperledger.org/browse/FAB-5491?filter=10580
 
-可以通过这个链接查看怎么使用JIRA文档：https://wiki.hyperledger.org/community/jira-navigation
+可以通过这个链接查看怎么使用JIRA文档：  
+https://wiki.hyperledger.org/community/jira-navigation
 
-Gerrit用来提交PR，管理代码评审和检入代码。所有的代码都可以fork和查看： https://gerrit.hyperledger.org/r/#/admin/projects/
+Gerrit用来提交PR，管理代码评审和检入代码。所有的代码都可以fork和查看：  
+https://gerrit.hyperledger.org/r/#/admin/projects/
 
-使用Gerrit的指导：https://hyperledger-fabric.readthedocs.io/en/latest/Gerrit/gerrit.html
+使用Gerrit的指导：  
+https://hyperledger-fabric.readthedocs.io/en/latest/Gerrit/gerrit.html
 
 ### Rochet.Chat
-可以参加实时聊天 Rocket.Chat（类似Slack），用Linux基金会ID：https://chat.hyperledger.org/home
+可以参加实时聊天 Rocket.Chat（类似Slack），用Linux基金会ID：  
+https://chat.hyperledger.org/home
 
-关于Fabric项目有超过24个频道。 #Fabric 频道用来讨论Fabric项目。可以从这个链接查到这些频道的指南： https://wiki.hyperledger.org/community/chat_channels
+关于Fabric项目有超过24个频道。 #Fabric 频道用来讨论Fabric项目。可以从这个链接查到这些频道的指南：  
+https://wiki.hyperledger.org/community/chat_channels
 
 
 ## 9. 结论
