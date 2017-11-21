@@ -5,6 +5,7 @@
 我们始终在寻找帮助构建商用区块链技术开源生态。
 
 如果你有兴趣为社区做贡献或者从社区学习，欢迎访问[官方主页](https://cn.hyperledger.org/)。
+
 ---
 ### 访谈
 超级账本社区 - Tracy Kuhrt
@@ -65,6 +66,73 @@
 > > 
 > > 我们期望能够在超级账本社区见到你
 ---
+
+---
+### 访谈
+奖励和挑战 - Brian Behlendorf
+> 主持人：作为超级账本项目的执行理事，你的工作中最大的挑战和最大的收获是什么？
+>
+> Behlendorf：我的工作是Linux基金会超级账本的执行理事
+What's the most challenging and rewarding aspect of your job as Executive Director of the Hyperledger project?
+So, my job as Executive Director of Hyperledger for The Linux Foundation, right,
+I work for The Linux Foundation, they cut my paycheck, that's where I'd show up for work, well, most days,
+is a lot of fun, right? I tell people it's not really Executive Director so much, as it is geek diplomat,
+because my charter is to really help build this barbell-shaped kind of community, right, of developers,
+and how do we really get them to play nice with each other, to organize their efforts so that any hour that a developer can give,
+you know, they get the most out of, right, and we get the most out of them for that hour, alright?
+And so, how do we grow that and scale that up - that's one set of those challenges.
+And so, I've got a staff focused on that.
+And then, another set of challenges are how do we get the companies to show up to the project, to start using the code, right,
+to start building a business on top of that, and how do we get some of them to join as members,
+because membership is what allows me to show up in the morning and get a paycheck, and my staff as well.
+So, we now have grown this to over 150 different member organizations,
+ranging from IBM, to the Bank of England, to Wanda in China, to a whole bunch of startups all over the world,
+and it's really fun, but it's also really challenging to figure out how do we make sure this technology can relate to those businesses and to the developers themselves,
+and how do we make sure both communities, the participants and that, feel like they're getting something out of the investment that they're making.
+This isn't a charity, I can't depend upon selfless actions on the parts of developers, or on the parts of companies, for sure.
+We need to make sure that they feel like they're really getting something for their activity.
+So, it means a lot of travel, which is the hardest part, because I've got a two-year-old, you know, and so, I want to spend as much time at home as I can,
+and a lot of calls at 6:00 a.m. in the morning, or 9:00 p.m. at night, because we've got, you know, partners, and even staff, in Asia, and in Europe.
+So, those are some of the challenges, but it's really fun feeling like we're at the leading edge of a technology domain,
+and also really fun to think about this as somewhat the antidote to the increasing centralization of power on the Internet,
+this is a way of decentralizing markets, decentralizing information systems,
+and so, I think we're doing something that has a really deep impact and potentially a very positive social impact, as well.
+---
 ## 2. 加入超级账本社区
+你也能加入超级账本社区：
+
+- **开发者**
+  阅读[Github](https://github.com/hyperledger/hyperledger)上的代码，参与[Rocket.Chat](https://chat.hyperledger.org/home)。在[Hyperledger’s bug database](https://jira.hyperledger.org/secure/Dashboard.jspa)上查找未解决的bug，或者报告新发现的bug。
+  
+- **商业领袖**  
+  参与[邮件列表](https://lists.hyperledger.org/mailman/listinfo)关注超级账本的关键更新。探索超级账本的所有的[商业方案](https://www.hyperledger.org/projects)
+
+- **教育和社区领袖**  
+  启动或者参加[超级账本会议](https://www.meetup.com/pro/hyperledger/)。可以从[Wiki](https://wiki.hyperledger.org/)上找到开发更新信息。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9f346d9125ac62f4462d898aa9e172ac/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Hyperledger_Global_Meetups.png)
+
+---
+### 访谈
+
+骇客松 - Brian Behlendorf
+> 骇客松就是开发者为一个开源项目聚在一起。其中有些人是核心成员，已经加入项目很长时间了，其他人可能是新手，只是听说过这个项目。
+>
+> 这不是正式会议，是比较松散的结构，一起讨论不同的主题，讨论代码的状态，项目的状态，带领新人越过学习曲线，通过邮件，聊天之类的途径。
+>
+> 这会加快项目进展的节奏，最后还是个机会让人们互见面，不只是email的地址或者Github上的ID，而是活生生的人。
+---
 ## 3. 超级账本工作组
+超级账本工作组对公众是开放的。开发者和技术领导者可以参与在这个[页面](https://github.com/hyperledger/hyperledger/wiki/PublicMeetingCalendar)参与超级账本的开放社区频道。
+
+下图是超级账本工作组的概况：
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/cca8220e1d574e52f989fd518d54d5fb/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Hyperledger_Working_Groups.png)
+
 ## 4. 结论
+对于**商业区块链：超级账本技术入门教程**的总结：  
+我们介绍了当前超级账本框架和模块，强调了一些商业区块链应用案例。  
+我们带领你在3个最成熟的超级账本框架中（Iroha，Sawtooth和Fabric）进行了深度探索，给出了Sawtooth和Fabric的深度教程。
+
+希望本课程能够为你提供灵感，帮助你继续在商业区块链技术的世界中前行。无论你是工程师，还是企业家、开发者、教育者或者商业人士，我们都期望看到你学有所成，在课程论坛中听到你的声音。
+
+祝你们好运，努力收获未来。
