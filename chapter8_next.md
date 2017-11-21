@@ -129,7 +129,7 @@ and so, I think we're doing something that has a really deep impact and potentia
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/cca8220e1d574e52f989fd518d54d5fb/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Hyperledger_Working_Groups.png)
 
 ## 4. 结论
-对于**商业区块链：超级账本技术入门教程**的总结：  
+对于**商业区块链：超级账本技术入门教程**的总结：  
 我们介绍了当前超级账本框架和模块，强调了一些商业区块链应用案例。  
 我们带领你在3个最成熟的超级账本框架中（Iroha，Sawtooth和Fabric）进行了深度探索，给出了Sawtooth和Fabric的深度教程。
 
