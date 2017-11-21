@@ -13,26 +13,40 @@
 
 ---
 ### 访谈
-> Hey, everyone! I hope things are going swimmingly!
-> Yeah, let's just keep swimming right through this chapter.
-> Globally, three trillion dollars are spent every year on marine coastal resources and industries.
-> Marine fisheries employ over 200 million people, from fishing, to processing, to shipping, and sales.
-> As much as 40% of our oceans are heavily affected by human activities like illegal fishing.
-> Every year, five million tons of tuna, with an estimated value of forty billion dollars, are sold.
-> This is a huge industry, and one that could benefit greatly from innovation and transparency.
-> With the Tuna 2020 Traceability Declaration in mind, our goal is to eliminate illegal, unreported, and unregulated fishing.
-> We will use Hyperledger Fabric to bring transparency and clarity to a real-world example: the supply chain of tuna fishing.
-> We will be describing how tuna fishing can be improved, starting from the source, fisherman Sarah, and the process by which her tuna ends up at Miriam's restaurant.
-> In between, we'll have other parties involved, such as the regulator who verify the validity of the data and the sustainability of the tuna catches.
-> We will be using Hyperledger Fabric's framework to keep track of each part of this process.
-> Now, as you read through the demonstrated scenario section, there are two main ideas to pay attention to:
-> 1. There are many actors within the network, and you will see how these actors interact, and how a transaction is conducted.
-> 2. Private channels allow Sarah and Miriam to privately agree on the terms of their interaction,
-> while still maintaining transparency, so other actors can corroborate and confirm their transaction.
-> Using private channels, regulators and restaurateurs can confirm whether a particular shipment of tuna was sustainably and legally sourced,
-> without needing to see the details of the entire journey.
-> Only the fisherman and the restaurateur are privy to such specific details.
-> Good luck and let's dive right on into it!
+> 嘿，大家！我希望事情进展的很顺利！
+>
+> 好吧，让我们继续往下学习吧。
+>
+> 全球每年会有3万亿美元用于海洋资源开发和相关的产业。
+>
+> 海洋渔业有2亿多的从业者，从事捕鱼、加工、运输和销售等工作。
+>
+> 我们多达40%的海洋受到诸如非法捕鱼等人类活动的严重影响。
+> 
+> 每年有五百万吨金枪鱼出售，估计价值四百亿美元.
+>
+> 这是一个巨大的行业，可以从创新和增强透明性中受益。
+>
+> 配合金枪鱼2020可追溯性宣言，我们的目标是消除非法、未报告和无管制的捕捞活动。
+>
+> 我们将用超级账本Fabric为真实世界提供一个让金枪鱼供应链更加透明和清晰的例子。
+> 
+> 我们会看到从金枪鱼源头，渔民Sarah，到供应链的末尾，饭店老板Miriam的饭店之间，Fabric是如何改善整个过程的。 
+>
+> 在这个过程中，还有其他参与者，比如验证和检查金枪鱼捕捞日期和可持续性的监管人员。
+>
+> 我们将使用Fabric的框架来跟踪这个过程的每一部分。
+>
+> 现在，当你阅读演示场景的部分时，有两个主要的想法需要注意：
+>
+> 1. 网络中有很多角色, 你会看到这些角色是怎么交互的, 以及交易是怎么进行的.
+> 2. 私人通道允许Sarah和Miriam私下就她们的交易条件达成协议
+>
+> 同时还能保证透明性, 其他人还可以证实并确认她们的交易.
+>
+> 通过私人通道，监管机构和餐馆可以确认装运金枪鱼是可持续的且来源合法，而并不需要了解整个过程的所有细节，只有渔民和餐馆老板都知道这样的具体细节。
+>
+> 祝你好运，让我们开始吧！
 ---
 
 ## 3. 关键组件和交易流程
@@ -40,16 +54,21 @@
 ### 访谈
 介绍超级账本Fabric的架构 - Arianna Groetsema
 
-> Hello, everybody!
-> We'll now be going over the architecture of Hyperledger Fabric.
-> Hyperledger Fabric is so unique, because it allows for modular consensus and membership service.
-> This means that algorithms for consensus, identity verification are plug-and-play,
-> resulting in a universal blockchain architecture, that can be applied to most industries or business models.
-> Channels are another unique feature.
-> They allow transactions to be private between two actors, while still being verified and committed to the blockchain.
-> You will also learn about the different roles within a network, how consensus is reached, and other special features.
-> By the end of this section, you will understand how a transaction is performed between two actors and what exactly occurs within a network during a transaction.
-> Good luck, and I'll see you in the next section!
+> 大家好！
+>
+> 现在我们要开始看看超级账本Fabric的架构了。
+>
+> 超级账本Fabric非常独特, 因为它允许模块化的共识和成员管理服务。这意味着共识、身份验证算法是即插即用的。
+> 
+> 这样就造就了一个普适的区块链架构，可应用于大多数行业或业务模型。
+>
+> 通道是另一个独特的特性。通道允许两人之间的交易是私密的，当时仍然能够在区块链中验证和提交。
+> 
+> 你还会了解网络中的不同角色, 共识如何达成, 以及其他的特性.
+>
+> 本节过后，你将了解如何在两个参与者之间执行交易，以及在一个交易中网络上到底发生了什么。
+>
+> 祝好运，下节见！
 ---
 
 ### 3.1 Fabric网络中的角色
@@ -106,18 +125,17 @@
 ---
 ##### 访谈
 排序服务 - Chris Ferris
-> The ordering service is actually something that we conceived of as a function of the initial rollout of Fabric 0.6, last year,
-> in the sense that... we determined that, in order to improve the performance of the consensus computation,
-> that, if we separated out the ordering aspects of consensus, where typically, whether it's Bitcoin or Ethereum, the minors are determining the order of transactions in a block,
-> if we instead make that in an independent service, and apply the fault tolerance to the ordering service itself,
-> we can actually get a significant improvement in performance and throughput of the overall system.
-> And so, we've implemented, to date, two ordering services.
-> One is called SOLO - it's really a toy; I mean, it's intended to be used for development purposes, or initial testing of new functions, and so forth.
-> And then, another one is based on an implementation of Kafka.
-> And, over time, as we go forward, we plan on introducing various forms of fault tolerance too to that ordering service.
-> And so, the initial one is going to be based on RAFT consensus, which isn't byzantine fault tolerant, but it is crash fault tolerant,
-> and then, there is ongoing work on something we call Simplified Byzantine Fault Tolerance,
-> and that, we should have probably in the first half of 2018.
+> 排序服务实际上是我们去年在首次推出Fabric 0.6的时候就设想的功能，从某种意义上说，我们是为了提高公式计算的性能而决定这么做的。
+> 
+> 如果我们把共识部分独立出来, 在比特币和以太坊中，是矿工决定了区块中交易的顺序。 
+>
+> 如果我们把它单独拿出来做一个服务, 并将容错应用于排序服务本身，那么我们可以在整个系统的性能和吞吐量方面获得显著的改进。
+>
+> 所以到目前为止我么实现了2个排序服务.一个称为SOLO - 这只是个小玩意，我的意思是它是用于开发目的，或者新功能的初步测试之类。
+> 
+> 另一个排序服务基于Kafka。我们计划以后引入更多的容错机制到排序服务。首先是基于RAFT的共识，不是拜占庭容错的，是崩溃容错的。
+> 
+> 然后是简化拜占庭容错, 在2018上半年应该会推出。
 ---
 
 *同一个时间表内的交易按照串行顺序保存在同一个区块中*
@@ -313,70 +331,67 @@ $ ./byfn.sh -m down
 ---
 ### 访谈
 安装超级账本 Fabric
->    Hi everyone! In this video, we will be covering how to install Fabric and build a test network.
->    Before you start, make sure that you have Go, Node.js, cURL, npm package manager, Docker, and Docker Compose downloaded on your machine.
->    Make sure to open a terminal window, because this is where we will be working in this video,
->    and also, have Docker running on your machine.
->    We are going to start with downloading the Hyperledger Fabric platform-specific binaries,
->    and to do that, I'm going to move into my desktop directory [cd directory], which I am already in.
->    But you can chose any directory that you would like to download the binaries and Docker images in.
->    I'm just choosing the desktop.
->    And you are going to run the following command: 'curl -sSL https://goo.gl/Q3YRTi | bash'.
->    Now, depending on when you are taking this course, I'd recommend checking the Hyperledger Fabric readthedocs page,
->    and make sure under the "Download Platform-specific Binaries"
->    that you use the most updated URL in that command.
->    Great! So, I am going to press 'Enter', and this command might take a couple of minutes to execute,
->    but be patient.
->    This command downloads binaries for cryptogen, config transaction generator, and the Hyperledger Fabric Docker images that I mentioned before.
->    These assets are placed in a 'bin' subdirectory of the current directory that you are in.
->    Great. So, this has finished executing, and we can see the list of Hyperledger Docker images here,
->    and, if we scroll up, you can see all of then being downloaded.
->    You can go through that on your own time.
->    But I want to just point in the direction of the tags here.
->    Now, mine shows 'latest' for each of the ones, so, for 'fabric-ca', there's a 'latest' tag, the tag is 'latest'.
->    So, this is what we want to see.
->    But, if yours doesn't have this, there are some directions in the documentation that show you how to tag each of these with 'latest',
->    because you will need that for some of the following steps.
->    But, I won't need to, because it's already done for me.
->    Ok.
->    Next, we want to install Hyperledger Fabric, and as an additional measure,
->    you may want to add the 'bin' subdirectory to your PATH environment variable.
->    So, these can be picked up without needing to qualify the PATH to each binary.
->    And you can do that by running the following command in the same directory you just downloaded everything: 'export PATH=$PWD/bin:$PATH'.
->    Great.
->    So, now we are going to install the Hyperledger Fabric sample code, which will be used in this tutorial, and that is going to be on GitHub.
->    So, you'll run the following command: 'git clone'... and I am just doing that in my desktop, as well,
->    'https://github.com/hyperledger/fabric-samples.git'.
->    And that will download the repository to my desktop.
->    So, we have that code now.
->    And I am going to cd into 'fabric-samples/first-network'.
->    Great. Let's just 'ls' to see what's in here.
->    Great.
->    We see a lot of yaml files and a 'byfn.sh', which is good.
->    And now, we're ready to start a test Hyperledger Fabric network with this code that we downloaded.
->    So, in the first... make sure you're in the 'first-network' directory, or folder, and run the following command './byfn.sh -m generate'.
->    A brief description will pop up, and you can just type 'y' and 'Enter' to continue,
->    and you'll see the generation of certificates, and other good stuff you can go through and read this on your own if you'd like.
->   But this means that this executed well.
->   Next, you can start the network with the following command... in the same folder, 'first-network' again, './byfn.sh -m up'.
->   Another command will come up, or another question... you can type 'y' and 'Enter' to continue.
->   Now, this command might also take a little bit of time.
->   But logs will appear in the command line, showing containers being launched, and other things.
->   But we'll talk about that when it finishes running.
->   So, this command has finished executing, with this 'END' message here.
->   And we can see, as I mentioned before, there's a lot of logs that appear in the terminal,
->   or in the command line, showing containers being launched, channels being created and joined,
->   chaincode being installed, instantiated, and invoked on all the peers that were created,
->   as well as other various transaction logs, that you can go through and read on your own.
->   Now, if you had trouble with the commands, or you're not seeing something similar to what I am seeing,
->   in the documentation, there is a troubleshooting note I recommend going and looking at that and trying to see if that helps you.
->   So, just to finish up and shut down this network that we've tested out, 'CTRL + C', if you're on a Mac, or exit that execution and run './byfn.sh -m down'.
->   Another message will pop up, press 'y' and 'Enter' to continue.
->   So, this command will kill your containers, remove the crypto material that we downloaded before,
->   and four artifacts, and delete the chaincode images from your Docker Registry.
->   So, it won't delete the 'bin' subdirectory that you downloaded before, but it will just shut everything down and bring it down.
->   And that's it for a simple demonstration.
->   These steps, these simple steps show how we can easily spin up and bring down a Hyperledger Fabric network given the code we have.
+> 大家好！在这个视频中，我们将介绍如何安装Fabric和构建测试网络。
+>
+> 在你开始之前，确保你已经安装了Go，Node.js，cURL，NPM软件包管理器，Docker，Docker compose
+>
+> 请确保打开了一个终端窗口，因为这是我们这个视频中工作的地方，然后在机器中运行Docker。
+>
+> 我们要开始下载超级账本Fabric平台特定的二进制文件，进入我们的工作目录[cd directory]。
+>    
+> 你可以选择任何目录下载的二进制文件和Docker Images。我就在桌面目录开始工作。
+>
+> 现在通过命令'curl -sSL https://goo.gl/Q3YRTi | bash'安装。
+>
+> 因为这个视频教程录制之后，URL可能更新，所以建议检查一下超级账本Fabric的文档页面，在“Download Platform-specific Binaries” 中找到这个命令的最新URL。
+>
+> 非常好！输入这命令以后，按回车，然后可能需要几分钟的时间来执行脚本。请耐心等待。
+>
+> 这个命令会下载cryptogen, config transaction generator，超级账本Fabric的Docker镜像等。这些东西都放在了“bin”文件夹内
+>
+> 好。执行完毕。我们已经能够看到超级账本Docker镜像了。向上翻看输出信息，能够看到所有东西都下载完成。
+>
+> 这里我介绍一下Docker镜像标签的问题。我们需要各个镜像都是带有“latest”的标签。但是如果你下载以后标签并不是“latest”，本教程有说明如何修改标签。
+>
+> 因为我这里已经都修改好了，所以就不需要再修改了。 
+>
+> 下一步，我们要安装超级账本Fabric，在这之前需要把bin文件夹加入到系统路径PATH中。
+>
+> 可以通过以下命令把bin文件夹加入PATH：“export PATH=$PWD/bin:$PATH” 
+>
+> 好。现在我们安装Fabric sample code，本教程会用到这个工程，这个工程保存在Github上。
+>
+> 需要把“https://github.com/hyperledger/fabric-samples.git” 项目clone到本地。
+>
+> 下载好了以后，我们要cd进入“fabric-samples/first-network”
+>
+> 用ls查看里边有什么。有很多yaml文件，一个“byfn.sh”。
+>
+> 现在已经可以开始测试超级账本Fabric网络了。在“first-network” 目录内，运行下面命令：“./byfn.sh -m generate”
+>
+> 会弹出一些简短的描述，如果有提示问yes还是no，输入y然后回车。 
+>
+> 之后胡看到证书已经生成，还有其他信息，你可以自行阅读。这就表明运行成功。
+>
+> 下面，可以在这个目录内通过以下命令开启网络：“./byfn.sh -m up” 
+>
+> 还会有提示，继续输入y并回车。
+>
+> 这个命令执行也需要点时间。在命令行中会出现很多log，显示容器已经启动等等。
+>
+> 这个命令成功后会有“END”字样。会有很多的log，显示容器创建成功，通道创建成功，通道加入，安装chaincode，实例化，在peer上调用chaincode，等等信息。
+>
+> 如果命令运行出现问题，你没有看到我这里的信息。那么本教程中也有故障排除提示，请参考是否可以帮助解决你的问题。
+>
+> 结束后关闭网络，首先“CTRL+C”退出容器，然后命令：“./byfn.sh -m down”
+>
+> 还会有提示，继续输入y并回车。
+>
+> 这个命令会杀掉你的容器，删除密钥信息和artifacts信息，从你的Docker注册表删掉chaincode镜像。
+>
+> 但是bin文件夹并不会删除。
+>
+> 这就是一个简单的演示。这些步骤能够看出来，启动和关闭一个超级账本Fabric网络是很容易的。
 ---
 
 ## 5. 理解chaincode
@@ -886,26 +901,39 @@ func (s *SmartContract) changeTunaHolder(APIstub shim.ChaincodeStubInterface, ar
 ---
 #### 访谈
 Fabric 金枪鱼渔业应用 Alexandra Groetsema
-> So far, in this chapter, we've covered the components of Hyperledger Fabric's framework,
-> including the different types of nodes in the network, private channels, and database features.
-> We've also installed and spun up our very own test network, deep dived into chaincodes smart contact programming, and gone through a demonstrated example, detailing how Fabric is so unique.
-> So, now, we've gotten to the really exciting part, where we combine all of these concepts into a working sample application.
-> In this exercise, we'll see how a user can interact with a network through an application that enables users to query and update a ledger.
-> Our application handles user interface and submits transactions to the network, which then call chaincodes.
-> Fabric currently has three options for developers: a Node SDK, Java SDK and a command line interface or CLI.
-> Today, we'll be using Fabric's Node SDK, which makes it easy to use APIs to interact with the Hyperledger Fabric blockchain.
-> In a nutshell, reading or writing the ledger is known as a proposal.
-> This proposal is built by our application via the SDK, and then sent to a blockchain peer.
-> The peer will communicate to its application-specific chaincode container.
-> The chaincode will run the transaction.
-> If there are no issues, it will endorse the transaction and send it back to our application.
-> Our application, via the SDK, will then send the endorsed proposal to the ordering service.
-> The order will package many proposals from the whole network into a block, which is then broadcast to the peers in the network.
-> Finally, the peer will validate the block and write it to its ledger.
-> The transaction is now live.
-> By the end of this exercise, we'll be familiar with how to use the Node.js SDK to interact with the network, and, therefore, a ledger,
-> and understand how an application chaincode network and ledger all interact with one another.
-> Let's get to work!
+> 本章到这里，我们研究了超级账本Fabric框架的各个组件，包括网络中不同类型的节点，私有通道和数据库特性。
+>
+> 我们还建立了我们自己的测试网络，深入研究了chaincode智能合约编程，探索了一个例子，从细节上感受Fabric的独特性。
+>
+> 所以现在我们来到了真正令人兴奋的部分，我们将所有这些概念组合成一个能够工作的应用样例。
+>
+> 在这个练习中，我们将看到用户如何通过一个应用程序与网络进行交互，该应用程序允许用户查询和更新账本。
+>
+> 我们的应用程序处理用户界面交互然后提交交易到网络，最后调用chaincodes。
+>
+> Fabric的开发者目前有3个选项：Node SDK，Java SDK和命令行CLI。
+>
+> 现在我们将使用Fabric的Node SDK，这个SDK很容易使用API与超级账本Fabric区块链交互。
+>
+> 简言之，读写账本是一个提案。
+>
+> 这个方案是由我们的应用程序通过SDK构建，然后发送到区块链peer。
+>
+> peer会与其应用程序指定的的chaincode容器进行沟通。
+>
+> chaincode会运行交易。
+>
+> 如果没有问题，它将对交易背书并将其发送回我们的应用程序。
+>
+> 我们的应用程序，通过SDK将背书后的提案发送到排序服务。
+>
+> 排序服务将整个网络中的许多提案打包成块，然后将其广播到网络中的peer。
+>
+> 最后peer会验证区块，并把区块写入账本。这样，交易就生效了。
+>
+> 通过这个练习，我们熟悉如何使用Node.js SDK与网络、账本交互，并理解应用、chaincode、网络和账本是怎么彼此交互的。
+> 
+> 让我们开始吧！
 ---
 
 #### 开始 - 启动Fabric网络
@@ -1178,7 +1206,7 @@ https://wiki.hyperledger.org/community/chat_channels
 >
 > 希望你已经对超级账本Fabric有了更好的感受，并且有兴趣在你自己的分布式账本方案中使用Fabric。
 > 
-> 如果你想要更深入的参与开源项目，欢迎才与Rocket.Chat的讨论，贡献代码以及参加社区的聚会。
+> 如果你想要更深入的参与开源项目，欢迎参与Rocket.Chat的讨论，贡献代码以及参加社区的聚会。
 >
 > 敬请期待不久之后的另一个课程，将会更深入的介绍超级账本Fabric。
 >
