@@ -125,7 +125,7 @@
 ---
 ##### 访谈
 排序服务 - Chris Ferris
-> 排序服务实际上是我们去年在首次推出Fabric 0.6的时候就设想的功能，从某种意义上说，我们是为了提高公式计算的性能而决定这么做的。
+> 排序服务实际上是我们去年在首次推出Fabric 0.6的时候就设想的功能，从某种意义上说，我们是为了提高共识计算的性能而决定这么做的。
 > 
 > 如果我们把共识部分独立出来, 在比特币和以太坊中，是矿工决定了区块中交易的顺序。 
 >
@@ -442,6 +442,7 @@ type Chaincode interface {
 
 
 ##### ChaincodeStub
+https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim#ChaincodeStub
 
 定义在shim包。
 
@@ -473,7 +474,7 @@ func (stub *ChaincodeStub) PutState(key string, value []byte) error
 func (stub *ChaincodeStub) SetEvent(name string, payload []byte) error
 func (stub *ChaincodeStub) SplitCompositeKey(compositeKey string) (string, []string, error)
 ```
-- **GetArgs() [][]byte**
+- **GetArgs() [][]byte**  
   以2维byte数组的格式，返回用于chaincode Init和Invoke的参数
   
 - **GetStringArgs() []string**  
