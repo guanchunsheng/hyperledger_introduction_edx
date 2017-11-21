@@ -70,34 +70,37 @@
 ---
 ### 访谈
 奖励和挑战 - Brian Behlendorf
-> 主持人：作为超级账本项目的执行理事，你的工作中最大的挑战和最大的收获是什么？
->
-> Behlendorf：我的工作是Linux基金会超级账本的执行理事
-What's the most challenging and rewarding aspect of your job as Executive Director of the Hyperledger project?
-So, my job as Executive Director of Hyperledger for The Linux Foundation, right,
-I work for The Linux Foundation, they cut my paycheck, that's where I'd show up for work, well, most days,
-is a lot of fun, right? I tell people it's not really Executive Director so much, as it is geek diplomat,
-because my charter is to really help build this barbell-shaped kind of community, right, of developers,
-and how do we really get them to play nice with each other, to organize their efforts so that any hour that a developer can give,
-you know, they get the most out of, right, and we get the most out of them for that hour, alright?
-And so, how do we grow that and scale that up - that's one set of those challenges.
-And so, I've got a staff focused on that.
-And then, another set of challenges are how do we get the companies to show up to the project, to start using the code, right,
-to start building a business on top of that, and how do we get some of them to join as members,
-because membership is what allows me to show up in the morning and get a paycheck, and my staff as well.
-So, we now have grown this to over 150 different member organizations,
-ranging from IBM, to the Bank of England, to Wanda in China, to a whole bunch of startups all over the world,
-and it's really fun, but it's also really challenging to figure out how do we make sure this technology can relate to those businesses and to the developers themselves,
-and how do we make sure both communities, the participants and that, feel like they're getting something out of the investment that they're making.
-This isn't a charity, I can't depend upon selfless actions on the parts of developers, or on the parts of companies, for sure.
-We need to make sure that they feel like they're really getting something for their activity.
-So, it means a lot of travel, which is the hardest part, because I've got a two-year-old, you know, and so, I want to spend as much time at home as I can,
-and a lot of calls at 6:00 a.m. in the morning, or 9:00 p.m. at night, because we've got, you know, partners, and even staff, in Asia, and in Europe.
-So, those are some of the challenges, but it's really fun feeling like we're at the leading edge of a technology domain,
-and also really fun to think about this as somewhat the antidote to the increasing centralization of power on the Internet,
-this is a way of decentralizing markets, decentralizing information systems,
-and so, I think we're doing something that has a really deep impact and potentially a very positive social impact, as well.
+
+Behlendorf 个人的访谈
+
+略过
 ---
+
+---
+### 访谈
+
+Jonathan Levi的超级账本之旅
+> 我是在2016年早期开始超级接触超级账本的，因为那个时候我看到Fabric开源了，开始的时候就是搞着玩。
+>
+> 这是我看到的第一个permissioned账本。在开源世界也是它首先开始做这个的。于是我想：“好吧，这是啥？”
+>
+> 我以前在比特币和以太坊上都做过工作，所以我说：“嗯，我能搞一搞”。
+>
+> 然后我看到了成员服务，人们尝试要取得身份，让区块链上的人能登录，于是我说“等等，我能帮个忙么？”
+>
+> 于是我就问别人“我能在这帮忙弄一下么？我能在那帮忙搞一下么？”，他们都回答：“当然，当让！非常感谢！”
+>
+> 于是不久，我也不太记得事情的顺序了，我收到通知说让我作为超级账本Fabric的维护者，于是后来我成了超级账本Fabric v1.0的版本经理。
+>
+> 2个官方的版本经理就是Chris Ferris和我。现在来看超级账本Fabric很好的一点就是许可，Apache 2.0许可可以让那个你用于商业目的。
+>
+> 我认为我们享有很高的能见度，因为我们回馈很多，也因为我们跟非常大的咖合作。如果你想一下我们的能力，比如在正常世界，我们有能力跟Intel和IBM这样的大公司合作，不仅仅是和实验室、创业公司合作，而是能和商业巨头合作。
+>
+> 组织选举我进入TSC，技术筹备委员会。可能我是唯一一个以个人身份成为TSC成员的人，一个维护者，一个版本经理……
+>
+> 这样的事情对我个人来说意味着什么？我不知道。对于超级账本来说，我们正在创造历史。
+---
+
 ## 2. 加入超级账本社区
 你也能加入超级账本社区：
 
