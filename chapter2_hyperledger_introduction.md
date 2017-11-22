@@ -241,8 +241,325 @@ https://hyperledger.org/blog/2017/09/06/abcs-of-open-governance
 现在让我们开始探索超级账本的5个框架（2017年10月）！
 
 ##### Iroha v0.95
+[超级账本Iroha](https://hyperledger.org/projects/iroha)是由Soramitsu, Hitachi, NTT Data, 和Colu贡献的框架。它的设计目的是能够简便的构造需要分布式账本技术的基础设施。Iroha强调移动应用开发，具有安卓和IOS的客户端库，这是跟其他超级账本框架的区别。Iroha受到Fabric的启发，尝试提供C++开发环境作为Fabric和Sawtooth项目的补充。
+
+总之，Iroha的特点是简单的构建，现代的，域驱动的C++设计，共识算法采用[YAC](https://www.overleaf.com/read/wzhwjzbjvrzn#/40115559/)。
+
+
 ##### Sawtooth 0.8
+[超级账本Sawtooth](https://www.hyperledger.org/projects/sawtooth)由Intel贡献，是一个使用模块平台构建、部署和运行的分布式账本区块链框架。
+
+用Sawtooth构建的分布式账本方案可以使用多种共识算法，根据网络规模决定。默认使用时间流逝证明PoET共识算法，提供了比特币区块链技术的扩展性，但是去掉了高昂的能源消耗。PoET允许验证者节点规模的扩展性。Sawtooth的设计目的是多变性，既支持Permissioned，也支持permissionless。
+
+---
+**超级账本Sawtooth介绍**
+Meet Rich: he owns a popular seafood restaurant in Boston, Massachusetts.
+Rich strives to serve only the freshest, highest quality fish to his patrons,
+but he often has difficulty knowing exactly where it was caught, how it got to his restaurant, or if it's even the right species of fish.
+From ocean to table, the fish supply chain is difficult to track, and usually follows this pattern:
+the fish is caught by a commercial fisherman in the ocean,
+the fisherman then sells the fish to a market, processor, or broker,
+a distributor then transports the fish to a restaurant or grocery store for a consumer to purchase.
+Rich typically only buys from one or two fish distributors that he has built a foundation of trust and personal history with.
+He'd like to expand his menu by adding some different kinds of seafood from other distributors,
+but he worries about integrity, and for good reason.
+He recently read a study by Oceana, which showed that 33% of fish purchased from retail outlets is incorrectly labeled,
+and that illegal fishing represents losses between 10 to 23 billion dollars worldwide.
+Rich knows that mislabeled and illegally sourced fish could hurt his customers,
+his restaurant's reputation, and the environment of our planet.
+Fortunately for Rich and others in the seafood industry,
+Sawtooth Lake blockchain technology can provide an immutable record of the provenance and lineage of various goods, like fish.
+In combination with Internet of Things-enabled sensors, Sawtooth Lake can manage the ownership and journey of fish from ocean to table.
+Sensors can be attached to fish the moment they are harvested,
+immediately and continuously recording data such as the location and temperature of the fish.
+Now, Rich can validate when and where his fish was caught, and that it was stored properly on ice while it was transported.
+The Sawtooth Lake platform can also manage the Chain of Custody fish,
+enabling ownership to be transferred and traded on the blockchain according to smart contracts.
+With Sawtooth Lake as a traceability blockchain, Rich can easily see which fishermen meet his quality standards and feels comfortable doing business with new tradesmen.
+When he serves up a new special to a cherished customer, he can confidently and accurately assure her
+it's the type of fish she ordered, it was stored at safe temperatures, when and where it was caught, how long it took to get to her plate, and the fish's name... just kidding.
+Sawtooth Lake blockchain technology can be used for a wide variety of applications,
+from capital markets to international trade.
+The Internet of Things ties the physical world to the digital world,
+with Sawtooth Lake recording the generated data in a way that all parties can trust its accuracy and completeness.
+This is extremely useful for tracking perishable goods, like fish.
+These sensors can track many key parameters, such as location, temperature, humidity, motion, shock, and tilt.
+This technology could be added to any package or sensitive good you're entrusting to other parties.
+The blockchain will ensure the data is secure and tamper-proof, so that you know what you're getting, and that you get what you pay for.
+Sawtooth Lake creates a digital platform enabling physical traceability in a trustless world.
+
+**Sawtooth的特点**
+Dan Middleton
+Some unique characteristics of Hyperledger Sawtooth are:
+one, I think we are the only Hyperledger project that provides distributed state agreement, and that's a mouthful.
+But what it means is that you can trust that every node in the system has the same understanding of information,
+that you don't have nodes that are, say, computing interest differently than a different computer on the network,
+and are gradually changing their database so that it's no longer really in agreement with the rest of them.
+Something else that's unique about Sawtooth is we thought a lot about our transaction processing interface,
+and we're now able to create adapters for any kind of transaction logic.
+This was evidenced recently by our integration with Hyperledger Burrow.
+And you can now run any kind of Ethereum Virtual Machine code, like Solidity, for example, you can compile that and run that on Sawtooth.
+So, when you think about where is a home for things inspired by Ethereum or Solidity code created for Ethereum,
+how would you deal with that in an enterprise environment,
+you think Sawtooth and Burrow is the answer for that.
+
+**Sawtooth的用例特点**
+Dan Middleton
+So, unique characteristics of Sawtooth... There's several, but one that comes to mind for a provenance or supply chain use case,
+is that that network will probably grow over time.
+The reason that a lot of us are starting blockchain networks, a lot of companies are invested in looking at blockchain networks,
+because we think that we're going to be in them for a long time and they're going to continue to grow.
+Sawtooth is designed so that you can grow the size of the network,
+you can actually change the consensus mechanism on the fly...
+I think this is a unique characteristic of Sawtooth amongst all of the other ledgers...
+you can submit as a transaction and then have a policy within your network to accept that new consensus,
+and then, your network can move from say a PBFT-style consensus to something like PoET, or some sort of random leader election consensus...
+It allows you to have tens, or hundreds, or potentially thousands of different nodes on your network,
+and you really can't beat that kind of availability and integrity guarantees, or that kind of flexibility for a network that needs to be up for years.
+---
+
 ##### Fabirc 1.0
+Hyperledger Fabric was the first proposal for a codebase, combining previous work done by Digital Asset Holdings, Blockstream's libconsensus, and IBM's OpenBlockchain. Hyperledger Fabric provides a modular architecture, which allows components such as consensus and membership services to be plug-and-play. Hyperledger Fabric is revolutionary in allowing entities to conduct confidential transactions without passing information through a central authority. This is accomplished through different channels that run within the network, as well as the division of labor that characterizes the different nodes within the network. Lastly, it is important to remember that, unlike Bitcoin, which is a public chain, Hyperledger Fabric supports permissioned deployments.
+
+"If you have a large blockchain network and you want to share data with only certain parties, you can create a private channel with just those participants. It is the most distinctive thing about Fabric right now."
+
+- Brian Behlendorf, Executive Director of Hyperledger, The Linux Foundation
+
+[超级账本Fabric](https://www.hyperledger.org/projects/fabric)是代码库的第一个提案，是由Digital Asset Holdings的前期工作，Blockstream的libconsensus和IBM的OpenBlockchain合并组成的。Fabric提供了一个模块化架构，允许共识算法和成员管理服务按照即插即用的组件来使用。Fabirc革命性的允许实体执行机密交易，而不需要向中心机构传送信息。这是通过网路中运行的不同通道，以及不同节点功能的分离而实现的。最后，需要注意的是与比特币不同，比特币是公链，Fabric支持的是permissioned部署。
+
+> “如果你有一个很大的区块链网络，如果你想要只与特定的对象分享数据，那么可以与这些参与者共同创建一个私密通道。这是Fabric最有特点的地方”
+>
+> Brian Behlendorf， 超级账本执行理事，Linux基金会
+
+---
+**Fabric的特点**
+Chris Ferris
+Well, I think, again, the primary distinction that we have with Hyperledger Fabric is that it is an implementation of a permissioned blockchain distributed ledger technology.
+And this is independent, or distinguished from implementations such as Bitcoin and Ethereum,
+and various others, that are essentially public, permissionless networks, where everybody can join anonymously.
+---
 ##### Indy
+[超级账本Indy](https://www.hyperledger.org/projects)是专门为了分布式身份（identity）设计的。它的目标是通过一些列的：
+> “独立于任何特定账本的分布式身份规范和成品，在所有支持它们的DLT上提供互操作性”
+
+由Sovrin基金会贡献，超级账本Indy允许个人管理和控制他们的数字身份。并非是用商业存储大量的个人数据，而是存储指向身份的指针。一旦公司验证通过了其他人的身份，就可以扔掉了。
+
+> “身份有毒资产，是有可能向组织提出赔偿的。”
+>
+> Brian Behlendorf
+
+Indeed, since 2013, over 9 billion data records were lost or stolen. What is striking is that, out of these, only 4% were encrypted, and hence, rendered useless after being stolen (also called 'secure breaches'). You can find detailed statistics at http://breachlevelindex.com/.
+
+One of the key principles of Hyperledger Indy is its 'Privacy by Design' approach. Given the immutable nature of the DLT, it is all the more important that digital identities be handled with the utmost care, keeping human values front and center.
+
+"Hyperledger Indy lets users authenticate identity based on the attributes they are willing to store and share themselves. This can reduce the amount of liability contained within a business because the data can be kept with the user and presented to you again in a way that you can trust and validate that what has been said really was said and is trusted by the other parties you do business with."
+
+- Nathan George, Maintainer, Hyperledger Indy
+
+Further information about the history of the project can be found at https://sovrin.org/.
+
+确实，从2013年以来，已经丢失和被盗了90亿条数据记录。更可怕的是其中只有4%是加密的（这就是“安全漏洞”）。可以在这个链接看到细节：http://breachlevelindex.com/。
+
+超级账本Indy的核心原则是她的“设计达成隐私”方式。考虑到DLT的数据永久性，更重要的是要极其谨慎地处理数字身份问题，要以人为本。
+
+> “Indy让用户鉴权身份，基于的是他们愿意保存和分享这些身份。这可以减少商业中包含的风险责任数量，因为数据还是用户自己保管并按照你信任的方式重新呈现出来，可以验证曾今刚说过的话确实存在，可以让商业伙伴相互信任”
+>
+> Nathan George, Indy维护者
+
+---
+**Indy介绍**
+Nathan George
+The Hyperledger consortium has many different projects that focus on different aspects of how ledgers can work and what use cases they can be applied for.
+Hyperledger Indy is a distributed ledger purpose-built for doing distributed identity,
+and what that means is, it allows you to have a route of trust to manage the keys, schemas, proofs, and other information that you need to,
+in order to enable trusted peer interactions between different identities, as stored on a Hyperledger Indy blockchain instance.
+So, if you have an identity it belongs to you, and only you, and no one can pull the plug on you.
+And you can use that identity to manifest different correlatable pieces of data between you and other identities you want to interact with,
+without leaking private information or disclosing information that you don't want shared across all those different aspects of who you are.
+And when you control your identity, it makes it so that you are also a party to the kinds of data sharing, claims, and proofs that can be made about you,
+as information is shared across all the different interactions you might do online.
+One of the main use cases of Hyperledger Indy is to create a global public utility for identity that's being created by the Sovrin Foundation,
+which allows us to take these identifiers, and to anchor them on a public ledger,
+so that different pieces of truth or pieces of information can be trusted and shared with other people across the world,
+and they can be trusted and validated, so that self-attested data can be shared, as well as third-party attestations can be shared across all kinds of interactions and across all kinds of data silos,
+and what this makes possible is the ability to no longer have to function as an identity provider as a business,
+but to rather let users authenticate based on the attributes that they're willing to store and share themselves,
+which allows for GDPR-compliant use cases, where you're expressing consent on behalf of the user, and also reducing the amount of liability contained within a business,
+because the data can be kept with the user and presented to you again in a way that you can trust and validate,
+that what has been said, really was said, and is trusted by the other parties you do business with.
+---
+
 ##### Burrow 0.16.1
+超级账本Burrow在2014年12月发布，正式名称是eris-db。现在正在孵化的Burrow是一个permissionable智能合约机，提供了一个模块化区块链客户端，内建permissioned智能合约解释器，是以太坊虚拟机（EVM）规范的一部分。是唯一的设定为Apache许可的EVM实现。
+
+主要组件：
+- **Gateway** ：为系统集成和用户接口提供接口
+- **智能合约应用引擎** ：促进集成复杂的业务逻辑
+- **共识引擎** ：由两个目的，在节点之间维护网络栈；排序交易
+- **应用区块链接口（ABCI）** ：为共识引擎和智能合约引擎的互联提供接口规范
+
+通过以下链接获取更多信息：  
+https://monax.io/platform/db/
+
+### 超级账本模块
+前面介绍的超级账本框架是用来构建区块链和分布式账本的。超级账本模块，是部署和维护区块链，检查账本数据的辅助软件，以及设计，原型和扩展区块链网络的工具。
+
+#### Cello
+Cello为满足想要部署区块链即服务（Blockchain-as-a-Service，BaaS）的商业区求，提供了一个工具套件。特别是为了精益企业和小公司，如果想要减少所需的成本来创建、管理和终止区块链，超级账本Cello允许区块链部署到云端。维护人员可以通过dashboard创建和管理区块链，用户（一般是chaincode开发者）可以立即获取到一个区块链实例。
+
+作为超级账本的模块，*“Celo的目标是为区块链生态带来按需的'as-a-service'部署模型”*，以此帮助今后的超级账本框架的开发和部署。Cello首先由IBM贡献，由Soramitsu, Huawei, 和Intel赞助。
+
+应用开发者和系统管理员可以使用Cello提供和维护超级账本网络。比如，你可以创建一组分布式账本网络，在虚拟云或称为“容器集群”上，然后用可配置的dashboard管理和监控那些网络。此外，你可以建立一个BaaS平台。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/a962f1ae98ce3d4796f6d9f315b49572/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/cello.jpg)
+
+#### Explorer
+[超级账本浏览器](https://www.hyperledger.org/projects/explorer)是一个区块链可视化操作工具。是第一个permissioned账本的区块链浏览器，让任何人都可以浏览分超级账本成员内部创建的布式账本项目，不会破坏它们的隐私。这个项目是由DTCC，ntel和IBM贡献的。
+
+浏览器设计有用户友好的web应用，可以查看，调用，部署或查询：
+- 区块
+- 交易及相关数据
+- 网络信息（名称，状态，节点列表）
+- 智能合约（chaincode和交易族）
+- 存储在账本中的其他信息
+
+能够对数据进行可视化是非常重要的，这样才能从中开发出商业价值。超级账本浏览器提供了关键功能。核心组件包括web server，web UI，web socket，数据库和安全仓，以及一个区块链实现。
+
+#### Composer
+[超级账本Composer](https://www.hyperledger.org/projects/composer)为构建区块链商业网络提供了一组工具：
+- 为你的网络建模
+- 与区块链网络交互的REST API
+- 生成一个Angular应用框架
+
+由Javascript构建，Composer提供了一组易用的组件，开发者可以很快学习和实现。这个项目是由Oxchains和IBM。
+
+Composer创造了一个建模语言，语序你定义资产，参与者和交易，用商业词汇组成你的商业网络。慈爱，交易逻辑是开发者用Javascript写的。这个简单的接口允许业务人员和技术人员共同工作，定义他们自己的商业网络。
+
+Composer的[好处](https://www.hyperledger.org/wp-content/uploads/2017/05/Hyperledger-Composer-Overview.pdf)是：
+- **快速创建区块链应用**，减少从零开始构建区块链应用的大量工作
+- **降低风险**，完善的测试、高效的设计，让业务和技术分析者能够对其理解
+- **更大的灵活性**， 高层抽象的灵活性让它很容易迭代
+
+可以在[这里](https://www.youtube.com/watch?v=cNvOQp8r0xo)看到更多介绍。
+
+---
+**Composer**
+Simon Stone 和 Kathryn Harrison
+> Composer包含Javascript开发者很熟悉的组件，不管你是前端开发搞UI的，还是后端开发搞服务或者代码的。JS开发者可以很熟悉和简单的使用它来构建区块链应用。
+> 
+> 我们有数据建模语言，允许你快速描述你的区块链商业网络。可以使用标准JS代码实现你的业务逻辑。我们有基于web的playground来学习Composer的概念，做试验，查看我们的示例业务网络，并且扩展他们。
+> 
+> 我们有一些客户端库用于构建JS应用，可以插入到你喜欢的编辑器中，Atom或者VS Code。我们有一些命令行工具作为管理系统，创建脚本在区块链中自动化执行任务。
+> 
+> 我们还创建了应用骨架。所以一旦你花费一些时间对你的区块链业务网络，资产模型和参与方等建好摸，那么几分钟内我们就会建好UI。
+> 
+> 所有需要做的就是运行一个命令，回答一些简单的问题，然后就可以得到一个全功能的UI app，你可以在这个基础上按照你的用户经验进行裁剪。
+> 
+> 最后，我们很热衷API的，我们真的想要让你的区块链应用很容易的使用RESTful API，在客户端应用中，或者集成到你的现有的系统中。
+> 
+> 我么还是提供了简单的命令，你可以运行它，把它连接到你自己的区块链业务网络，然后你可以针对REST API进行构建。
+> 
+> Composer是让区块链上创建应用得到极大简化的开发工具。如果你思考一下区块链世界，有多个组织需要达成共识，什么类型的参与者，资产和交易是需要纳入进来的。
+> 
+> 那么Composer允许开发者非常快速和简单的建模出这个商业用例的关键组件，业务和技术团队都能够对齐，创建让应用开发非常简单的API。
+> 
+> 不仅是为区块链创建应用是很容易的，同时也是让具有Js技能的前端和全栈开发者能够进入区块链开发者行列。
+---
+
+#### 问答
+---
+**开发者为什么对开源软件感兴趣**
+So, many of the students taking this course are more familiar with working with Devs within the same room.
+But why do you think developers would be excited in becoming involved with open source projects, such as Hyperledger?
+Well, open source software represents, generally, the largest software development classroom ever, right?
+When I was learning about software development as an undergraduate at the University of California at Berkeley,
+I was taking classes, you know, I was learning kind of the formal bits about, you know, data structures and algorithms,
+but the biggest education came from sitting on development mailing lists around the standards around HTTP and HTML,
+and, eventually, the software development mailing lists and open source communities for the early days of the web.
+And seeing, really, how software gets built, right, what are the trade-offs, what are the negotiations, the back-and-forths, the messiness of software development,
+which doesn't look that different than, say, how Congress, you know, works on the bills sometimes, right?
+Sometimes, it can be, you know, not very pretty, but you realize that software engineering is as much a technical pursuit, as it is a social pursuit.
+And, in open source projects, I think we've figured out how do we have technical differences of opinion and work through them,
+how do we create the best software, the software with the greatest longevity, right? why should we document our code...
+Well, it's because we don't want to have to answer silly questions from the next person trying to understand what we wrote, right?
+So, all of this is a really great education, I think, in understanding how to write higher quality code, whether that ends up being open source code or not...
+That's one reason, I think, for developers to participate in open source projects, whether at Hyperledger or any place else.
+The other is that open source projects are a really good way for you, as a software engineer, to understand what are the kinds of companies I want to work for, right?
+The ones that are actively involved in open source projects, right?
+How do I get to know people at those companies, right? And also, make them aware of my own skills, right?
+And start to develop my own public history of my contributions.
+These days, if you're a software engineer, if you're a software engineer and you're applying to any place interesting, they're going to look at your GitHub repository, right?
+They're going to want to know about your history of contributions to open source projects as a way to evaluate your skills,
+and not just technical, but also your communication skills, your collaboration skills...
+So, all of that means working on open source projects can be tremendously beneficial to your own ongoing education, as well as your ability to build your career.
+
+**超级账本与Apache**
+While at Apache, you were able to successfully build an open software developer community.
+What are some similarities and differences between Hyperledger and Apache in its evolution as an open source project?
+Right... Well, on the Apache web server project, which later became the Apache Software Foundation,
+a lot of what happened was due to luck, was due to inheriting a tradition that had been established since the beginning of the internet,
+of technologists working together on common standards and common code.
+And so, there was kind of a DNA that was built-in and, you know, the web was not that complicated at that point in time, either.
+These standards were pretty simple, right?
+So, we just kind of did what seemed natural. We started a mailing list.
+We started an issue tracking system, a version control system, and we just started working together, very ad hoc, very informally.
+And we became a non-profit about three years after we got started, when we realized we wanted a little more formalism, and a little more protection for the developers.
+But it was all very informal, ad hoc, and many developers took on roles beyond development, such as marketing, such as legal, such as accounting, right?
+And so, Apache's culture has been very much almost like a guild, right? Almost like a user community... a very community-driven kind of thing,
+where there's this validity that comes from that grassroots-kind-of-sense, right?
+Which is great for the kinds of projects that Apache was interested in.
+And Apache has become a home for over 300 different individual software development projects, beyond the web server, right?
+But it has always grown by happenstance, and it's always been open to whatever technology project wanted to come in.
+So, there are some upsides and downsides to that all, right?
+One of the downsides is, by not having a full time staff, it's hard for Apache to really take advantage of all the opportunities out there, to get the word out about who they are.
+It means that developers, you know, have to do these non-developer activities, right?
+And it's hard to do things like police your trademark usage, right, when people are working as volunteers.
+So, The Linux Foundation took a slightly different approach.
+The Linux Foundation said "We don't..." You know, just like with Apache, "we don't want to write software, we don't want to have to pay all the software developers",
+because there's actually a lot to the validity that comes from all of the software development happening by volunteers,
+but there's a lot of non-software development things: marketing, legal, PR, and even the hosting of meetings, the hosting of phone calls,
+all of the logistics of helping these communities operate that perhaps can be taken on, right, by a full-time staff.
+Now, how do you pay that staff, right? You could ask for, you know, cutting charity contributions, right?
+But, a better, more scalable approach is to ask companies to join as corporate members of an organization, right?
+And, they don't get any special privileges on the code, right?
+Well, they don't get their patches in by default, they don't get to veto anyone else's work.
+If you're a developer from IBM, there's no special status.
+You have to still prove your worth, and to which, you would, you know, and be seen as a peer to, say, a 15 year old kid in Romania, who also is really eager to work on distributed ledgers and smart contract systems.
+And so, but what members do get is some help in marketing their activities, building on top of Hyperledger projects, ways to participate at the events that we do.
+When a journalist calls us and asks us for a story about somebody doing something interesting with Hyperledger, we've got a set of members that we... whose stories we can draw from, right?
+So, this balancing act of, you know... as I mentioned, there's a developer community, and there's a commercial community, a corporate community...
+That's the balancing act... that The Linux Foundation has really developed a process for, a template for, and a real science around, and that's what we're bringing to bear on the Hyperledger project.
+
+**Fabric Sawtooth和Iroha的关键特性**
+Could you highlight a key feature for each of the three Hyperledger frameworks: Hyperledger Fabric, Sawtooth, and Iroha?
+So, Fabric, is one of the most mature technology projects in Hyperledger.
+It was the first to hit a 1.0 release, and that release, the architecture, the version 1 architecture reflects a tremendous amount of trial, proof of concept and pilot trial, of Fabric,
+with a lot of different companies out there.
+And they discovered things like, for scalability reasons, you wanted to separate out the ordering service into a separate set of nodes.
+Or, you might want to be able to support subsets of exchanges, so that is why there is a feature called private channels, right?
+And so, those are some of the distinctive parts of Fabric.
+For Sawtooth, there is a number of distinctive features, but the two that stand out are a consensus mechanism called Proof of Elapsed Time,
+which takes advantage of some special features on Intel's chips, and then, an approach to smart contracts called transaction families,
+where you essentially predefine a set of acceptable templates for smart contracts that, then, the rest of the network can use.
+And that is a safer approach to doing smart contracts than a fully programmable, general purpose programming language.
+Finally, Iroha, Hyperledger Iroha, the really distinctive thing about that is it's written in C++, it's very tiny and tightly coded,
+and it's got a terrific set of mobile libraries, as well.
+These are all slight differences.
+Our hope is that, over time, as the projects evolve and mature, and all of them get to a 1.0,
+that we find ways to bring them even closer together, and make them more compatible and modular and find ways for them to work with each other.
+
+**超级账本框架之间的互操作性**
+What do you think will help foster interoperability between these three different Hyperledger frameworks?
+So, there's a number of things that we can do to assist in the interoperability between the different projects at Hyperledger.
+One thing we're working on is kind of an overall architectural view of all the different projects, right?
+What are the technologies that sit at kind of the DLT layer, at the smart contract layer, where does identity sit in, right?
+And then, we can start to look at these projects and go, "Okay, could we put Fabric down here, could we put Burrow up here?"
+Maybe we start to tease apart the distributed ledger part of Fabric from the smart contract part of Fabric, right,
+into separate components, so that, when somebody new arrives at the project, or they take a training course like this,
+they can start to pick and choose, you know, as building blocks, as appropriate for whatever use case that they want to target, right?
+And so, that's something over time, this kind of modularity approach... Along with that, defining standardized APIs between these different levels, right,
+so that we can get to an ideal, where you could pick the Ethereum virtual machine from Burrow, and run that on top of Fabric or on top of Sawtooth,
+and, in fact, the Sawtooth and Burrow communities have now actually progressed, and you can now run Ethereum smart contracts on top of Sawtooth, which is pretty cool.
+So, I think we'll see more activity like that.
+---
 
