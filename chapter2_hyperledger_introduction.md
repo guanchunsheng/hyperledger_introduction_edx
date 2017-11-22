@@ -280,32 +280,28 @@ https://hyperledger.org/blog/2017/09/06/abcs-of-open-governance
 
 **Sawtooth的特点**
 Dan Middleton
-> Some unique characteristics of Hyperledger Sawtooth are:
-> one, I think we are the only Hyperledger project that provides distributed state agreement, and that's a mouthful.
-> But what it means is that you can trust that every node in the system has the same understanding of information,
-> that you don't have nodes that are, say, computing interest differently than a different computer on the network,
-> and are gradually changing their database so that it's no longer really in agreement with the rest of them.
-> Something else that's unique about Sawtooth is we thought a lot about our transaction processing interface,
-> and we're now able to create adapters for any kind of transaction logic.
-> This was evidenced recently by our integration with Hyperledger Burrow.
-> And you can now run any kind of Ethereum Virtual Machine code, like Solidity, for example, you can compile that and run that on Sawtooth.
-> So, when you think about where is a home for things inspired by Ethereum or Solidity code created for Ethereum,
-> how would you deal with that in an enterprise environment,
-> you think Sawtooth and Burrow is the answer for that.
+> **Sawtooth特点**
+> 我认为我们是唯一一个提供了分布式状态一致性的项目。
+> 
+> 我的意思是你可以信任系统中每个节点，对信息都有相同的理解，网络中的机器并不因为计算能力的区别而有不同，他们逐渐修改他们的数据库，而不需要与其他节点真的达成什么一直。
+> 
+> Sawtooth的其他特点还有交易处理接口部分，我们现在恩那个狗为任何种类的交易逻辑创建适配器。
+> 
+> 最近我们与Burrow的集成就很好的证明了这一点。现在你可以运行任何种类的EVM代码，比如Solidity，可以编译并在Sawtooth上面运行。
+> 
+> 所以在企业环境，当你考虑以太坊上创建的Solidity代码应该放在哪里运行的时候，Sawtooth和Burrow就是答案。
 
 **Sawtooth的用例特点**
 Dan Middleton
-> So, unique characteristics of Sawtooth... There's several, but one that comes to mind for a provenance or supply chain use case,
-> is that that network will probably grow over time.
-> The reason that a lot of us are starting blockchain networks, a lot of companies are invested in looking at blockchain networks,
-> because we think that we're going to be in them for a long time and they're going to continue to grow.
-> Sawtooth is designed so that you can grow the size of the network,
-> you can actually change the consensus mechanism on the fly...
-> I think this is a unique characteristic of Sawtooth amongst all of the other ledgers...
-> you can submit as a transaction and then have a policy within your network to accept that new consensus,
-> and then, your network can move from say a PBFT-style consensus to something like PoET, or some sort of random leader election consensus...
-> It allows you to have tens, or hundreds, or potentially thousands of different nodes on your network,
-> and you really can't beat that kind of availability and integrity guarantees, or that kind of flexibility for a network that needs to be up for years.
+> Sawtooth的特点有好几个，我现在想到的一个是存在性或者供应链用例，就是那种网络会随着时间成长的。
+> 
+> 我们很多人开始使用区块链网络的，很多公司开始关注区块链网络的原因，是因为我们认为这是个长期发展和持续的技术。
+> 
+> Sawtooth的设计就考虑到网络规模的成长。你可以即时改变共识算法。我认为这是一个Sawtooth和其他账本相区别的独一无二的特点。
+> 
+> 你可以提交一个交易，然后在你的网络中按照新的共识来接受这个交易，然后你的网络比如说从PBFT共识转换成PoET或者某种随机leader选举共识算法。
+> 
+> 它让你可以有几十，几百或者几千个节点部署在网络中，在以年记运行的网络中，你真的无法战胜存在性、集成性保证和网络的灵活性。
 ---
 
 ##### Fabirc 1.0
@@ -318,9 +314,9 @@ Dan Middleton
 ---
 **Fabric的特点**
 Chris Ferris
-> Well, I think, again, the primary distinction that we have with Hyperledger Fabric is that it is an implementation of a permissioned blockchain distributed ledger technology.
-> And this is independent, or distinguished from implementations such as Bitcoin and Ethereum,
-> and various others, that are essentially public, permissionless networks, where everybody can join anonymously.
+> 超级账本Fabric的主要特定是它是一个permissioned的区块链分布式账本技术。
+>
+> 它跟比特币和以太坊的实现是不同的，后者本质上公开的，permissionless网络，每个人都可以匿名加入。
 ---
 
 ##### Indy
@@ -524,17 +520,17 @@ Simon Stone 和 Kathryn Harrison
 > that we find ways to bring them even closer together, and make them more compatible and modular and find ways for them to work with each other.
 
 **超级账本框架之间的互操作性**
-> What do you think will help foster interoperability between these three different Hyperledger frameworks?
-> So, there's a number of things that we can do to assist in the interoperability between the different projects at Hyperledger.
-> One thing we're working on is kind of an overall architectural view of all the different projects, right?
-> What are the technologies that sit at kind of the DLT layer, at the smart contract layer, where does identity sit in, right?
-> And then, we can start to look at these projects and go, "Okay, could we put Fabric down here, could we put Burrow up here?"
-> Maybe we start to tease apart the distributed ledger part of Fabric from the smart contract part of Fabric, right,
-> into separate components, so that, when somebody new arrives at the project, or they take a training course like this,
-> they can start to pick and choose, you know, as building blocks, as appropriate for whatever use case that they want to target, right?
-> And so, that's something over time, this kind of modularity approach... Along with that, defining standardized APIs between these different levels, right,
-> so that we can get to an ideal, where you could pick the Ethereum virtual machine from Burrow, and run that on top of Fabric or on top of Sawtooth,
-> and, in fact, the Sawtooth and Burrow communities have now actually progressed, and you can now run Ethereum smart contracts on top of Sawtooth, which is pretty cool.
-> So, I think we'll see more activity like that.
+> **你认为将有助于促进这三个不同的超级账本框架之间互操作性的会是什么？**
+> 我们有一些事情可以去做来帮助超级账本项目之间的互操作。
+> 
+> 一个是所有项目的整体架构。我们是基于DLT层，基于智能合约层的技术，其中包含身份部分。然后我们会把这些项目放到一起审视，“好吧，我们可以把Fabric放在这个下面么？我们可以把Burrow放在那个上面么？”
+> 
+> 当新人来到项目里边，或者接受像本课程一样的培训时，也许我们开始把Fabric的分布式账本部分和智能合约部分分离开，放到不同的组件里。然后他们开始根据自己的目的选择自己想要的组件开始创建区块。
+> 
+> 就是这样逐渐进行了模块化，在不同的层级定义标准API。因此我们可以得到一个理想的结构，你可以从Burrow里边拿到以太坊虚拟机，可以在Fabric上面运行这个EVM，还可以在Sawtooth上面运行这个EVM。
+> 
+> 事实上Sawtooth和Burrow社区真的开始这么做了，现在你已经可以在Sawtooth上运行以太坊智能合约了，这真是太酷了。
+> 
+> 所以，我认为我们会看到更多这样的活动。
 ---
 
