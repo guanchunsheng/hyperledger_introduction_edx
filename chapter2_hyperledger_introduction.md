@@ -243,41 +243,41 @@ https://hyperledger.org/blog/2017/09/06/abcs-of-open-governance
 
 ---
 **超级账本Sawtooth介绍**
-> Meet Rich: he owns a popular seafood restaurant in Boston, Massachusetts.
-> Rich strives to serve only the freshest, highest quality fish to his patrons,
-> but he often has difficulty knowing exactly where it was caught, how it got to his restaurant, or if it's even the right species of fish.
-> From ocean to table, the fish supply chain is difficult to track, and usually follows this pattern:
-> the fish is caught by a commercial fisherman in the ocean,
-> the fisherman then sells the fish to a market, processor, or broker,
-> a distributor then transports the fish to a restaurant or grocery store for a consumer to purchase.
-> Rich typically only buys from one or two fish distributors that he has built a foundation of trust and personal history with.
-> He'd like to expand his menu by adding some different kinds of seafood from other distributors,
-> but he worries about integrity, and for good reason.
-> He recently read a study by Oceana, which showed that 33% of fish purchased from retail outlets is incorrectly labeled,
-> and that illegal fishing represents losses between 10 to 23 billion dollars worldwide.
-> Rich knows that mislabeled and illegally sourced fish could hurt his customers,
-> his restaurant's reputation, and the environment of our planet.
-> Fortunately for Rich and others in the seafood industry,
-> Sawtooth Lake blockchain technology can provide an immutable record of the provenance and lineage of various goods, like fish.
-> In combination with Internet of Things-enabled sensors, Sawtooth Lake can manage the ownership and journey of fish from ocean to table.
-> Sensors can be attached to fish the moment they are harvested,
-> immediately and continuously recording data such as the location and temperature of the fish.
-> Now, Rich can validate when and where his fish was caught, and that it was stored properly on ice while it was transported.
-> The Sawtooth Lake platform can also manage the Chain of Custody fish,
-> enabling ownership to be transferred and traded on the blockchain according to smart contracts.
-> With Sawtooth Lake as a traceability blockchain, Rich can easily see which fishermen meet his quality standards and feels comfortable doing business with new tradesmen.
-> When he serves up a new special to a cherished customer, he can confidently and accurately assure her
-> it's the type of fish she ordered, it was stored at safe temperatures, when and where it was caught, how long it took to get to her plate, and the fish's name... just kidding.
-> Sawtooth Lake blockchain technology can be used for a wide variety of applications,
-> from capital markets to international trade.
-> The Internet of Things ties the physical world to the digital world,
-> with Sawtooth Lake recording the generated data in a way that all parties can trust its accuracy and completeness.
-> This is extremely useful for tracking perishable goods, like fish.
-> These sensors can track many key parameters, such as location, temperature, humidity, motion, shock, and tilt.
-> This technology could be added to any package or sensitive good you're entrusting to other parties.
-> The blockchain will ensure the data is secure and tamper-proof, so that you know what you're getting, and that you get what you pay for.
-> Sawtooth Lake creates a digital platform enabling physical traceability in a trustless world.
-
+> Meet Rich是马萨诸塞州波士顿市一家颇受欢迎的海鲜饭店的老板。Rich尽量只将最新鲜，质量最高的鱼提供给他的顾客，但是他通常很难了解这些鱼到底产自哪里，是怎么运输到他的饭店的，或者干脆这些鱼的品种是不是正确的。
+> 
+> 从海洋到餐桌，鱼的供应链是很难追踪的，通常是像这样：  
+> 专业渔民从海洋捕捞到鱼；  
+> 渔民把鱼卖到市场、中间商或者经纪人；  
+> 经销商把鱼运输到饭店或者食品店供客户购买。
+> 
+> Rich通常只会从一两个已经长期建立买卖关系和信任的经销商那里购买鱼类。他也想从别的经销商那里购买其他种类的鱼来丰富他的菜单，但是他很担心鱼的品质，这也是很合情合理的。
+> 
+> 他最近读到一篇海洋研究报告，报告显示从零售网点买到的鱼有33%的标签是不正确的，在世界范围内非法的鱼类捕捞每年造成的损失大约是100亿到230亿美元。
+> 
+> Rich知道标错的鱼和非法来源的鱼会损害他的顾客，损害他饭店的声誉和地球的环境。
+> 
+> 对Rich和海产品行业的其他人来说，幸运的是Sawtooth Lake区块链技术为各种商品的溯源提供了永久性的记录，当然也包括鱼类。
+> 
+> 通过与IoT传感器的结合，Sawtooth Lake可以管理鱼类从海洋到餐桌的交易和运输过程。
+> 
+> 鱼在捕捞上来的时候贴上传感器，然后持续的记录诸如位置和温度的数据。
+> 
+> 现在Rich可以验证他的鱼是什么时候，在哪里捕捞的，是不是冷链运输。
+> 
+> Sawtooth Lake平台也可以管理养殖鱼的链，根据智能合约在区块链上进行运输和交易。
+> 
+> 用Sawtooth Lake作为溯源区块链，Rich可以轻易的看到哪个渔民可以满足他的质量标准，可以跟新的投缘的伙伴进行合作。
+> 
+> 当他给贵宾承上一道新的菜品时，他可以非常有信心的告诉她，她点的鱼是在安全的温度下运输，在什么地方捕捞，花费了多长时间来到餐桌上，甚至这条鱼的名字……开玩笑了。
+> 
+> Sawtooth Lake区块链技术可以用于很多应用领域，从资本市场到国际贸易。IoT将物理世界和数字世界连接在一起，用Sawtooth Lake记录产生的数据，这样所有的参与者都可以相信他的准确性和完整性。
+> 
+> 这对于追踪容易变质的货品比如鱼类是非常有用的。这些传感器可以追踪很多关键参数，比如了位置，额外难度，湿度，运动，震动和倾斜度等等。
+> 
+> 这项技术可以附件到任何你托付给其他人的包装好或者敏感的货物上。区块链会保证数据是安全的，是防篡改的，所以你知道你拿到的是什么，是不是你付款买的东西。
+> 
+> Sawtooth Lake创建了一个数字平台，在没有信任的世界创造了物理溯源的可能。
+> 
 **Sawtooth的特点**
 Dan Middleton
 > **Sawtooth特点**
@@ -340,24 +340,21 @@ Chris Ferris
 ---
 **Indy介绍**
 Nathan George
-> The Hyperledger consortium has many different projects that focus on different aspects of how ledgers can work and what use cases they can be applied for.
-> Hyperledger Indy is a distributed ledger purpose-built for doing distributed identity,
-> and what that means is, it allows you to have a route of trust to manage the keys, schemas, proofs, and other information that you need to,
-> in order to enable trusted peer interactions between different identities, as stored on a Hyperledger Indy blockchain instance.
-> So, if you have an identity it belongs to you, and only you, and no one can pull the plug on you.
-> And you can use that identity to manifest different correlatable pieces of data between you and other identities you want to interact with,
-> without leaking private information or disclosing information that you don't want shared across all those different aspects of who you are.
-> And when you control your identity, it makes it so that you are also a party to the kinds of data sharing, claims, and proofs that can be made about you,
-> as information is shared across all the different interactions you might do online.
-> One of the main use cases of Hyperledger Indy is to create a global public utility for identity that's being created by the Sovrin Foundation,
-> which allows us to take these identifiers, and to anchor them on a public ledger,
-> so that different pieces of truth or pieces of information can be trusted and shared with other people across the world,
-> and they can be trusted and validated, so that self-attested data can be shared, as well as third-party attestations can be shared across all kinds of interactions and across all kinds of data silos,
-> and what this makes possible is the ability to no longer have to function as an identity provider as a business,
-> but to rather let users authenticate based on the attributes that they're willing to store and share themselves,
-> which allows for GDPR-compliant use cases, where you're expressing consent on behalf of the user, and also reducing the amount of liability contained within a business,
-> because the data can be kept with the user and presented to you again in a way that you can trust and validate,
-> that what has been said, really was said, and is trusted by the other parties you do business with.
+> 超级账本团体有很多不同的项目，在账本是如何工作和可以应用到什么用例的问题上，关注着不同的方面。
+> 
+> Indy是为了做分布式身份而建立的分布式账本，意思是允许你有信任途径去管理密钥，图表，证明和其他需要保管的信息。
+> 
+> Indy能够让受信任的peer能够在不同的身份之间在Indy区块链实例上进行交互。所以如果你有一个属于你的身份，且只属于你，别人不能拿到。那么你就可以与其他身份进行数据的交互，不必泄漏隐私数据或者公开那些你不希望在网络上与跟你无关的人共享的数据。
+> 
+> 当你控制你的身份的时候，你也可以是数据共享、声明和证明的一部分，因为信息是在你可以在线做的所有的交互过程中共享的。
+> 
+> Indy的一个主要的用例是创建全球公共身份应用，是由Sovrin基金会建立的。它可以让我们拿到这些ID，锚定在公共账本上，以便不同的事实或者信息可以可信的于世界上其他人进行共享，而且他们是可以信任和验证的。
+> 
+> 所以自我证明的数据就可以分享，第三方证明的数据也可以跨越所有类型的数据孤岛在所有类型的交互中共享。
+> 
+> 让这些成为可能的是不再需要把身份提供者作为商业，而是让用户自己根据他们的一员决定想要存储的属性进行用户鉴权，这让GDPR兼容用例也就是代表用户同意授权是可行的，也减少了企业内部的风险。
+> 
+> 因为数据可以由用户保管，而且可以按照你信任的方式验证并呈现出来，所以就像我说的，这是你的商业伙伴所信任的。
 ---
 
 ##### Burrow 0.16.1
