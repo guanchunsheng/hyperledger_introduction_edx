@@ -67,8 +67,8 @@
 
 ---
 奖励和挑战 - Brian Behlendorf
-Behlendorf 个人的访谈
-略过
+> Behlendorf 个人的访谈  
+> 略过
 ---
 
 ---
