@@ -43,9 +43,9 @@
 
 超级账本的诞生 - Brian Behlendorf
 
-> 主持人：过去几年超级账本的开发和演进速度之快是恨神奇的。我想知道超级账本是怎么诞生的呢？
+> **过去几年超级账本的开发和演进速度之快是恨神奇的。我想知道超级账本是怎么诞生的呢？**
 >
-> Behlendorf：超级账本项目开始是因为几家公司开始关注到比特币领域，这是个密码学货币领域，也是区块链领域。我们来到Linux基金会，然后说“让我们一起做一个项目吧”。Linux基金会15年来，是Linux生态的心脏，把公司和开发者召集在一起试图为通用技术平台的开发进行协调。过去的几年，Linux基金会已经进入到其他领域：软件定义网络、云计算等像这样的东西，以及将Linux生态社区和后面的社区结合在一起。
+> 超级账本项目开始是因为几家公司开始关注到比特币领域，这是个密码学货币领域，也是区块链领域。我们来到Linux基金会，然后说“让我们一起做一个项目吧”。Linux基金会15年来，是Linux生态的心脏，把公司和开发者召集在一起试图为通用技术平台的开发进行协调。过去的几年，Linux基金会已经进入到其他领域：软件定义网络、云计算等像这样的东西，以及将Linux生态社区和后面的社区结合在一起。
 >
 > 很自然的，像IBM或者更年轻的科技公司，像以前没来没有和Linux基金会合作过的JP摩根，或者这个领域的创业公司比如数字资产公司等，当大家开始讨论哪里比较适合作为这个项目的总部时，大家不约而同的认为Linux基金会是最好的选择。
 >
@@ -111,24 +111,27 @@
 ---
 #### 访谈
 开源的重要性 - Brian Behlendorf
-So, you had mentioned before how Hyperledger is different from other consortiums because of its focus on creating an open community, not just open sourcing code.
-Can you tell us a little bit about why this is important?
-So, open source communities, I believe, live and breathe on not just, you know, reporting bugs or, you know, downloading code,
-but, actually, live and breathe on true collaboration, on saying not just, you know, "I have a bug and somebody needs to fix it",
-but, instead, saying "Here's how I'd like to solve this", right? What do people think?
-"Here is a design for implementing a new feature." What do people think?
-And I think the evidence shows that that creates higher quality code. It also creates more long lasting code.
-I don't think you have a project like the Linux kernel, which has now been around for 26 years, right, without having a mechanism for a community to develop an institutional memory, right?
-Why were certain decisions made? What were some ideas that were proposed and, ultimately, found to either be shot down or not really good enough, right,
-so that we don't end up changing things back and forth, right, we don't end up making mistakes that we could have avoided before or learning from previous...
-how do we make sure we learn from previous mistakes, right?
-And that's only possible in an open source community if, on top of just releasing code, you're also engaging in the creative process itself, and making that public facing.
-And I think, really, we found out over 25 years of open source that that's the best way to build trustworthy software.
-I believe it leads to higher security software and higher quality software, but really, the question is trust.
-This is code that sits... At Hyperledger, this is code that will sit at the heart of these enterprises.
-This will be their system of record, right? So, it's essential that we develop this code in a trustworthy way and, while we do all sorts of things to help them trust the data in the system,
-ultimately, they have to trust the software, as well.
-And what I hope is that, through these processes, they can rest assured that, when they pick up Hyperledger, anything, right, that anything will be software that they can trust.
+> **你已经提到超级账本跟其他团体的区别是因为它更关注于创建开放社区而不局限于开放源码。那么能不能跟我们说一说为什么这个很重要？**
+>
+> 我相信，开源社区并不是热衷于报告bug或下载代码，实际上我们真正喜欢的是合作，不是说“我有个bug，谁来修复一下”，而是“这里我想这么改一下”，大家会怎么想？
+> 
+> “这里有个新特性的设计”。大家会怎么想？
+> 
+> 我认为有证据表明这样会创造更高质量的代码。也会创造更持久的代码。
+> 
+> 我认为离开了这样的社区机制所创造的组织传承，是不可能维护像Linux内核这样的有26年历史的项目。
+> 
+> 为什么要做某项决定？那些开始提出最后因为不够好或者什么原因毙掉了的想法怎么来的？我们总在变来变去，我们总在犯本可以避免的错误。
+> 
+> 我们怎么确定已经从过去的错误吸取教训了呢？只能是一个开源社区，在那之上发布代码，你也会参与到创作过程，并将之面向公众。
+> 
+> 我们发现25年来，开源是构建值得信任的软件的最好方式。我相信这也是更安全的软件和更高质量软件的来源。
+> 
+> 但问题也是有的，那就是信任。这些代码会运行在企业的核心，会是他们的记录系统。所以很重要的一点是我们要用值得信任的方式开发代码，要竭尽所能帮助他们相信系统中的数据。
+> 
+> 最终，也需要他们的信任，对于我们的软件。
+> 
+> 我所希望的是，通过这些过程，他们能够确信，当他们使用超级账本的时候，这就是他们可以信赖的软件。
 ---
 
 #### 开源和开放管理
@@ -147,44 +150,37 @@ https://hyperledger.org/blog/2017/09/06/abcs-of-open-governance
 ##### 访谈
 
 超级账本项目的软件管理 - Brian Behlendorf
-How does the software governance of all of the Hyperledger projects work?
-So, in open source projects you do... it's not a free-for-all, right? It's not just everybody throwing in every line of code,
-hoping that what, you know, it sticks to the wall, and that everything is fine, right?
-There actually is a development process that involves decision-making about what comes in and what doesn't, right?
-At the core of each of the projects at Hyperledger is a set of maintainers.
-These are individuals who either were with the project when it came in, as initial maintainers, right,
-because they had been working on the code before, or were invited in by that initial set of maintainers to become maintainers,
-after demonstrating, you know, a history of contributions to the project, alright?
-These are now individuals who are trusted.
-Once you're in that group, obviously, everything those maintainers do is public.
-If they commit to the source code repository, approve a a patch, a commit request, or pull request,
-everything they do is public anyway, so there's always that accountability for their actions.
-If somebody does something wrong, anybody can always say "I think that's wrong",
-and the set of maintainers can sometimes come to a decision to reverse a commit, right?
-That's within their power.
-But, it's really up to those maintainers to also chart the path forward: what's the roadmap, when will we do the next release, right,
-the next minor point released, the next major release.
-But, obviously, they do that in a public way.
-Sometimes, they'll use a phone call, sometimes, they'll use chat on Rocket Chat, sometimes, they'll use email,
-but they know that their job is to be accountable and responsible to the broader development community.
-Now, from a Hyperledger perspective, if we leave it up to the projects to really decide the roadmap of what they're trying to solve,
-there's a group called the Technical Steering Committee, though,
-that is elected by all the contributors across all the projects, not even just the maintainer...
-anybody who has contributed a line of code, contributed to the wiki in some substantial way,
-they elect a group of eleven developers who form this Technical Steering Committee.
-And the TSC is kind of an oversight body.
-They make sure that the projects are growing, and that they're healthy.
-They review activity in those projects, they also approve new projects when they come in, and they approve the graduation from the Incubator, right?
-What they don't get to do is, you know, tell us, tell a project "Hey, you're working on the wrong thing. Go work on this, instead", right?
-They really have to depend on this kind of decentralized governance, right, to aim in the right direction.
-By and large, we try to make sure though that every project has some sort of relation to distributed ledgers and smart contracts.
-Our goal is not to be the GitHub of distributed ledgers and smart contracts projects.
-There's already a GitHub for that, alright?
-We want these projects to be a curated, you know, coherent portfolio of different projects that might even compete with each other, right?
-In many ways, Fabric and Sawtooth and Iroha do overlap, and you can build an implementation of something in all three of those. That's okay, right?
-We're going to discover over time how these projects differentiate with each other,
-and it's the role of the Technical Steering Committee, and a bunch of other committees we have around identity, and architecture, and white papers, and things,
-to try to weave these different efforts together in something that looks coherent, something that makes sense for developers.
+> **你们是如何对超级账本项目的工作开展软件管理的呢？**
+> 
+> 在开源项目中，并不是完全随随便便的。并不是每个人都可以随便扔一段代码进来，贴到墙上就万事大吉了。
+> 
+> 决定需要什么不需要什么，是有开发流程的。在超级账本项目各个项目中都有一些维护者。他们或为项目的初始开发维护者，因为他们以前就为项目工作，或者是初始维护者邀请来作为维护者的，参照他们在项目开发过程中做出的历史贡献。
+> 
+> 这些人是我们信任的人。一旦你在这个组里，那么显然维护者的工作都是公开的。如果他们向代码仓提交源码、批准一个补丁、提交请求或者拉取请求，他们所作的任何事都是公开的，所以他们的所有行为都是可追责的。
+> 
+> 如果有人犯了错，每个人都可以说：“我认为这是错的”，然后维护者们可以决定恢复一次提交。这在他们的权利范围内。
+> 
+> 确实要依赖那些维护者来制定发展路线：路线图是什么样的？下一版什么时候发布？下一个小版本，下一个大版本之类的。但是这也还是公开的。
+> 
+> 有时他们要打电话，有时他们用Rocket Chat，有时他们用email。但是他们知道他们的工作是可问责的，需要对更广泛的开发社区负责。
+> 
+> 现在从超级账本的角度，如果我们要决定各个项目解决问题的方向，各自的路线图，那么我们有一个称为技术筹备委员会的组织，由所有项目投票选出，不光是维护者，哪怕是贡献了一行代码，贡献了wiki词条，都可以参与选举，选择谁来组成TSC。
+> 
+> TSC是一个监督实体。他们要保证项目能够健康成长。他们检查项目的行动，批准新项目的进入，批准孵化器孵化。
+> 
+> 他们不需要做的是跟项目说“你们做错了。不能那么做，要这么做”。
+> 
+> 他们需要依赖这样的分布式管理，来瞄准正确的方向。
+> 
+> 总的来说，我们试图通过这样的方式让每个项目跟分布式账本和职能合约有某种关联。我们的目标不是去做分布式账本和智能合约的Github。已经有Github了。
+> 
+> 我们希望这些项目是能够相互组合甚至相互竞争的。
+> 
+> 在很多方面，Fabric和Sawtooth以及Iroha是重叠的，你可以在三个平台都实现类似的应用。那也没问题。
+> 
+> 我们要发现随着时间的推移，这些项目是如何区分开的。
+> 
+> TSC，还有其他委员会诸如身份、架构和白皮书等小组的作用是把这些不同的项目糅合在一起，这对开发者来说非常重要。
 ---
 
 ### 商用区块链
@@ -195,50 +191,42 @@ to try to weave these different efforts together in something that looks coheren
 ---
 #### 访谈
 为什么商业要选择超级账本 - Brian Behlendorf
-And, as a follow-up, why are businesses choosing to use Hyperledger over other distributed ledger technologies?
-So, companies, when they decide what open source technologies to use, right, they should evaluate an open source project based on a number of factors,
-not just, you know, is the code available, does it run, how mature is it, right, have they released a 1.0, and a 1.1, and a 1.2...
-You want to see a kind of a regular stream of these things.
-We also believe companies make decisions... I believe companies make decisions about what open source technologies to choose based on the health of the community, right?
-And how many other companies are embedding this technology inside of their own solutions, right, inside of other products and services,
-how many people out there are using it... that sort of thing.
-And so, at Hyperledger, what we're trying to do is not just build a very healthy developer ecosystem around our technologies.
-We also do a lot to try to talk with our members and others who are using Fabric, or using Hyperledger Sawtooth, or these other technologies,
-to understand where are they using it and what's the value that they're getting from it.
-And can we talk about that to the outside world, alright, which is hard.
-Sometimes, people don't want to talk about their behind-the-scenes projects, right?
-But, when we can talk about the application of that in music licensing, or food supply chain projects, alright,
-and start to talk about kind of a higher level impact that these projects can have,
-then, that I think gets companies really interested.
-But, they don't make the decision to jump in, unless they can see that this is not just a piece of code, that this is a movement.
-So, that's really what we're trying to build, and that's why we believe companies can confidently decide to pull down and start using Hyperledger Fabric, Hyperledger Sawtooth, and any of these projects.
-And hopefully, become contributors to them, as well.
+> **作为后来者，商业上有什么理由选择超级账本而不是其他分布式区块链技术呢？**
+> 
+> 公司在采用开源技术的时候，需要考虑若干因素，并不只是能获得代码，还有怎么运行，是否成熟，是否发布了1.0，1.1，1.2等等，你肯定是希望能够看到规律的发展节奏。
+> 
+> 我们也相信工作在做决定的时候，是基于社区的健康来做决定的。会考虑有多少家公司采用了这个技术，有多少人在使用它之类的。
+> 
+> 所以超级账本项目中，我们在尝试的不仅是构建非常健康的技术开发者生态，我们还做了很多尝试，与我们的成员和其他使用Fabric、Sawtooth或其他技术的公司，去了解他们把这项技术应用到了哪些领域，他们从中能够获取到什么样的价值。
+> 
+> 我们跟外界的对话并不容易。有时候人们不想谈他们的幕后项目。但是我们可以谈谈在音乐许可、食品供应链项目等等，我们已经在高一点的层次了解超级账本项目会产生的影响，各家公司都这个都很有兴趣。
+> 
+> 但是他们还没决定是否参与进来，除非他们能确信这不仅仅只是一段代码，而是一个运动。所以这正是我们想要尝试创建的项目，也是为什么我们能确信很多公司会决定使用Fabric，Sawtooth以及其他项目的原因。
+> 
+> 希望这些公司也能成为贡献者。
 ---
 
 ### 超级账本孵化的项目
 下面的访谈Brian Behlendorf介绍了超级账本的项目（2017年10月）。包括超级账本框架，本章会深入讨论。包括超级账本模块，下一章会深入讨论。
 
 ---
-What are the projects currently being incubated by Hyperledger?
-So, at Hyperledger, we have a total of eight different projects, actually, as of this week [October 2017].
-Because we always have the door open to new projects joining.
-And we evaluate those projects on, you know, how do they fit with the portfolio of other projects,
-are they mature enough to really understand, you know, where they're going to go and who the developers are around them...
-But, every new project that comes in, comes in through something called the Incubator, right?
-Because we figured there's a period of time where we need to do a number of things:
-we need to make sure that all of the intellectual property associated with that code is actually being contributed correctly,
-and, more importantly, we need to make sure that the development team that is coming along with that code understands how to use the tools,
-but also understands how to work collaboratively and publicly. Alright?
-This is sometimes a new thing for many of these types of projects.
-So, Fabric has graduated from the Incubator, to be an ordinary full-fledged project in Hyperledger.
-Sawtooth has graduated as well. [Iroha has also graduated from the Incubator.]
-The other projects are still working through that process, and the goal is to get every one of the projects through.
-We don't try to apply a flamethrower to, like, nudge them through too strongly, right?
-But, you know, the hope is that, over time, that they do become that,
-and that becomes yet another trademark, a signal to the public that this is now code that they can trust, right?
-That this is now something they can build upon.
-And so, that's one of these stages. Another one is, for example, releasing as 1.0, which the Fabric community did a few months ago.
-So, we have all these signals that we hope to be able to send to the public, and these other projects are still on that path.
+> **现在超级账本孵化项目都有什么？**
+> 
+> 在超级账本到本周为止（2017年10月）我们有8个不同的项目，而且我们对于新项目一直是敞开大门的。
+> 
+> 我们对于那些项目，都会评估是否符合其他项目的利益，它们是不是足够成熟或者真正知道将要如何发展，在上面工作的都是哪些开发人员等等。
+> 
+> 每个新项目来的时候，都是通过孵化器进入的。因为我们发现在一段时间内我们必须做若干事情：确保相关的所有知识产权都是正常获得的，更重要的是我们要确认即将进来的开发团队理解如何使用工具，如何公开协同的工作。对于很多这类项目来说，这都是新东西。
+> 
+> Fabric已经从孵化器孵化出来，已经成为超级账本项目的常规成熟项目。
+> 
+> Sawtooth也已经孵化出来，Iroha同样孵化出来了。
+> 
+> 其他项目仍然在孵化中，我们的目标是所有的项目都能够孵化出来。
+> 
+> 我们不会揠苗助长，我们所希望的是经过时间的磨练，变成一个商标，变成受公众信赖的代码。
+> 
+> 这就是目前项目的情况。几个月前Fabric发布了1.0版本，我们希望通过这样的信号告诉公众，我们其他的项目也都在路上了。
 ---
 
 #### 超级账本框架组件
