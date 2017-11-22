@@ -1,5 +1,9 @@
-# Summary
+# Hyperledger 入门培训
+本培训笔记是edX在线培训课程的整理。  
+这是Hyperledger官方支持的培训项目，方便想要了解Hyperledger的同学快速入门。  
+在线培训课程通过考试，缴纳费用后可以获得证书。  
 
+# 目录
 * [欢迎入坑](Chapter0_overview.md)
 * [第一章 区块链技术初探](chapter1_introduction.md)
 * [第二章 超级账本入门](chapter2_hyperledger_introduction.md)
