@@ -1,5 +1,5 @@
-# 路在何方
-## 1. 超级账本社区
+# 8. 路在何方
+## 8.1 超级账本社区
 超级账本项目的开发是由不同的技术组、开源贡献者来引领的。
 
 我们始终在寻找帮助构建商用区块链技术开源生态。
@@ -7,9 +7,7 @@
 如果你有兴趣为社区做贡献或者从社区学习，欢迎访问[官方主页](https://cn.hyperledger.org/)。
 
 ---
-### 访谈
 超级账本社区 - Tracy Kuhrt
->
 > 如果你有兴趣参与超级账本社区，请参考我们建立的一个网页，会介绍参与社区的几种方式。这就是hyperledger.org/community。从这个页面你可以看到，有很多不同的参与方式。
 >
 > 第一个方式是邮件列表。点击链接，可以看到有所有的超级账本邮件列表。从列表里可以看到，不同的工作组都有自己的邮件列表，每个项目也有自己的邮件列表。
@@ -68,17 +66,12 @@
 ---
 
 ---
-### 访谈
 奖励和挑战 - Brian Behlendorf
-
 Behlendorf 个人的访谈
-
 略过
 ---
 
 ---
-### 访谈
-
 Jonathan Levi的超级账本之旅
 > 我是在2016年早期开始超级接触超级账本的，因为那个时候我看到Fabric开源了，开始的时候就是搞着玩。
 >
@@ -101,7 +94,7 @@ Jonathan Levi的超级账本之旅
 > 这样的事情对我个人来说意味着什么？我不知道。对于超级账本来说，我们正在创造历史。
 ---
 
-## 2. 加入超级账本社区
+## 8.2 加入超级账本社区
 你也能加入超级账本社区：
 
 - **开发者**
@@ -116,8 +109,6 @@ Jonathan Levi的超级账本之旅
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9f346d9125ac62f4462d898aa9e172ac/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Hyperledger_Global_Meetups.png)
 
 ---
-### 访谈
-
 骇客节 - Brian Behlendorf
 > 骇客节就是开发者为一个开源项目聚在一起。其中有些人是核心成员，已经加入项目很长时间了，其他人可能是新手，只是听说过这个项目。
 >
@@ -125,13 +116,13 @@ Jonathan Levi的超级账本之旅
 >
 > 这会加快项目进展的节奏，最后还是个机会让人们互见面，不只是email的地址或者Github上的ID，而是活生生的人。
 ---
-## 3. 超级账本工作组
+## 8.3 超级账本工作组
 超级账本工作组对公众是开放的。开发者和技术领导者可以参与在这个[页面](https://github.com/hyperledger/hyperledger/wiki/PublicMeetingCalendar)参与超级账本的开放社区频道。
 
 下图是超级账本工作组的概况：
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/cca8220e1d574e52f989fd518d54d5fb/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Hyperledger_Working_Groups.png)
 
-## 4. 结论
+## 8.4 结论
 对于**商业区块链：超级账本技术入门教程**的总结：  
 我们介绍了当前超级账本框架和模块，强调了一些商业区块链应用案例。  
 我们带领你在3个最成熟的超级账本框架中（Iroha，Sawtooth和Fabric）进行了深度探索，给出了Sawtooth和Fabric的深度教程。
