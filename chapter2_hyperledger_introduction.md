@@ -436,30 +436,32 @@ Simon Stone 和 Kathryn Harrison
 
 ### 2.3.7 问答
 ---
-**开发者为什么对开源软件感兴趣**
-> So, many of the students taking this course are more familiar with working with Devs within the same room.
-> But why do you think developers would be excited in becoming involved with open source projects, such as Hyperledger?
-> Well, open source software represents, generally, the largest software development classroom ever, right?
-> When I was learning about software development as an undergraduate at the University of California at Berkeley,
-> I was taking classes, you know, I was learning kind of the formal bits about, you know, data structures and algorithms,
-> but the biggest education came from sitting on development mailing lists around the standards around HTTP and HTML,
-> and, eventually, the software development mailing lists and open source communities for the early days of the web.
-> And seeing, really, how software gets built, right, what are the trade-offs, what are the negotiations, the back-and-forths, the messiness of software development,
-> which doesn't look that different than, say, how Congress, you know, works on the bills sometimes, right?
-> Sometimes, it can be, you know, not very pretty, but you realize that software engineering is as much a technical pursuit, as it is a social pursuit.
-> And, in open source projects, I think we've figured out how do we have technical differences of opinion and work through them,
-> how do we create the best software, the software with the greatest longevity, right? why should we document our code...
-> Well, it's because we don't want to have to answer silly questions from the next person trying to understand what we wrote, right?
-> So, all of this is a really great education, I think, in understanding how to write higher quality code, whether that ends up being open source code or not...
-> That's one reason, I think, for developers to participate in open source projects, whether at Hyperledger or any place else.
-> The other is that open source projects are a really good way for you, as a software engineer, to understand what are the kinds of companies I want to work for, right?
-> The ones that are actively involved in open source projects, right?
-> How do I get to know people at those companies, right? And also, make them aware of my own skills, right?
-> And start to develop my own public history of my contributions.
-> These days, if you're a software engineer, if you're a software engineer and you're applying to any place interesting, they're going to look at your GitHub repository, right?
-> They're going to want to know about your history of contributions to open source projects as a way to evaluate your skills,
-> and not just technical, but also your communication skills, your collaboration skills...
-> So, all of that means working on open source projects can be tremendously beneficial to your own ongoing education, as well as your ability to build your career.
+> **开发者为什么对开源软件感兴趣**
+> 学习这门课程的很多同学都更熟悉在教室里跟开发人员一起工作。但是为什么你会认为开发者参与到开源项目会很兴奋呢，比如超级账本？
+> 
+> 好吧，一般来说开源软件就已经提供了最大的软件开发教室了，对吧？
+> 
+> 当我在加州大学伯克利分校学习软件开发的时候，我学习的就是正儿八经的数据结构和算法，但是受益最多的却是来自围绕HTTP和HTML展开的邮件列表沟通的软件开发过程，以及最终的早期的web开源社区软件开发邮件列表。
+> 
+> 来看软件是怎么构建的，做了什么取舍，做了哪些协商，反反复复，软件开发一团乱麻，为什么不看抬眼看看，比如国会是怎么投票表决的呢？
+> 
+> 有时候，可能看起来不是那么高大上，但是你会发现软件工程既是一种技术追求，也是一种社会追求。
+> 
+> 在开源项目中，我认为我们已经搞定了应该如何解决技术分歧，应该如何创造最好的软件，创造最有生命力的软件。
+> 
+> 我们为什么给代码写文档呢？当然是因为我们不想给试图理解代码的人解释一些很蠢的问题。
+> 
+> 所有的这些都是很好的教育，是理解如何写出高质量代码，是否最终要称为开源代码等问题的的生动一课。
+> 
+> 这是开发者是否选择参加超级账本开源项目而不是别的项目的一个原因。另一个原因是作为软件工程师，开源项目真是一个很好的方式去理解你希望工作的公司是什么样的公司。
+> 
+> 是那些愿意参与开源项目的公司对吧？我怎么才能认识公司里的人呢？怎么让他们知道我的技能呢？那就开始公开作出自己的开发贡献吧。
+> 
+> 现在如果你是软件工程师，并且你正在应聘一个心仪的工作，他们会看看你的Github仓库，对吧？
+> 
+> 他们会参考你在开源项目上做过的历史贡献来评价你的技能水平，不仅仅是技术水平，还有沟通能力，协作能力等。
+> 
+> 所以，所有这些都意味着开源项目上的工作可以对你自己的教育和职业生涯都产生非常大的帮助。
 
 **超级账本与Apache**
 > While at Apache, you were able to successfully build an open software developer community.
@@ -499,22 +501,16 @@ Simon Stone 和 Kathryn Harrison
 > That's the balancing act... that The Linux Foundation has really developed a process for, a template for, and a real science around, and that's what we're bringing to bear on the Hyperledger project.
 
 **Fabric Sawtooth和Iroha的关键特性**
-> Could you highlight a key feature for each of the three Hyperledger frameworks: Hyperledger Fabric, Sawtooth, and Iroha?
-> So, Fabric, is one of the most mature technology projects in Hyperledger.
-> It was the first to hit a 1.0 release, and that release, the architecture, the version 1 architecture reflects a tremendous amount of trial, proof of concept and pilot trial, of Fabric,
-> with a lot of different companies out there.
-> And they discovered things like, for scalability reasons, you wanted to separate out the ordering service into a separate set of nodes.
-> Or, you might want to be able to support subsets of exchanges, so that is why there is a feature called private channels, right?
-> And so, those are some of the distinctive parts of Fabric.
-> For Sawtooth, there is a number of distinctive features, but the two that stand out are a consensus mechanism called Proof of Elapsed Time,
-> which takes advantage of some special features on Intel's chips, and then, an approach to smart contracts called transaction families,
-> where you essentially predefine a set of acceptable templates for smart contracts that, then, the rest of the network can use.
-> And that is a safer approach to doing smart contracts than a fully programmable, general purpose programming language.
-> Finally, Iroha, Hyperledger Iroha, the really distinctive thing about that is it's written in C++, it's very tiny and tightly coded,
-> and it's got a terrific set of mobile libraries, as well.
-> These are all slight differences.
-> Our hope is that, over time, as the projects evolve and mature, and all of them get to a 1.0,
-> that we find ways to bring them even closer together, and make them more compatible and modular and find ways for them to work with each other.
+> **能为这3个超级账本框架的分别指出一个关键特性么？Fabric, Sawtooth和Iroha**
+> Fabric是超级账本中最成熟的技术之一。它是第一个达到1.0版本的项目，1.0版本的架构反映了大量的尝试，概念证明以及Fabric的先导尝试。
+> 
+> 有很多的公司在关注这个项目。他们发现例如因为扩展性的原因，你会想要把排序服务分离出来单独使用一些节点。或者你可能想要支持交易的子集，这就是所谓的私有通道特性产生的原因。有很多像这样的Fabric的独有特性。
+> 
+> Sawtooth的话，有一些特别的特性，但是其中2个最突出的是称为PoET的共识算法，这个算法利用了Intel芯片的一些特性；还有称为交易家族的智能合约，其中你可以预定义一组可以接受的智能合约模板，然后网络的其余部分可以使用。这跟完全的可编程智能合约，通用目的编程语言的方式更安全。
+> 
+> 最后，Iroha最特别的是它是用C++写的，编码非常紧凑和精炼，还提供了非常好的移动库。
+> 
+> 以上就是3个项目的一些区别。我们希望随着时间的推移，随着项目的演进和成熟，他们所有项目都到了1.0的时候，我们能够找到让他们更紧密连接的方法，让他们能够更具兼容性和模块化，找到方法让他们可以彼此合作。
 
 **超级账本框架之间的互操作性**
 > **你认为将有助于促进这三个不同的超级账本框架之间互操作性的会是什么？**
