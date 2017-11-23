@@ -462,43 +462,45 @@ Simon Stone 和 Kathryn Harrison
 > 他们会参考你在开源项目上做过的历史贡献来评价你的技能水平，不仅仅是技术水平，还有沟通能力，协作能力等。
 > 
 > 所以，所有这些都意味着开源项目上的工作可以对你自己的教育和职业生涯都产生非常大的帮助。
-
-**超级账本与Apache**
-> While at Apache, you were able to successfully build an open software developer community.
-> What are some similarities and differences between Hyperledger and Apache in its evolution as an open source project?
-> Right... Well, on the Apache web server project, which later became the Apache Software Foundation,
-> a lot of what happened was due to luck, was due to inheriting a tradition that had been established since the beginning of the internet,
-> of technologists working together on common standards and common code.
-> And so, there was kind of a DNA that was built-in and, you know, the web was not that complicated at that point in time, either.
-> These standards were pretty simple, right?
-> So, we just kind of did what seemed natural. We started a mailing list.
-> We started an issue tracking system, a version control system, and we just started working together, very ad hoc, very informally.
-> And we became a non-profit about three years after we got started, when we realized we wanted a little more formalism, and a little more protection for the developers.
-> But it was all very informal, ad hoc, and many developers took on roles beyond development, such as marketing, such as legal, such as accounting, right?
-> And so, Apache's culture has been very much almost like a guild, right? Almost like a user community... a very community-driven kind of thing,
-> where there's this validity that comes from that grassroots-kind-of-sense, right?
-> Which is great for the kinds of projects that Apache was interested in.
-> And Apache has become a home for over 300 different individual software development projects, beyond the web server, right?
-> But it has always grown by happenstance, and it's always been open to whatever technology project wanted to come in.
-> So, there are some upsides and downsides to that all, right?
-> One of the downsides is, by not having a full time staff, it's hard for Apache to really take advantage of all the opportunities out there, to get the word out about who they are.
-> It means that developers, you know, have to do these non-developer activities, right?
-> And it's hard to do things like police your trademark usage, right, when people are working as volunteers.
-> So, The Linux Foundation took a slightly different approach.
-> The Linux Foundation said "We don't..." You know, just like with Apache, "we don't want to write software, we don't want to have to pay all the software developers",
-> because there's actually a lot to the validity that comes from all of the software development happening by volunteers,
-> but there's a lot of non-software development things: marketing, legal, PR, and even the hosting of meetings, the hosting of phone calls,
-> all of the logistics of helping these communities operate that perhaps can be taken on, right, by a full-time staff.
-> Now, how do you pay that staff, right? You could ask for, you know, cutting charity contributions, right?
-> But, a better, more scalable approach is to ask companies to join as corporate members of an organization, right?
-> And, they don't get any special privileges on the code, right?
-> Well, they don't get their patches in by default, they don't get to veto anyone else's work.
-> If you're a developer from IBM, there's no special status.
-> You have to still prove your worth, and to which, you would, you know, and be seen as a peer to, say, a 15 year old kid in Romania, who also is really eager to work on distributed ledgers and smart contract systems.
-> And so, but what members do get is some help in marketing their activities, building on top of Hyperledger projects, ways to participate at the events that we do.
-> When a journalist calls us and asks us for a story about somebody doing something interesting with Hyperledger, we've got a set of members that we... whose stories we can draw from, right?
-> So, this balancing act of, you know... as I mentioned, there's a developer community, and there's a commercial community, a corporate community...
-> That's the balancing act... that The Linux Foundation has really developed a process for, a template for, and a real science around, and that's what we're bringing to bear on the Hyperledger project.
+> 
+> **超级账本与Apache**
+> **在Apache中，您成功地构建了一个开放的软件开发者社区，那么对于超级账本来说，它和Apache在开源项目演进方面来说，有什么异同呢？**
+> 
+> 在Apache web服务器项目，后来成为了Apache软件基金会，得益于一定的运气，得益于从互联网早期就建立起来的传承，那就是在一起按照共同的标准共同的代码做技术开发。
+> 
+> 它是由自己内建的DNA的，而且那个时候的web也不是非常复杂。
+> 
+> **这些标准都是很简单的是么？**
+> 
+> 我们只是做了看起来很自然的事。我们从邮件列表开始，建立了一个问题跟踪系统，一个版本控制系统，然后开始一起工作，非常点对点的，很不正式。
+> 
+> 开始后的3年，当我们意识到我们需要更多一点形式主义，对开发者更多的保护的时候，我们变成了一个非营利组织。
+> 
+> 但它还是非常不正式和点对点的，很多开发者承担了开发意外的职责，比如市场，比如法务，比如会计等。
+> 
+> 所以看起来Apache的文化更像是一个公会，像一个用户社区，像一个社区驱动的东西，很接地气。
+> 
+> 对于Apache来说，这类项目是很有兴趣的。
+> 
+> 然后Apache变成了超过300个独立软件开发项目的大本营，已经超越了web服务器的范畴。
+> 
+> 但它一直在任性的生长，任何技术项目想进来它都是开放的态度。
+> 
+> 也有不利的因素。一个是没有全职宣传人员，很难抓住一起机会向外界展示自己。我的意思是开发者必须搞这些非开发的工作。还有就是很难监察商标的使用情况，大家都是志愿参加的。
+> 
+> 所以Linux基金会采取了一个不太一样的方式。Linux基金会说“我们不会……”，跟Apache一样，“我们不想写软件，我们不想给所有的软件开发者付钱”，因为志愿者开发的软件中有很多是可以用的，但是也有很多软件开发意外的事情：市场、法务、知识产权，甚至包括会议举办，电话等等，所有这些帮助基金会运转的成本都需要考虑到，都是需要全职工作人员的。
+> 
+> 现在，我们怎么聘请这样的工作人员呢？你需要寻求捐赠吧？
+> 
+> 但是一个更有扩展性的方式是邀请企业成员加入组织。并且他们在代码上没有任何特权。他们不能默认何如补丁，他们不能否决其他人的工作。如果你是IBM的开发者，那么也没有特例。
+> 
+> 你还是要向跟你对等的那个人证明你的价值，比如就是个罗马尼亚的15岁的孩子，他如果很渴望为分布式账本和智能合约系统工作的话。
+> 
+> 但是企业成员能够获得的是帮助他们在超级账本上进行营销活动，参与我们的活动。
+> 
+> 当记者采访我们说一说超级账本的一些趣闻的时候，我们也可以从成员企业里边找到很多素材是吧？
+> 
+> 所以我提到的包括开发者社区，商业社区和企业社区，各方的平衡通过Linux基金会开发的流程来促成，这太科学了，是个很好的模板，这也是通过超级账本项目带来的。
 
 **Fabric Sawtooth和Iroha的关键特性**
 > **能为这3个超级账本框架的分别指出一个关键特性么？Fabric, Sawtooth和Iroha**
