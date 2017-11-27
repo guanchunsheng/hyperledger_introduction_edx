@@ -67,4 +67,15 @@ And so, that's really what gets me excited.
 
 ![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/f8b777bb4b2add9a426b97b8f2556aad/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Supply_Chain_of_Tuna.png)
 
+### 3.2.2 溯源
+如前一节供应链管理区块链所展示的，在产品的生命周期演变中，区块链数据能够改善产品的监管。这种可见性的增进，不仅让大公司获益，消费者也能够从区块链技术中获益。
+
+溯源是用作真实性或者质量度量的所有权记录。由于传统的溯源记录所涉及的费用很高，所以它们只适用于非常大的项目，如艺术品。由区块链技术提供的高效率，溯源记录可以用于更广泛的商品。这样的信息改善可以帮助消费者做出消费决定。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/deba401bb91d6751d6651dcd849cf412/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Provenance_Use_Case.jpg)
+
+作为消费者，你怎么知道你买到的是正品呢？为什么是不是正品很重要？有些消费者想要确定他们购买的商品是货真价实的。其他消费者想要确定他们购买的商品没有经过动物实验。还有其他人关心的是在产品制造过程中是否有使用有害化学品。这些消费者愿意支付额外的费用，以确保他们没有为不符合他们价值观的行为买单。然而假冒伪劣产品利用了正品生产标准严格所以价格高的特点，他们的利润都来自正品的高价和他们偷工减料之间的利差。
+
+事实证明假冒产品是影响若干行业的全球性问题。比如，欧盟知识产权局（EUIPO）联合国际电联（ITU）进行的评估，2015年智能手机市场假冒伪劣商品造成了480亿美元的损失（Karen Gilchrist， [cnb.com](https://www.cnbc.com/2017/02/28/fake-smartphone-sales-cost-global-industry-48-billion.html), 2017）。还有，*“波尔多葡萄酒委员会估计，在中国每小时会销售出30000瓶假冒进口葡萄酒”*，其中一些估计中国超过35美元的葡萄酒零售中有一半是假冒的（Pamela Ambler, [forbes.com](https://www.forbes.com/sites/pamelaambler/2017/07/27/china-is-facing-an-epidemic-of-counterfeit-and-contraband-wine/#394d10b15843) 2017）。
+
 
