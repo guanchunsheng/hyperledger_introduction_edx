@@ -4,7 +4,7 @@
 - 发现评估一个项目是否适合使用区块链技术的若干因素
 - 决定是否采用区块链技术
 
-## 商业区块链项目概览
+## 3.2 商业区块链项目概览
 区块链是一个新的数据结构，在参与者之间自动的施加信任。共识算法保证所有的参与者对区块链中存储的数据达成一致。区块链为依赖于中央权威的进行确权的行业打开了颠覆之门。它还允许独立甚至处于竞争状态的机构之间在行业中为了提升效率而共享信息。
 
 在permissioned区块链中，若干机构间的共识负责控制参与到区块链的参与方，提供鉴权。在公链中，没有中央权威或者中央管理就可以进行数据交换。区块链可以通过受控制的行业联盟数据共享网络驱动业务创新。
@@ -35,4 +35,30 @@ Finally, they should realize that they can build their business on top of Hyperl
 they can use it all day long, they don't owe anybody a fee, a license fee, a patent license, nothing,
 and, if they feel like it, if they want to contribute, there should be an easy glide path to having their technical teams get deeper into the code,
 become contributors, and even help set the direction for the technology.
+
+**区块链用例**
+What is your favorite blockchain use case?
+So, you know, what gets me up in the morning isn't so much making Wall Street, you know, a few milliseconds faster or...
+I mean, to some degree, it's nice to be able to talk about, you know, bank payments taking five minutes, rather than three days, okay?
+That's kind of a win! But, I'd say, the use cases that wake me up in the morning have more to do with positive social impact, alright?
+Projects that, at the same time, is making a difference in fighting slave labor, say, fighting the conflict diamond problems in the diamond supply chain,
+or fighting the illegal fish catching and the slave labor practices that happen in the fishing industry, by providing better provenance tracking for the fish supply chain...
+But, I'm also very much intrigued by identity projects out there, and the potential for distributed ledger applications to take something like India's Aadhar, which is their national ID system,
+and reinvent that as a decentralized privacy-protecting national ID system, rather than as a centralized, potentially privacy-invasive central ID system.
+So, lots of companies are starting to figure this out,
+lots of companies with large amounts of customers are starting to figure this out,
+and we certainly could do with fewer privacy breaches out there, and less surveillance capitalism,
+which, you look at all these businesses... many of them have business models based on learning too much about people.
+I think through distributed ledger technology, ironically enough,
+we can actually come up with systems that make management of the distribution of personal data much easier to put in the hands of the individuals themselves.
+And so, that's really what gets me excited.
 ---
+
+### 3.2.1 供应链管理
+供应链管理是企业资源规划（ERP）中很胀要的一环。供应链管理是对资金、原材料、元件和成品的监管，当他们从供应商到生产商，到批发商再到零售商和顾客的过程。这样的流转可以在一个公司内部或者在多个公司之间进行。As assumptions change over time, the supply chain models can begin to show weak performance metrics。好的供应链管理可以保持产品的质量稳定性，防止物料的短缺或者积压。
+
+随时保证正确的库存量也称为供需同步，是准时精益制造和交付的关键部分。公司都希望保证商品在需要的时候可以交付，但是商品积压的成本是很高的。如果商品是容易变质的，那么商家需要扔掉部分变质商品。如果商品是不容易变质的，那么商品积压也会造成资金的紧张，直到物品使用之后才能汇款用于别的用途。此外，如果公司库存太多的商品而商品价格又下跌了，那么损失会很大。
+
+现在，供应链管理中存在若干弱点。这些弱点在多个机构之间同步进行ERP管理的时候尤为明显。数据在不同的系统间不可能很顺畅的通过握手或者接口进行流转。这些弱点通常发生在所有权转换的时候，或者两方进行状态转变的时候。在资金、原材料、零部件或成品的交接点上可见性是有限的。这种透明度缺失往往是有意的，因为公司不想暴露自己的竞争优势（比如一家供应商可以很廉价但是按时进行交付）。此外，如果供应链中的成员跨过某些环节直接进行交易的话，就有公司会被踢出局。
+
+
