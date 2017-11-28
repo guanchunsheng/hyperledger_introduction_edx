@@ -602,6 +602,6 @@ IOTA不只是一种密码学货币。基本上，这个平台延伸了区块链�
 
 ![](/assets/Blockchain_Search_Volume.jpg)
 
-- [**目录**](summary.md)
+- [**目录**](README.md)
 - [**上一章 欢迎入坑**](Chapter0_overview.md)
 - [**下一章 超级账本入门**](chapter2_hyperledger_introduction.md)
