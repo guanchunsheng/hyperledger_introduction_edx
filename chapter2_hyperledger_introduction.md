@@ -529,3 +529,6 @@ Simon Stone 和 Kathryn Harrison
 > 所以，我认为我们会看到更多这样的活动。
 ---
 
+- [**目录**](README.md)
+- [**上一章 区块链技术初探**](chapter1_introduction.md)
+- [**下一章 区块链技术前景**](chapter3_blockchain_rise.md)
