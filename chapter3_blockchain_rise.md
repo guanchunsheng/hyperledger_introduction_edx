@@ -166,7 +166,94 @@ and to playing with that technology within their own enterprises.
 ### 3.2.5 医疗健康
 医疗健康行业中的一些多方参与的流程可以利用分布式账本技术。通过简化这些多方参与流程，医疗健康行业可以减少收集和核实各方信息的时间和成本，以便向病人提供优质护理。医疗服务提供者和保险公司已经开始探索如何利用区块链技术改善病人护理的业务。
 
-2015年，美国花费了27.42%的联邦预算，即1.05万亿美元用于医疗健康（[国家优先项目](https://www.nationalpriorities.org/budget-basics/federal-budget-101/spending/)）。因为这些成本是如此之高，美国政府已[投入资源](https://search.usa.gov/search?utf8=%E2%9C%93&affiliate=healthit.gov&query=blockchain&commit=Search)到医疗区块链技术中了。美国国家卫生信息技术协调办公室（ONC）负责卫生信息技术。它认识到需要全国性的互操作性和电子健康记录标准、索赔处理和提供者凭据的验证。
+2015年，美国花费了27.42%的联邦预算，即1.05万亿美元用于医疗健康（[国家优先项目](https://www.nationalpriorities.org/budget-basics/federal-budget-101/spending/)）。因为这些成本是如此之高，美国政府已[投入资源](https://search.usa.gov/search?utf8=%E2%9C%93&affiliate=healthit.gov&query=blockchain&commit=Search)到医疗区块链技术中了。美国国家卫生信息技术协调办公室（ONC）负责卫生信息技术。它认识到需要全国性的互操作性和标准，针对电子健康记录、索赔处理和验证提供者凭据。为此，它赞助了许多医疗领域的政府区块链项目。
+
+医疗健康行业已经把医疗保险的登记信息放在区块链上进行验证，并计划将医疗保险等诸多方面的索赔处理也放在区块链上。医疗保险提供者承担的一项成本是审计服务提供者。健康保险提供者必须核实医生是否确实履行了必须向病人提供的护理。健康保险提供者还必须审核改服务中财务方面的问题，以确保医疗费用得到支付，而且收费是准确的。通过支付审计来尝试进行医疗审计为减少潜在的欺诈行为提供了关键的优势。
+
+医疗行业已经研究了将处方药履行过程放在区块链上，因为它们涉及从许多来源收集和检查的信息。保险支付之前需要进行保险福利合格检查。确定病人是否能够接受特定的药物，或者其他什么药物更适合，需要检查之前的授权和治疗步骤的要求。必须进行所有常规检查、患者辅助检查以及药房库存检查。医疗健康行业也采用DLT处理在线身份管理，通过上传资质证明材料验证医疗健康专业人员的资格。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/8c6873e099cbc51e795daa4a3917e9da/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/The_BlockRx_Pharma_Ecosystem.png)
+
+---
+**评估是否使用超级账本的时候，公司们都在关注什么**
+Brian Behlendorf
+What should an enterprise look for when evaluating whether or not to use Hyperledger?
+So, I always try to start... suggest that people start with the business need, right,
+trying to look at what are you doing in your enterprise, and probably, it will mean
+what are you doing with your business partners, with your suppliers, with your customers, maybe even with your competitors, right?
+What is it... what are some business processes, or some provenance tracking problems,
+or a registry somewhere that, you know, you're putting too much trust in a central org somewhere,
+where is there an opportunity to take a decentralized ledger approach, and a smart contract approach to solving those issues?
+Start with the need, right?
+In fact, one way to explore that is, you know, every industry has a consortium somewhere in that industry talking about technical standards,
+talking about common business processes, and those are often the right kinds of organizations to look at doing a proof of concept with, right?
+Because they often have kind of this overarching kind of view of the industry,
+and they tend to be trusted by the participants in that industry.
+So, often, they could come up with what's the right kind of proof of concept, or maybe even a Minimum Viable Product kind of project,
+because there really is no blockchain of one, right?
+It's really hard just to think about solving your own problems with a block, with a distributed ledger.
+You really need to think about an industry-wide kind of approach, even from the earliest day.
+Once you've identified like that kind of opportunity, you should start to ask yourself what are the characteristics of that need,
+is it from a transaction rate perspective, from a number of nodes, from how geographically distributed those nodes might be,
+and then, also ask yourself who are the developers that I'm expecting to be able to tap, to bring this technology to bear,
+and have they started to investigate distributed ledger technology,
+have they started to learn how Fabric works, how Sawtooth works...
+So, I think that that's another important side of it.
+As the business side of the house is trying to understand the use cases, you should really let your technology teams explore this technology,
+allow them to get their hands dirty, to go to a hackathon, to take this course, to start playing with these technologies to get a more intuitive sense for what they do,
+and what they can't do, right, what their limitations might be.
+This is still very early days, and you still need to be smart about how do we apply these and how do we use them.
+So, at some point, those two teams should meet up, right, and say "Here's what we think is really the MVP [Minimum Viable Product] or a proof of concept",
+and the other team should... that comes from the technology side of the house, should say "Okay, we understand how to build this, you know,
+if we, you know, shave these corners, we can do something in a week", right?
+and let's just see that, you know, cheap and dirty, what it looks like.
+And then, over time, start to promulgate that amongst the other partners that you think you'd involve in a distributed ledger project.
+---
+
+## 3.3 什么时候使用区块链
+有在评估你的业务是否使用分布式账本区块链技术的时候需要考虑若干因素。你的系统中有多少参与者？参与者的地理分布是什么？你有什么样的性能要求？在区块链系统中定义各方的规则、风险和责任是有很用的，因为你现在考虑的是把数据库转换成分布式的环境，就像超级账本框架这样。如果满足以下一个或者几个条件，那么区块链就是最适合的：
+
+- 需要有一个共享的数据库
+- 参与各方利益并不一致，或者互不信任
+- 多方都会参与数据库的修改
+- 现在是通过可信的第三方协调各参与者开展业务。可信第三方可能是代管服务、数据提供者、许可当局或公证人。
+- 目前正在使用或应该使用加密技术。加密技术有助于数据机密性、数据完整性、身份验证和不可否认性
+- 在流程生命周期中，业务流程的数据将被输入到许多不同数据库中。重要的是，在所有实体中，这些数据是一致的，以及想要对这个过程的数字化
+- 对系统参与者有统一的规则
+- 当事人的决策是透明的，而不是保密的
+- 需要有客观的、不可变的历史或事实记录供缔约方参考
+- 事务频率不超过每秒10000条
+
+## 3.4 什么时候不应该使用区块链
+区块链技术是一个功能强大的工具，但它并不总是具体业务的天然正确的工具。如果你正在考虑使用区块链技术，一定要充分评估问题。下列条件目前不适合区块链为基础的解决方案：
+
+- 流程包含机密数据
+- 流程存储了大量静态数据，或者数据本体很大
+- 交易规则变幻不定
+- 收集/存储数据用到了外部的服务
+
+下面我们会更进一步讨论并不适合区块链技术的业务。
+
+### 3.4.1 流程包含机密数据
+在部署区块链时，最大的优势和挑战是这个技术带来的极强的透明度。正在开发的方法隐藏区块链中的机密数据，而只向相关方共享。数据隐私法规往往不允许区块链的解决方案。对于隐私的规则，你必须对企业的情况进行全面审查，应检查区块链是否是合适的。例如，允许以加密形式泄漏数据吗？传输数据时需要什么级别的加密？
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/9cac310a28ac75102337a8f38e2aab6d/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/security-2688911_1280.jpg)
+
+### 3.4.2 数据量太大
+区块链技术中整个数据库存储在系统中的多个节点中。由于这些系统的重复度如此之高，所以它们最适合于维护许多状态变化的数据库，或者只存储最小必需的信息量。如果数据是相对静态的，或者要存储的文件是相当大的，则其他的技术解决方案可能更合适。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/efcb50e1c438a0dde724b24614a3f14f/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/monitor-1307227_1280.jpg)
+
+### 3.4.3 规则变幻莫测
+如果你的业务流程规则频繁更改，或者变幻莫测，那么区块链可能不适合于这样的使用情况。交易规则往往预设在区块链中，智能合约一旦已经开始就无法改变执行路径。在区块链发生的一切都必须完全确定。此外，区块链是仅追加数据库。如果因为交易规则的改变，需要更改许多数据，那么关系数据库可能更合适。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/538270ee6dffca5be32d58b154ea15ba/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/rule-1752625_1280.png)
+
+### 3.4.4 通过外部服务存储/获取数据
+区块链智能合约目前不启动外部数据检索。相反，一个或多个受信方（“oracles”）必须创建一个交易把数据嵌入链中。这些数据通常由Oracle收集并存储在传统数据库中。区块链和外部世界之间的任何相互作用限制在常规的数据库操作中。
+
+  换句话说，Oracle将数据推送到区块链中，而不是通过智能合约拉取的。一旦Oracle推送数据，每个节点都将具有相同的数据副本。这使得数据可以安全地用于智能合约计算中。而甲骨文允许与外部数据链接口，它们破坏了分散体系的目标。检查何时应该保留这样一个可信的权限。当信任机构会或应该被保留在blockchain效率不高的其他应用。
+
 
 - [**目录**](README.md)
 - [**上一章 超级账本入门**](chapter2_hyperledger_introduction.md)
