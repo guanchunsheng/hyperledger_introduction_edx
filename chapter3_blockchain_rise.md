@@ -252,8 +252,22 @@ And then, over time, start to promulgate that amongst the other partners that yo
 ### 3.4.4 通过外部服务存储/获取数据
 区块链智能合约目前不启动外部数据检索。相反，一个或多个受信方（“oracles”）必须创建一个交易把数据嵌入链中。这些数据通常由Oracle收集并存储在传统数据库中。区块链和外部世界之间的任何相互作用限制在常规的数据库操作中。
 
-  换句话说，Oracle将数据推送到区块链中，而不是通过智能合约拉取的。一旦Oracle推送数据，每个节点都将具有相同的数据副本。这使得数据可以安全地用于智能合约计算中。而甲骨文允许与外部数据链接口，它们破坏了分散体系的目标。检查何时应该保留这样一个可信的权限。当信任机构会或应该被保留在blockchain效率不高的其他应用。
+  换句话说，Oracle将数据推送到区块链中，而不是智能合约拉取的。一旦Oracle推送数据，每个节点都将具有相同的数据副本。这使得数据可以安全地用于智能合约计算中。甲骨文允许区块链与外部数据的接口，它们破坏了分布式体系的目标。需要检查是否需要这样的可信权威，如果需要，那么区块链技术的效率达不到其他应用的水平。
 
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/68305034acd64f6f94e99a00e32feae2/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/database-1954920_640.jpg)
+
+### 3.4.5 更简单的选择
+对于某些应用来说，其他选项更为高效。当评估区块链技术的时候需要考虑是否采用正规的文件存储，还是集中式数据库，或是主/从数据库备份模式，哪个更适合。如果这些模式是合适的，那么就可以用更简单的方式部署应用。你需要一个智能合约还是用扩展SQL就足够了？同样，一些应用程序可以简单地使用区块链中常见的加密方法，而并不需要数据库的复制机制。
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/b97f0541ebcac90a4cb03dc80ba0f805/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Options.jpg)
+
+### 3.4.6 区块链决策路径
+下图提供了一个通用的，高层次的，针对你的业务是否应该采用区块链技术的决策点框图：
+
+![](https://prod-edxapp.edx-cdn.org/assets/courseware/v1/17d1147a014f773b0a43d69855108e2e/asset-v1:LinuxFoundationX+LFS171x+3T2017+type@asset+block/Blockchain_Decision_Flowchart.png)
+
+## 3.5 结论
+区块链技术正被用于解决一些商业问题。我们将关注超级账本如何继续开发DLT技术和相关的工具。通过对本章中涉及因素的探索，你可以评价区块链技术的使用是否适合你的特定业务。
 
 - [**目录**](README.md)
 - [**上一章 超级账本入门**](chapter2_hyperledger_introduction.md)
