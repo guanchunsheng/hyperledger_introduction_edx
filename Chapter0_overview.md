@@ -27,9 +27,9 @@ Hyperledger是组开源的区块链项目，由Linux基金会组织管理。各�
 >
 > Hyperledger在各种商业流程中自动的执行智能合约，构建了一个安全的，可信任的信息系统，一个能够自动执行商业流程的系统，一个美丽的新世界。
 >
-> 本课程，你将学习3个不同的项目，开始直接跟这项技术亲密接触，而且可以了解何如通过这些主要的项目构建一个简单的应用。
+> 本课程中，你将学习3个不同的项目，开始直接跟这项技术亲密接触，而且可以了解何如通过这些主要的项目构建一个简单的应用。
 >
-> 本课程适合所有人，从码农到围观群众，从中可以了解这项技术能够干什么，怎么用，用到什么样的业务上。
+> 本课程适合任何人，从程序员到技术关注者，从中可以了解这项技术能够干什么，怎么用，可以用到什么样的业务上。
 >
 > 本课程是为了从广义上了解这项技术而设计的。
 ---
@@ -38,7 +38,7 @@ Hyperledger是组开源的区块链项目，由Linux基金会组织管理。各�
 
 * 能够描述出商业区块链和分布式账本技术
 * 熟悉当前的Hyperledger项目及其跨行业的使用场景
-* 掌握HyperledgerSawtooth和Fabric框架的安装步骤
+* 掌握Hyperledger Sawtooth和Fabric框架的安装步骤
 * 探索Sawtooth和Fabric框架中的一个简单的用例/应用
 * 基于Sawtooth和Fabric构建简单的应用
 * 参与并为开源Hyperledger项目做贡献
@@ -51,7 +51,7 @@ Hyperledger是组开源的区块链项目，由Linux基金会组织管理。各�
 **Brian Behlendorf - Hyperledger执行董事**
 > **这个课程背后的预期是什么呢？你希望学员从中学到什么？**
 >
-> 这个课程是为了帮助技术人员从整体上更好的理解Hyperledger项目中不同的项目，它们是如何工作的，它们的差异是什么，怎么使用它们。同时这个课程也是为了那些前技术人员，现在想要花点时间思考下区块链技术怎么应用于解决商业问题的人。这个课程会帮助他们理解这项技术适合于什么样的用例。
+> 这个课程是为了帮助技术人员从整体上更好的理解Hyperledger的不同项目，它们是如何工作的，它们的差异是什么，怎么使用它们。同时这个课程也是为了那些前技术人员，现在想要花点时间思考下区块链技术怎么应用于解决商业问题的人。这个课程会帮助他们理解这项技术适合于什么样的用例。
 >
 > 所以这个课程其实想要提供一个整体视角，介绍区块链是什么，当我们提到商业区块链的时候，我们说的是什么，它跟密码学货币的区别是什么，它们的机制是什么，共识机制是什么，智能合约是什么，诸如此类。
 >
@@ -70,14 +70,11 @@ Hyperledger提供了不同的区块链平台，本课程会介绍其中的3个�
 想要了解更多关于Hyperledger的信息，请点击[这里](https://www.hyperledger.org/)。
 
 ## 0.5 Linux基金会
+Linux基金会与世界顶级开发者和公司合作，以解决最困难的技术难题，加速开源技术的开发和商业适配为己任。Linux基金会设定其使命为：通过开源协作，提供专业的复杂问题的初始解决方案，为管理开源项目提供工具，包括安全性最佳实践、管理、运营和生态系统建设，培训以及认证等。
 
-> 注：Linux基金会的信息跟Hyperledger关系不大，但是作为知识性的内容，对程序员还有挺有意义，所以保留
+Linux是史上最大的，最广泛的开源软件项目。Linux基金会是Linux创立者Linus Torvalds和维护领导者Greg Kroah-Hartman的大本营，为Linux内核开发提供保护和促进。Linux的成功促进了开源社区的成长，展示了开源商业效能，促成了各个行业中，各个技术之上无数的新项目。
 
-Linux基金会与世界顶级开发者和公司合作，以解决最困难的技术难题，加速开源技术的开发和商业适配。Linux基金会设定其使命为：通过开源协作，提供专业的复杂问题的最开始的解决方案，为控制开源项目提供工具，包括安全性最佳实践、管理、运营和生态系统开发，培训和认证等。
-
-Linux是史上最大的，最广泛的开源软件项目。Linux基金会是Linux创立者Linus Torvalds和维护领导者Greg Kroah-Hartman的大本营，为Linux内核开发提供保护和促进。Linux的成功促进了开源社区的成长，展示了开源商业效能，激发了各行各业各种技术之上数不尽的新项目。
-
-今天Linux基金会的工作已经远远的扩展到了Linux之外，促进了软件技术各个层面的创新。Linux基金会是许多关键开源项目的一揽子组织，这些项目无处不在：
+今天Linux基金会的工作已经远远的扩展到了Linux之外，促进了软件技术各个层面的创新。Linux基金会是许多核心开源项目的集团组织，这些项目无处不在：
 
 * 大数据和分析：[ODPi](https://www.odpi.org/)， [R Consortium](https://www.r-consortium.org/)
 * 网络：[OpenDaylight](https://www.opendaylight.org/)，[OpenFV](https://www.opnfv.org/)
@@ -114,7 +111,7 @@ Linux是史上最大的，最广泛的开源软件项目。Linux基金会是Linu
 
 * [Linux编程和开发培训](https://training.linuxfoundation.org/linux-courses/development-training)
 * [企业IT和Linux系统管理课程](https://training.linuxfoundation.org/linux-courses/system-administration-training)
-* [开源适配性培训](https://training.linuxfoundation.org/linux-courses/open-source-compliance-courses)
+* [开源适应性培训](https://training.linuxfoundation.org/linux-courses/open-source-compliance-courses)
 
 
 - [**目录**](README.md)
