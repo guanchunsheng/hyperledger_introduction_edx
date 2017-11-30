@@ -3,16 +3,16 @@
 ---
 **超级账本Iroha介绍**
 Alexandra 和 Arianna Groetsema
-Hi everyone! We are the content creators for the Hyperledger Iroha chapter.
-In this chapter, you will learn about Hyperledger Iroha version 0.95, what makes it unique, and how to get started with this framework.
-This framework is a blockchain platform implementation, designed to be easily incorporated into other distributed ledger technologies.
-Hyperledger Iroha features an architecture written in C++, an emphasis on mobile and web development, and a new consensus algorithm called Sumeragi.
-Hyperledger Iroha offers many reusable C++ components, that can be used by many different blockchain platforms.
-Hyperledger Iroha is dedicated to compiling a library of reusable modular components that enhance existing distributed ledger frameworks.
-Now, as you go through this chapter, if you're interested in becoming more involved with Hyperledger Iroha,
-there are some resources you can check out, like Rocket.Chat, which is similar to Slack, GitHub repos, and others.
-Those specific links can be found at the end of this chapter.
-Good luck!
+> Hi everyone! We are the content creators for the Hyperledger Iroha chapter.
+> In this chapter, you will learn about Hyperledger Iroha version 0.95, what makes it unique, and how to get started with this framework.
+> This framework is a blockchain platform implementation, designed to be easily incorporated into other distributed ledger technologies.
+> Hyperledger Iroha features an architecture written in C++, an emphasis on mobile and web development, and a new consensus algorithm called Sumeragi.
+> Hyperledger Iroha offers many reusable C++ components, that can be used by many different blockchain platforms.
+> Hyperledger Iroha is dedicated to compiling a library of reusable modular components that enhance existing distributed ledger frameworks.
+> Now, as you go through this chapter, if you're interested in becoming more involved with Hyperledger Iroha,
+> there are some resources you can check out, like Rocket.Chat, which is similar to Slack, GitHub repos, and others.
+> Those specific links can be found at the end of this chapter.
+> Good luck!
 ---
 
 ## 5.2 学习目标
@@ -30,18 +30,18 @@ Good luck!
 ---
 **Iroha关键组件**
 Alexandra 和 Arianna Groetsema
-Hyperledger Iroha seeks to contribute three main goals:
-1. Provide an environment for C++ developers to contribute to Hyperledger.
-2. Provide infrastructure for mobile and web application support,
-and 3. Provide a framework to introduce APIs and a new consensus algorithm that can potentially be incorporated into other frameworks in the future.
-The core architecture of Hyperledger Iroha was inspired by Hyperledger Fabric, which we will cover in Chapter 7.
-Hyperledger Iroha's creators have emphasized the importance of this framework in fulfilling the need for user-friendly interfaces.
-In doing so, they've created a framework with many defining features,
-including a simple construction, a modern C++ design, with an emphasis on mobile application development,
-and a new chain-based Byzantine Fault Tolerance consensus algorithm, called Sumeragi.
-Perhaps the most defining characteristic of Hyperledger Iroha is its ability to be freely interoperable with other Hyperledger projects.
-The open source iOS Android and JavaScript libraries allow for developers to conveniently create functions to perform common operations.
-Good luck, and let's get into it!
+> Hyperledger Iroha seeks to contribute three main goals:
+> 1. Provide an environment for C++ developers to contribute to Hyperledger.
+> 2. Provide infrastructure for mobile and web application support,
+> and 3. Provide a framework to introduce APIs and a new consensus algorithm that can potentially be incorporated into other frameworks in the future.
+> The core architecture of Hyperledger Iroha was inspired by Hyperledger Fabric, which we will cover in Chapter 7.
+> Hyperledger Iroha's creators have emphasized the importance of this framework in fulfilling the need for user-friendly interfaces.
+> In doing so, they've created a framework with many defining features,
+> including a simple construction, a modern C++ design, with an emphasis on mobile application development,
+> and a new chain-based Byzantine Fault Tolerance consensus algorithm, called Sumeragi.
+> Perhaps the most defining characteristic of Hyperledger Iroha is its ability to be freely interoperable with other Hyperledger projects.
+> The open source iOS Android and JavaScript libraries allow for developers to conveniently create functions to perform common operations.
+> Good luck, and let's get into it!
 ---
 
 ### 5.3.1 架构概览
